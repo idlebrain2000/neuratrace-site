@@ -1,0 +1,1040 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NeuraTrace — From data to trust</title>
+<meta name="description" content="NeuraTrace is the read-only analytical batch release review layer for pharmaceutical QA. One AR number, every source system, every SOP check — resolved before a reviewer opens the batch.">
+<link rel="canonical" href="https://neuratrace.co/">
+<meta name="theme-color" content="#04080A">
+<meta name="color-scheme" content="dark">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NeuraTrace">
+<meta property="og:title" content="NeuraTrace — From data to trust">
+<meta property="og:description" content="The read-only analytical batch release review layer for pharmaceutical QA.">
+<meta property="og:url" content="https://neuratrace.co/">
+<meta property="og:image" content="https://neuratrace.co/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NeuraTrace — From data to trust">
+<meta name="twitter:description" content="The read-only analytical batch release review layer for pharmaceutical QA.">
+<meta name="twitter:image" content="https://neuratrace.co/assets/og.jpg">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
+<link rel="preload" as="image" href="/assets/hero-poster.jpg">
+
+<script>document.documentElement.classList.add('js');</script>
+<style>
+:root{
+  --bg:#04080A;
+  --bg-2:#070D10;
+  --panel:#0A1216;
+  --panel-2:#0E181D;
+  --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.16);
+  --text:#EAF3F4;
+  --dim:#8FA1A6;
+  --dimmer:#5C6C72;
+  --teal:#1FE3C2;
+  --teal-2:#0FB9E8;
+  --teal-soft:rgba(31,227,194,.12);
+  --ok:#2FE0A0;
+  --warn:#F5B33C;
+  --crit:#FF6B6B;
+  --display:"Outfit","Helvetica Neue",Arial,sans-serif;
+  --body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --wrap:1240px;
+  --pad:clamp(20px,5vw,48px);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--body);font-size:16.5px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+body.locked{overflow:hidden}
+::selection{background:rgba(31,227,194,.25)}
+h1,h2,h3{font-family:var(--display);font-weight:500;letter-spacing:-.035em;margin:0;line-height:1.02;text-wrap:balance}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--teal);outline-offset:4px;border-radius:4px}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--pad)}
+.band{position:relative;padding-block:clamp(84px,12vw,168px)}
+.band--line{border-top:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:26px}
+.lede{color:var(--dim);font-size:clamp(16.5px,1.6vw,19px);max-width:62ch;line-height:1.65;font-weight:300}
+.mono{font-family:var(--mono)}
+.big{font-size:clamp(34px,6.2vw,76px);letter-spacing:-.045em;font-weight:500;max-width:17ch}
+.sec-head{max-width:74ch}
+.sec-head .big{margin-bottom:26px}
+
+/* ---------- reveal ---------- */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.25,1),transform .9s cubic-bezier(.2,.7,.25,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv[data-d="1"]{transition-delay:.09s}
+.js .rv[data-d="2"]{transition-delay:.18s}
+.js .rv[data-d="3"]{transition-delay:.27s}
+
+/* ================= NAV ================= */
+.nav{position:fixed;top:0;left:0;right:0;z-index:120;transition:background .35s,border-color .35s,backdrop-filter .35s;border-bottom:1px solid transparent}
+.nav.solid{background:rgba(4,8,10,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:var(--line)}
+.nav-in{display:flex;align-items:center;height:74px;max-width:var(--wrap);margin:0 auto;padding-inline:var(--pad);gap:20px}
+.mark{font-family:var(--display);font-weight:400;font-size:21px;letter-spacing:-.02em;color:#fff;position:relative;z-index:130}
+.mark b{font-weight:400;color:var(--teal)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:14px;position:relative;z-index:130}
+
+.pill{
+  display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-weight:500;
+  font-size:14.5px;letter-spacing:-.01em;padding:11px 22px;border-radius:100px;
+  border:1px solid var(--line-2);color:var(--text);background:transparent;
+  transition:background .25s,color .25s,border-color .25s,transform .25s;cursor:pointer;white-space:nowrap;
+}
+.pill:hover{background:#fff;color:#04080A;border-color:#fff}
+.pill--t{background:var(--teal);border-color:var(--teal);color:#032018}
+.pill--t:hover{background:#5CF0D8;border-color:#5CF0D8;color:#032018}
+.pill--lg{padding:15px 30px;font-size:16px}
+
+.menu-btn{display:inline-flex;align-items:center;gap:11px;background:transparent;border:1px solid var(--line-2);border-radius:100px;padding:11px 20px 11px 18px;cursor:pointer;color:var(--text);font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;transition:border-color .25s,background .25s}
+.menu-btn:hover{border-color:#fff}
+.bars{display:flex;flex-direction:column;gap:4px;width:16px}
+.bars i{display:block;height:1.5px;background:currentColor;border-radius:2px;transition:transform .35s cubic-bezier(.6,0,.2,1),opacity .2s}
+.bars i:first-child{width:16px}
+.bars i:last-child{width:11px;margin-left:auto}
+body.menu-open .bars i:first-child{transform:translateY(5.5px) rotate(45deg)}
+body.menu-open .bars i:last-child{width:16px;margin-left:0;transform:translateY(-5.5px) rotate(-45deg)}
+body.menu-open .menu-btn .lbl::after{content:"close"}
+body.menu-open .menu-btn .lbl span{display:none}
+
+/* ---------- overlay menu ---------- */
+.overlay{
+  position:fixed;inset:0;z-index:110;background:#04080A;
+  display:flex;flex-direction:column;justify-content:center;
+  clip-path:inset(0 0 100% 0);transition:clip-path .7s cubic-bezier(.76,0,.24,1);
+  pointer-events:none;
+}
+body.menu-open .overlay{clip-path:inset(0 0 0 0);pointer-events:auto}
+.overlay::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 20%,rgba(31,227,194,.10),transparent 65%);pointer-events:none}
+.ov-in{max-width:var(--wrap);margin:0 auto;padding-inline:var(--pad);width:100%;position:relative}
+.ov-links{display:flex;flex-direction:column;gap:clamp(2px,1vw,10px)}
+.ov-links a{
+  font-family:var(--display);font-weight:400;letter-spacing:-.045em;
+  font-size:clamp(38px,9vw,104px);line-height:1.08;color:#fff;
+  display:flex;align-items:baseline;gap:clamp(12px,2vw,28px);
+  opacity:0;transform:translateY(40px);transition:opacity .6s,transform .6s,color .3s;
+}
+body.menu-open .ov-links a{opacity:1;transform:none}
+body.menu-open .ov-links a:nth-child(1){transition-delay:.22s}
+body.menu-open .ov-links a:nth-child(2){transition-delay:.29s}
+body.menu-open .ov-links a:nth-child(3){transition-delay:.36s}
+body.menu-open .ov-links a:nth-child(4){transition-delay:.43s}
+.ov-links a:hover{color:var(--teal)}
+.ov-links a i{font-family:var(--mono);font-style:normal;font-size:clamp(10px,1.1vw,13px);letter-spacing:.2em;color:var(--dimmer);transform:translateY(-.9em)}
+.ov-foot{margin-top:clamp(36px,6vw,72px);display:flex;flex-wrap:wrap;gap:14px 46px;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dimmer);opacity:0;transition:opacity .6s .5s}
+body.menu-open .ov-foot{opacity:1}
+.ov-foot a:hover{color:var(--teal)}
+
+/* ================= HERO ================= */
+.hero{position:relative;padding-top:clamp(120px,16vw,190px);padding-bottom:0;overflow:hidden}
+.hero-head{text-align:center;position:relative;z-index:5}
+.wordmark{
+  font-family:var(--display);font-weight:300;letter-spacing:-.055em;
+  font-size:clamp(52px,11.5vw,142px);line-height:.94;color:#fff;
+}
+.wordmark b{font-weight:300;color:var(--teal);text-shadow:0 0 60px rgba(31,227,194,.45)}
+.tagline{
+  margin-top:clamp(14px,2vw,22px);font-family:var(--display);font-weight:300;
+  font-size:clamp(15px,2.1vw,25px);letter-spacing:.09em;color:#C6D6D8;
+}
+.hero-lede{margin:clamp(24px,3vw,34px) auto 0;text-align:center;max-width:58ch}
+.hero-cta{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:clamp(28px,3.5vw,40px);position:relative;z-index:6}
+
+/* ---------- animated stage ---------- */
+.stage{
+  position:relative;width:100%;max-width:1320px;margin:clamp(6px,2vw,26px) auto 0;
+  height:clamp(430px,58vw,640px);
+}
+.stage-glow{
+  position:absolute;left:50%;top:34%;transform:translate(-50%,-50%);
+  width:min(920px,92%);height:min(560px,72%);pointer-events:none;
+  background:radial-gradient(ellipse at center,rgba(31,227,194,.20) 0%,rgba(15,185,232,.07) 42%,transparent 72%);
+  filter:blur(14px);
+}
+.floor{
+  position:absolute;left:50%;bottom:-6%;transform:translateX(-50%) perspective(760px) rotateX(69deg);
+  width:min(1500px,150%);height:420px;pointer-events:none;
+  background-image:
+    linear-gradient(to right,rgba(31,227,194,.14) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(31,227,194,.14) 1px,transparent 1px);
+  background-size:62px 62px;
+  mask-image:radial-gradient(ellipse 55% 62% at 50% 42%,#000,transparent 76%);
+  -webkit-mask-image:radial-gradient(ellipse 55% 62% at 50% 42%,#000,transparent 76%);
+  opacity:.75;
+}
+
+.links-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.links-svg .base{fill:none;stroke:rgba(31,227,194,.16);stroke-width:1.1}
+.links-svg .flow{fill:none;stroke:var(--teal);stroke-width:1.6;stroke-linecap:round;
+  stroke-dasharray:3 60;filter:drop-shadow(0 0 4px rgba(31,227,194,.9));
+  animation:flow 4.6s linear infinite}
+.links-svg .flow.f2{animation-duration:5.6s;animation-delay:-1.4s}
+.links-svg .flow.f3{animation-duration:6.2s;animation-delay:-2.6s}
+.links-svg .flow.f4{animation-duration:5.1s;animation-delay:-3.4s}
+.links-svg .flow.f5{animation-duration:5.9s;animation-delay:-.8s}
+.links-svg .flow.f6{animation-duration:6.6s;animation-delay:-2.1s}
+@keyframes flow{to{stroke-dashoffset:-630}}
+
+/* molecule */
+.mol{
+  position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);
+  width:clamp(200px,26vw,320px);aspect-ratio:1;
+  animation:bob 9s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,calc(-50% - 12px))}}
+.mol svg{width:100%;height:100%;overflow:visible}
+.mol .rot{transform-origin:150px 150px;animation:spin 34s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.mol .bond{stroke:rgba(180,255,244,.42);stroke-width:2.2;stroke-linecap:round}
+.mol .atom{fill:url(#atomG);stroke:rgba(190,255,246,.7);stroke-width:1}
+.mol .atom.p{animation:pulse 3.4s ease-in-out infinite}
+.mol .atom.p2{animation-delay:-1.1s}
+.mol .atom.p3{animation-delay:-2.2s}
+.mol .atom.p4{animation-delay:-.6s}
+@keyframes pulse{0%,100%{opacity:.82}50%{opacity:1;filter:drop-shadow(0 0 10px rgba(31,227,194,.9))}}
+
+.beam{
+  position:absolute;left:50%;bottom:12%;transform:translateX(-50%);
+  width:clamp(180px,24vw,290px);height:clamp(150px,20vw,240px);pointer-events:none;
+  background:linear-gradient(to top,rgba(31,227,194,.32),rgba(31,227,194,.05) 55%,transparent 88%);
+  clip-path:polygon(38% 100%,62% 100%,88% 0,12% 0);
+  filter:blur(7px);animation:beamPulse 5s ease-in-out infinite;
+}
+@keyframes beamPulse{0%,100%{opacity:.65}50%{opacity:1}}
+.pedestal{
+  position:absolute;left:50%;bottom:8%;transform:translateX(-50%);
+  width:clamp(190px,25vw,300px);height:clamp(36px,5vw,60px);
+}
+.ped-top{position:absolute;inset:0 0 auto 0;height:64%;border-radius:50%;
+  background:radial-gradient(ellipse at 50% 40%,rgba(31,227,194,.55),rgba(10,26,30,.9) 70%);
+  border:1px solid rgba(31,227,194,.45);box-shadow:0 0 44px rgba(31,227,194,.4)}
+.ped-body{position:absolute;left:6%;right:6%;top:26%;height:56%;border-radius:0 0 50% 50%/0 0 100% 100%;
+  background:linear-gradient(180deg,#16262B,#070E11);border:1px solid rgba(255,255,255,.09);border-top:0}
+.ped-ring{position:absolute;left:-16%;right:-16%;bottom:-30%;height:60%;border-radius:50%;
+  border:1px solid rgba(31,227,194,.22);animation:ring 4.4s ease-out infinite}
+@keyframes ring{0%{transform:scale(.72);opacity:.85}100%{transform:scale(1.35);opacity:0}}
+
+/* HUD cards */
+.hud{
+  position:absolute;border:1px solid rgba(31,227,194,.24);border-radius:12px;
+  background:linear-gradient(150deg,rgba(14,32,36,.86),rgba(6,16,19,.72));
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+  padding:12px 14px 13px;box-shadow:0 0 0 1px rgba(0,0,0,.4),0 22px 50px -22px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.05);
+  animation:float 8s ease-in-out infinite;
+  opacity:0;transform:translateY(18px) scale(.97);
+}
+.js .stage.on .hud{opacity:1;transform:none;transition:opacity .9s cubic-bezier(.2,.7,.25,1),transform .9s cubic-bezier(.2,.7,.25,1)}
+html:not(.js) .hud{opacity:1;transform:none}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -9px}}
+.hud .ht{font-family:var(--mono);font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;color:#B7CBCE;margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.hud .ht::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--teal);box-shadow:0 0 7px var(--teal);flex:none}
+.hud .corner{position:absolute;width:9px;height:9px;border-color:rgba(31,227,194,.55);border-style:solid;border-width:0}
+.hud .c1{top:5px;left:5px;border-top-width:1px;border-left-width:1px}
+.hud .c2{bottom:5px;right:5px;border-bottom-width:1px;border-right-width:1px}
+.hud .row{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:10.5px;color:#9FB3B6;line-height:1.85}
+.hud .row b{font-weight:400;color:#E6F6F5}
+.hud .row .g{color:var(--teal)}
+
+.hud-1{left:0;top:2%;width:clamp(150px,17vw,214px)}
+.hud-2{left:18%;top:15%;width:clamp(130px,15vw,186px);animation-delay:-1.6s}
+.hud-3{left:1%;top:48%;width:clamp(146px,17vw,206px);animation-delay:-3.2s}
+.hud-4{left:20%;top:64%;width:clamp(120px,14vw,168px);animation-delay:-4.6s}
+.hud-5{right:16%;top:12%;width:clamp(160px,19vw,232px);animation-delay:-2.2s}
+.hud-6{right:0;top:4%;width:clamp(126px,14vw,176px);animation-delay:-5.4s}
+.hud-7{right:1%;top:50%;width:clamp(178px,21vw,258px);animation-delay:-3.9s}
+
+.js .stage.on .hud-2{transition-delay:.12s}
+.js .stage.on .hud-3{transition-delay:.2s}
+.js .stage.on .hud-4{transition-delay:.28s}
+.js .stage.on .hud-5{transition-delay:.16s}
+.js .stage.on .hud-6{transition-delay:.24s}
+.js .stage.on .hud-7{transition-delay:.32s}
+
+.spark{width:100%;height:34px;display:block;overflow:visible}
+.spark path{fill:none;stroke:var(--teal);stroke-width:1.1;stroke-linejoin:round;
+  stroke-dasharray:900;stroke-dashoffset:900;animation:trace 7s ease-in-out infinite}
+.spark.s2 path{animation-delay:-3.2s;stroke:#7FF3E2}
+
+.chem{width:100%;height:52px;display:block}
+.chem path,.chem line{fill:none;stroke:rgba(190,255,246,.6);stroke-width:1.1;stroke-linecap:round;
+  stroke-dasharray:400;stroke-dashoffset:400;animation:trace 9s ease-in-out infinite}
+@keyframes trace{0%{stroke-dashoffset:900}45%{stroke-dashoffset:0}85%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:.25}}
+
+.vial{display:flex;gap:11px;align-items:flex-start}
+.vial svg{flex:none}
+.trail{display:flex;flex-direction:column;gap:5px}
+.tr{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10px;color:#9FB3B6;opacity:.2;animation:tick 7s linear infinite}
+.tr::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--teal);flex:none;box-shadow:0 0 6px var(--teal)}
+.tr:nth-child(2){animation-delay:.6s}.tr:nth-child(3){animation-delay:1.2s}.tr:nth-child(4){animation-delay:1.8s}
+@keyframes tick{0%,4%{opacity:.2}12%,72%{opacity:1;color:#DCEFEF}100%{opacity:.2}}
+.tr .t{color:var(--teal);opacity:.85}
+
+.verify{display:flex;flex-direction:column;align-items:center;gap:9px;padding-block:4px}
+.verify svg{width:46px;height:46px}
+.verify circle.rng{fill:none;stroke:var(--teal);stroke-width:2.2;stroke-dasharray:132;stroke-dashoffset:132;
+  animation:draw 6s ease-in-out infinite;transform:rotate(-90deg);transform-origin:center}
+.verify path.tk{fill:none;stroke:var(--teal);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:30;stroke-dashoffset:30;animation:draw2 6s ease-in-out infinite}
+@keyframes draw{0%{stroke-dashoffset:132}35%,88%{stroke-dashoffset:0}100%{stroke-dashoffset:132}}
+@keyframes draw2{0%,30%{stroke-dashoffset:30}52%,88%{stroke-dashoffset:0}100%{stroke-dashoffset:30}}
+.verify .vt{font-family:var(--mono);font-size:11px;letter-spacing:.19em;color:var(--teal);animation:vglow 6s ease-in-out infinite}
+@keyframes vglow{0%,45%{opacity:.35}60%,88%{opacity:1;text-shadow:0 0 14px rgba(31,227,194,.8)}100%{opacity:.35}}
+
+.doc{position:absolute;pointer-events:none;opacity:.55;animation:drift 11s ease-in-out infinite}
+.doc svg{display:block}
+.doc.d1{left:34%;top:24%}
+.doc.d2{left:41%;top:60%;animation-delay:-3s}
+.doc.d3{right:36%;top:20%;animation-delay:-5.5s}
+.doc.d4{right:39%;top:56%;animation-delay:-8s}
+@keyframes drift{0%,100%{translate:0 0;opacity:.35}50%{translate:0 -16px;opacity:.75}}
+
+/* mobile stage fallback cards */
+.hud-mob{display:none}
+
+/* ================= MARQUEE ================= */
+.marq{border-block:1px solid var(--line);overflow:hidden;padding-block:22px;background:var(--bg-2)}
+.marq-t{display:flex;width:max-content;animation:slide 34s linear infinite}
+.marq-t span{
+  font-family:var(--display);font-weight:300;font-size:clamp(17px,2.2vw,26px);letter-spacing:-.02em;
+  color:#728389;padding-inline:clamp(18px,3vw,38px);display:flex;align-items:center;gap:clamp(18px,3vw,38px);white-space:nowrap;
+}
+.marq-t span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--teal);opacity:.6}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ================= STATS ================= */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.stat{background:var(--bg);padding:32px 28px 34px}
+.stat .n{font-family:var(--display);font-weight:400;font-size:clamp(38px,4.6vw,56px);letter-spacing:-.05em;line-height:1;color:#fff}
+.stat .n small{font-size:.42em;color:var(--dim);letter-spacing:-.01em}
+.stat .l{margin-top:14px;font-size:14.5px;color:var(--dim);line-height:1.55;font-weight:300}
+
+/* ================= CARDS ================= */
+.cols{display:grid;gap:clamp(20px,2.6vw,32px);margin-top:clamp(44px,6vw,72px)}
+.cols-2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.cols-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:32px 30px 34px;transition:border-color .3s,transform .3s,background .3s}
+.card:hover{border-color:rgba(31,227,194,.32);transform:translateY(-3px);background:var(--panel-2)}
+.card .ix{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--teal);display:block;margin-bottom:22px}
+.card h3{font-size:22px;margin-bottom:13px;font-weight:500}
+.card p{color:var(--dim);font-size:15px;line-height:1.62;font-weight:300}
+.plain{padding-top:26px;border-top:1px solid var(--line-2)}
+.plain h3{font-size:20px;margin-bottom:11px;font-weight:500}
+.plain p{color:var(--dim);font-size:15px;font-weight:300}
+
+/* ================= CONSOLE ================= */
+.console{margin-top:22px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel);box-shadow:0 40px 90px -40px rgba(0,0,0,.95)}
+.console-bar{display:flex;align-items:center;gap:13px;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--panel-2);font-family:var(--mono);font-size:11.5px;color:var(--dim)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 9px var(--teal);flex:none}
+.console-bar .sep{color:var(--dimmer)}
+.console-bar .ro{margin-left:auto;color:var(--dimmer);border:1px solid var(--line);padding:3px 10px;border-radius:100px;letter-spacing:.1em}
+.console-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
+.pane{padding:20px}
+.pane+.pane{border-left:1px solid var(--line)}
+.pane-h{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dimmer);margin-bottom:15px}
+.plist{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:11px;overflow:hidden}
+.prow{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--panel-2);font-size:14.5px;font-weight:300;transition:background .2s}
+.prow:hover{background:#132126}
+.prow.is-on{background:#14262B;box-shadow:inset 2px 0 0 var(--teal)}
+.prow .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;padding:4px 9px;border-radius:100px;border:1px solid;white-space:nowrap;flex:none}
+.tag--ok{color:var(--ok);border-color:rgba(47,224,160,.35);background:rgba(47,224,160,.08)}
+.tag--warn{color:var(--warn);border-color:rgba(245,179,60,.35);background:rgba(245,179,60,.08)}
+.tag--crit{color:var(--crit);border-color:rgba(255,107,107,.35);background:rgba(255,107,107,.08)}
+.tag--idle{color:var(--dimmer);border-color:var(--line-2);background:rgba(255,255,255,.03)}
+.gate{margin-top:17px;display:flex;gap:11px;padding:13px 15px;border:1px dashed var(--line-2);border-radius:11px;font-size:13.5px;color:var(--dim);font-weight:300}
+.gate svg{flex:none;color:var(--warn);margin-top:3px}
+.flag{border:1px solid rgba(255,107,107,.26);background:rgba(255,107,107,.05);border-radius:12px;padding:17px 18px}
+.flag-h{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--crit);margin-bottom:12px}
+.flag-t{font-size:15.5px;line-height:1.45;margin-bottom:15px;font-weight:300}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:7px 18px;font-family:var(--mono);font-size:12px;margin:0}
+.kv dt{color:var(--dimmer);letter-spacing:.03em}
+.kv dd{margin:0;word-break:break-word}
+
+/* tabs */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(40px,5vw,58px)}
+.tab{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;padding:11px 19px;border-radius:100px;border:1px solid var(--line);background:transparent;color:var(--dim);cursor:pointer;transition:all .25s}
+.tab:hover{border-color:var(--line-2);color:#fff}
+.tab[aria-selected="true"]{background:var(--teal);border-color:var(--teal);color:#032018}
+.panel-out[hidden]{display:none}
+
+/* rule */
+.rule{margin-top:clamp(38px,5vw,56px);border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel)}
+.rule-h{padding:15px 20px;border-bottom:1px solid var(--line);background:var(--panel-2);font-family:var(--mono);font-size:11.5px;color:var(--dim);display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.rule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--line)}
+.rcell{background:var(--panel);padding:22px 20px 24px}
+.rcell .k{font-family:var(--mono);font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--dimmer);margin-bottom:11px}
+.rcell .v{font-family:var(--mono);font-size:13px;line-height:1.6;word-break:break-word}
+.rcell .v.bad{color:var(--crit)}.rcell .v.good{color:var(--ok)}
+
+/* table */
+.tbl-wrap{margin-top:clamp(38px,5vw,54px);overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:14.5px;font-weight:300}
+th,td{text-align:left;padding:16px 20px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--dimmer);font-weight:400;background:var(--panel-2)}
+tr:last-child td{border-bottom:0}
+td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
+
+/* record */
+.record{margin-top:clamp(38px,5vw,54px);border:1px solid var(--line);border-radius:16px;background:#060D10;overflow:hidden}
+.record-h{padding:14px 20px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11px;color:var(--dimmer);letter-spacing:.13em;text-transform:uppercase}
+.record-b{padding:24px 20px;font-family:var(--mono);font-size:12.5px;line-height:1.95;overflow-x:auto}
+.record-b .k{color:var(--dimmer)}.record-b .s{color:var(--teal)}.record-b .g{color:var(--ok)}.record-b .r{color:var(--crit)}
+
+/* status */
+.status{margin-top:clamp(38px,5vw,54px);display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.st{display:flex;align-items:center;gap:18px;padding:18px 20px;background:var(--panel);flex-wrap:wrap}
+.st .nm{flex:1;min-width:190px;font-size:15.5px;font-weight:400}
+.st .ds{color:var(--dim);font-size:13.5px;flex:2;min-width:230px;font-weight:300}
+
+/* team */
+.team{margin-top:clamp(38px,5vw,54px);display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.mem{background:var(--panel);padding:28px 26px 30px}
+.mem .n{font-family:var(--display);font-size:19px;font-weight:500;letter-spacing:-.025em}
+.mem .r{font-family:var(--mono);font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--teal);margin-top:8px}
+.mem .b{color:var(--dim);font-size:14px;line-height:1.6;margin-top:14px;font-weight:300}
+
+/* cta */
+.cta{text-align:center;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);width:1000px;height:520px;background:radial-gradient(ellipse at center,rgba(31,227,194,.14),transparent 68%);pointer-events:none}
+.cta .big{margin-inline:auto}
+.cta .lede{margin:26px auto 0}
+.cta-row{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:38px}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding-block:44px;color:var(--dimmer);font-size:13.5px;font-weight:300}
+.foot-in{display:flex;flex-wrap:wrap;gap:18px 44px;align-items:center}
+.foot .right{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width:1020px){
+  .hud-2,.hud-4{display:none}
+  .hud-1{top:0}.hud-5{right:2%}.hud-6{display:none}
+}
+@media (max-width:820px){
+  .console-body{grid-template-columns:1fr}
+  .pane+.pane{border-left:0;border-top:1px solid var(--line)}
+}
+@media (max-width:720px){
+  .hud{display:none}
+  .stage{height:clamp(320px,66vw,420px)}
+  .hud-mob{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+  .hud-mob .m{border:1px solid rgba(31,227,194,.22);border-radius:12px;background:rgba(10,24,28,.7);padding:13px 14px}
+  .hud-mob .m .ht{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#B7CBCE;margin-bottom:8px}
+  .hud-mob .m .row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:#9FB3B6;line-height:1.8}
+  .hud-mob .m .row b{font-weight:400;color:#E6F6F5}
+  .hud-mob .m .row .g{color:var(--teal)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  .js .rv{opacity:1;transform:none}
+  .spark path,.chem path,.chem line,.verify circle.rng,.verify path.tk{stroke-dashoffset:0}
+  .tr{opacity:1}
+  .hud{opacity:1;transform:none}
+}
+@media print{
+  :root{--bg:#fff;--bg-2:#fff;--panel:#fff;--panel-2:#F4F6F6;--line:#DDE3E3;--line-2:#C3CBCB;--text:#06100F;--dim:#3F4B4B;--dimmer:#6B7676;--teal:#00796B}
+  body{background:#fff;color:#06100F}
+  .nav,.overlay,.stage,.marq,.cta::before{display:none}
+  .band{padding-block:26px;page-break-inside:avoid}
+  .wordmark{color:#06100F;font-size:48px}
+}
+
+/* ================= HERO VIDEO ================= */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.hero{position:relative;overflow:hidden;padding-top:74px;padding-bottom:0}
+.hero-media{position:relative;width:100%;line-height:0}
+.hero-vid{
+  display:block;width:100%;height:auto;aspect-ratio:1296/704;
+  max-height:84vh;object-fit:cover;background:#04080A;
+}
+.hero-scrim{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(to bottom,rgba(4,8,10,.72) 0%,rgba(4,8,10,0) 15%,rgba(4,8,10,0) 58%,rgba(4,8,10,.86) 89%,var(--bg) 100%),
+    linear-gradient(to right,rgba(4,8,10,.55) 0%,rgba(4,8,10,0) 13%,rgba(4,8,10,0) 87%,rgba(4,8,10,.55) 100%);
+}
+.hero-under{position:relative;z-index:3;text-align:center;margin-top:clamp(-96px,-7.5vw,-28px);padding-bottom:clamp(18px,3vw,34px)}
+.hero-lede{margin-inline:auto}
+.hero-cta{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:clamp(26px,3.4vw,38px)}
+@media (max-width:720px){
+  .hero{padding-top:66px}
+  .hero-vid{max-height:none}
+  .hero-under{margin-top:-14px}
+}
+
+/* ================= BRAND LOCKUP ================= */
+.mark{display:inline-flex;align-items:center;line-height:1}
+.lk{display:inline-flex;align-items:center;gap:11px}
+.glyph{
+  display:block;width:34px;height:34px;border-radius:9px;
+  box-shadow:0 0 0 1px rgba(31,227,194,.22),0 0 22px rgba(31,227,194,.20);
+  transition:box-shadow .3s,transform .3s;
+}
+.mark:hover .glyph{box-shadow:0 0 0 1px rgba(31,227,194,.45),0 0 30px rgba(31,227,194,.4);transform:translateY(-1px)}
+.wm{font-family:var(--display);font-weight:300;font-size:22px;letter-spacing:-.025em;color:#fff}
+.wm b{font-weight:300;color:var(--teal)}
+.mark--sm .glyph{width:28px;height:28px;border-radius:8px}
+.mark--sm .wm{font-size:18px}
+@media (max-width:560px){
+  .glyph{width:29px;height:29px;border-radius:8px}
+  .wm{font-size:19px}
+}
+.hero-cap{
+  font-family:var(--display);font-weight:300;text-transform:uppercase;
+  font-size:clamp(10.5px,1.4vw,13.5px);letter-spacing:.42em;
+  color:#9FB6BA;margin-bottom:clamp(15px,2vw,21px);padding-left:.42em;
+}
+.cta-glyph{
+  display:block;width:64px;height:64px;border-radius:17px;margin:0 auto clamp(24px,3vw,34px);
+  box-shadow:0 0 0 1px rgba(31,227,194,.25),0 0 46px rgba(31,227,194,.28);
+}
+
+/* ================= HERO BRAND OVERLAY ================= */
+.hero-brand{
+  position:absolute;left:0;right:0;top:0;z-index:3;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:clamp(16px,5.2vh,62px) var(--pad) 0;pointer-events:none;
+}
+.hero-brand .wordmark{
+  font-family:var(--display);font-weight:200;letter-spacing:-.05em;line-height:1;
+  font-size:clamp(32px,7.4vw,98px);color:#fff;
+  text-shadow:0 2px 40px rgba(0,0,0,.55);
+}
+.hero-brand .wordmark b{font-weight:200;color:var(--teal);text-shadow:0 0 52px rgba(31,227,194,.55)}
+.hero-brand .cap{
+  margin-top:clamp(7px,1.5vw,17px);font-family:var(--display);font-weight:300;
+  text-transform:uppercase;font-size:clamp(8.5px,1.32vw,15px);letter-spacing:.44em;
+  color:#CBDDDF;padding-left:.44em;text-shadow:0 1px 18px rgba(0,0,0,.7);
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "NeuraTrace",
+  "url": "https://neuratrace.co/",
+  "logo": "https://neuratrace.co/assets/icon-512.png",
+  "slogan": "From data to trust",
+  "description": "Read-only analytical batch release review layer for pharmaceutical QA.",
+  "address": {"@type": "PostalAddress", "addressLocality": "Hyderabad", "addressCountry": "IN"},
+  "email": "hello@neuratrace.co"
+}
+</script>
+</head>
+<body>
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="mark" href="#top" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
+    <div class="nav-right">
+      <a class="pill pill--t" href="#contact">Request a walkthrough</a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="overlay">
+        <span class="bars" aria-hidden="true"><i></i><i></i></span>
+        <span class="lbl"><span>menu</span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="overlay" id="overlay">
+  <div class="ov-in">
+    <nav class="ov-links" aria-label="Main">
+      <a href="#products"><i>01</i>Products</a>
+      <a href="#business"><i>02</i>Business</a>
+      <a href="#about"><i>03</i>About Us</a>
+      <a href="#contact"><i>04</i>Contact Us</a>
+    </nav>
+    <div class="ov-foot">
+      <span>Hyderabad, India</span>
+      <span>From data to trust</span>
+      <a href="mailto:hello@neuratrace.co">hello@neuratrace.co</a>
+    </div>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-media">
+    <video class="hero-vid" autoplay muted loop playsinline preload="auto"
+           poster="/assets/hero-poster.jpg" aria-label="NeuraTrace: instrument data, chemical structure, sample, batch record, audit trail and QA review converging into one verified molecule">
+      <source src="/assets/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-scrim" aria-hidden="true"></div>
+  </div>
+
+  <h1 class="sr-only">NeuraTrace — from data to trust.</h1>
+
+  <div class="wrap hero-under">
+    <p class="lede hero-lede">
+      The read-only analytical batch release review layer for pharmaceutical QA. One AR number,
+      every source system, every SOP check — resolved before a reviewer opens the batch.
+    </p>
+    <div class="hero-cta">
+      <a class="pill pill--t pill--lg" href="#contact">Request a walkthrough</a>
+      <a class="pill pill--lg" href="#products">See the workspace</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marq" aria-label="Connected systems">
+  <div class="marq-t">
+    <span>Caliber LIMS</span><span>Waters Empower FR5</span><span>eLIMS RS Audit Trail</span><span>Metrohm tiamo</span><span>Shimadzu LabSolutions</span><span>QMS</span><span>SAP</span><span>Paper logbooks</span>
+    <span>Caliber LIMS</span><span>Waters Empower FR5</span><span>eLIMS RS Audit Trail</span><span>Metrohm tiamo</span><span>Shimadzu LabSolutions</span><span>QMS</span><span>SAP</span><span>Paper logbooks</span>
+  </div>
+</div>
+
+<!-- ================= STATS ================= -->
+<section class="band">
+  <div class="wrap">
+    <div class="stats rv">
+      <div class="stat"><div class="n">40<small>+40 min</small></div><div class="l">QC review then QA review, per batch — measured at our design partner's site.</div></div>
+      <div class="stat"><div class="n">~4,000</div><div class="l">Samples sitting in the QC review backlog at that single site.</div></div>
+      <div class="stat"><div class="n">5</div><div class="l">Separate systems a reviewer cross-references by hand for one AR number.</div></div>
+      <div class="stat"><div class="n">7<small>years</small></div><div class="l">Batch records must stay producible after distribution — 21 CFR 211.180.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE GAP ================= -->
+<section class="band band--line">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">The gap</span>
+      <h2 class="big">Your systems capture the data faithfully. Nothing evaluates it.</h2>
+      <p class="lede">
+        Caliber records the sample. Empower records the chromatography. The QMS records the deviation.
+        Each one is complete, and each one is separate. The reviewer is the integration layer — opening five
+        systems, cross-referencing a printed checklist, and leaving behind a signature but no evidence of
+        what was actually checked.
+      </p>
+    </div>
+    <div class="cols cols-3">
+      <div class="card rv"><span class="ix">01</span><h3>Capture is solved</h3><p>Your LIMS and CDS record everything faithfully and have done for years. That was never the bottleneck.</p></div>
+      <div class="card rv" data-d="1"><span class="ix">02</span><h3>Review is manual</h3><p>Nobody built the layer that evaluates what those systems recorded against your own review criteria.</p></div>
+      <div class="card rv" data-d="2"><span class="ix">03</span><h3>Evidence is thin</h3><p>LIMS captures data. It does not create evidence that a review happened the way the SOP says it did.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCTS / WORKSPACE ================= -->
+<section class="band band--line" id="products">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Products · The workspace</span>
+      <h2 class="big">Everything behind one AR number, organised the way a reviewer works.</h2>
+      <p class="lede">
+        NeuraTrace pulls every record associated with an AR number across all connected systems and lays it out
+        by test parameter — not by source system. Five review domains, every test parameter, one workspace.
+      </p>
+    </div>
+
+    <div class="tabs rv" role="tablist" aria-label="Review domains">
+      <button class="tab" role="tab" id="t-fp" aria-controls="p-fp" aria-selected="true">Finished Product</button>
+      <button class="tab" role="tab" id="t-rm" aria-controls="p-rm" aria-selected="false">Raw Material</button>
+      <button class="tab" role="tab" id="t-pm" aria-controls="p-pm" aria-selected="false">Packing Material</button>
+      <button class="tab" role="tab" id="t-ip" aria-controls="p-ip" aria-selected="false">In-Process</button>
+      <button class="tab" role="tab" id="t-st" aria-controls="p-st" aria-selected="false">Stability</button>
+    </div>
+
+    <div class="panel-out" id="p-fp" role="tabpanel" aria-labelledby="t-fp">
+      <div class="console">
+        <div class="console-bar"><span class="dot"></span><span>AR-2609-0418</span><span class="sep">/</span><span>Paracetamol Tablets 500&nbsp;mg</span><span class="sep">/</span><span>Batch FP-2411-A</span><span class="ro">READ-ONLY</span></div>
+        <div class="console-body">
+          <div class="pane">
+            <div class="pane-h">Test parameters</div>
+            <div class="plist">
+              <div class="prow"><span class="nm">Description &amp; Identification</span><span class="tag tag--ok">Compliant</span></div>
+              <div class="prow"><span class="nm">Assay by HPLC</span><span class="tag tag--ok">Compliant</span></div>
+              <div class="prow is-on"><span class="nm">Related Substances</span><span class="tag tag--crit">2 flags</span></div>
+              <div class="prow"><span class="nm">Dissolution</span><span class="tag tag--ok">Compliant</span></div>
+              <div class="prow"><span class="nm">Water Content by KF</span><span class="tag tag--warn">1 flag</span></div>
+              <div class="prow"><span class="nm">Residual Solvents (GC)</span><span class="tag tag--idle">Not reviewed</span></div>
+            </div>
+            <div class="gate">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2.5" y="6" width="9" height="6.5" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M4.6 6V4.3a2.4 2.4 0 0 1 4.8 0V6" stroke="currentColor" stroke-width="1.3"/></svg>
+              A section cannot be marked reviewed until every flag carries a recorded observation.
+            </div>
+          </div>
+          <div class="pane">
+            <div class="pane-h">Flag 1 of 2 · Related Substances</div>
+            <div class="flag">
+              <div class="flag-h">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1.4 12.2 11.4H.8L6.5 1.4Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M6.5 5.2v2.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="6.5" cy="9.5" r=".75" fill="currentColor"/></svg>
+                CHK-STD-004 · Working standard validity
+              </div>
+              <p class="flag-t">Working standard <strong>WS-PCM-0231</strong> expired before the injection sequence in which it was used.</p>
+              <dl class="kv">
+                <dt>Expected</dt><dd>Valid on 18 Aug 2026</dd>
+                <dt>Actual</dt><dd style="color:var(--crit)">Expiry 12 Aug 2026 — 6 days lapsed</dd>
+                <dt>Used in</dt><dd>Injection sequence 04 · 11 injections</dd>
+                <dt>Source</dt><dd>eLIMS Reference Standard Audit Trail</dd>
+                <dt>Rule basis</dt><dd>SOP/QC/012 §7.3</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-out" id="p-rm" role="tabpanel" aria-labelledby="t-rm" hidden>
+      <div class="console">
+        <div class="console-bar"><span class="dot"></span><span>AR-2609-0331</span><span class="sep">/</span><span>Microcrystalline Cellulose</span><span class="ro">1 FLAG OPEN</span></div>
+        <div class="console-body">
+          <div class="pane"><div class="pane-h">Test parameters</div><div class="plist">
+            <div class="prow"><span class="nm">Identification by IR</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow"><span class="nm">Loss on Drying</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow is-on"><span class="nm">pH of aqueous dispersion</span><span class="tag tag--warn">1 flag</span></div>
+            <div class="prow"><span class="nm">Bulk &amp; Tapped Density</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow"><span class="nm">Heavy Metals</span><span class="tag tag--ok">Compliant</span></div>
+          </div></div>
+          <div class="pane"><div class="pane-h">Standalone instruments · paper logbook capture</div><div class="plist">
+            <div class="prow"><span class="nm">pH meter PH-04 — calibration log</span><span class="tag tag--warn">OCR review</span></div>
+            <div class="prow"><span class="nm">Balance BAL-11 — verification log</span><span class="tag tag--ok">Captured</span></div>
+            <div class="prow"><span class="nm">Muffle furnace MF-02 — temp log</span><span class="tag tag--ok">Captured</span></div>
+            <div class="prow"><span class="nm">Karl Fischer KF-03 (tiamo)</span><span class="tag tag--ok">Linked</span></div>
+          </div>
+          <div class="gate"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.6" stroke="currentColor" stroke-width="1.2"/><path d="M7 4.2v3.4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>OCR digitises the logbook. The reviewer still verifies it — the model never decides compliance.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-out" id="p-pm" role="tabpanel" aria-labelledby="t-pm" hidden>
+      <div class="console">
+        <div class="console-bar"><span class="dot"></span><span>AR-2609-0287</span><span class="sep">/</span><span>Alu-Alu Blister Foil</span><span class="ro">FULLY COMPLIANT</span></div>
+        <div class="console-body">
+          <div class="pane"><div class="pane-h">Test parameters</div><div class="plist">
+            <div class="prow"><span class="nm">Dimensions &amp; GSM</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow"><span class="nm">Artwork &amp; Text Verification</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow"><span class="nm">Coating Weight</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow"><span class="nm">Pinhole Test</span><span class="tag tag--ok">Compliant</span></div>
+          </div></div>
+          <div class="pane"><div class="pane-h">Review layers</div><div class="plist">
+            <div class="prow"><span class="nm">QC re-check layer</span><span class="tag tag--ok">Nothing to find</span></div>
+            <div class="prow"><span class="nm">QA review</span><span class="tag tag--idle">Awaiting reviewer</span></div>
+            <div class="prow"><span class="nm">Evidence record</span><span class="tag tag--ok">Generating</span></div>
+          </div>
+          <div class="gate"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.6" stroke="currentColor" stroke-width="1.2"/><path d="M4.4 7.2 6.2 9l3.4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>For fully compliant batches the QC re-check layer has nothing left to find. That analyst goes back to analysis.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-out" id="p-ip" role="tabpanel" aria-labelledby="t-ip" hidden>
+      <div class="console">
+        <div class="console-bar"><span class="dot"></span><span>AR-2609-0455</span><span class="sep">/</span><span>Blend Uniformity</span><span class="ro">2 FLAGS OPEN</span></div>
+        <div class="console-body">
+          <div class="pane"><div class="pane-h">Test parameters</div><div class="plist">
+            <div class="prow is-on"><span class="nm">Blend Uniformity (10 locations)</span><span class="tag tag--warn">1 flag</span></div>
+            <div class="prow"><span class="nm">Moisture Content</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow"><span class="nm">Tablet Hardness</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow"><span class="nm">Friability</span><span class="tag tag--crit">1 flag</span></div>
+          </div></div>
+          <div class="pane"><div class="pane-h">Cross-system context</div><div class="plist">
+            <div class="prow"><span class="nm">Open deviation DEV-2609-114</span><span class="tag tag--crit">Linked</span></div>
+            <div class="prow"><span class="nm">Equipment cleaning record</span><span class="tag tag--ok">Verified</span></div>
+            <div class="prow"><span class="nm">SAP batch stage status</span><span class="tag tag--ok">In process</span></div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-out" id="p-st" role="tabpanel" aria-labelledby="t-st" hidden>
+      <div class="console">
+        <div class="console-bar"><span class="dot"></span><span>AR-2609-0102</span><span class="sep">/</span><span>40°C / 75% RH · 6 M</span><span class="ro">1 FLAG OPEN</span></div>
+        <div class="console-body">
+          <div class="pane"><div class="pane-h">Test parameters</div><div class="plist">
+            <div class="prow"><span class="nm">Assay</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow is-on"><span class="nm">Related Substances</span><span class="tag tag--warn">Trend flag</span></div>
+            <div class="prow"><span class="nm">Dissolution</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow"><span class="nm">Water Content</span><span class="tag tag--ok">Compliant</span></div>
+          </div></div>
+          <div class="pane"><div class="pane-h">Station integrity</div><div class="plist">
+            <div class="prow"><span class="nm">Chamber SC-02 excursion log</span><span class="tag tag--ok">No excursion</span></div>
+            <div class="prow"><span class="nm">Pull date within protocol window</span><span class="tag tag--ok">±3 d</span></div>
+            <div class="prow"><span class="nm">Prior interval comparison</span><span class="tag tag--warn">Impurity D rising</span></div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPLIANCE GATE ================= -->
+<section class="band band--line" id="gate">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">The compliance gate</span>
+      <h2 class="big">A check is a rule with a named SOP behind it. Not a model's opinion.</h2>
+      <p class="lede">
+        Every check NeuraTrace runs is deterministic and configured against your site's own SOP or STP. It
+        resolves to expected, actual, and the system the value came from — so a reviewer can defend every one
+        of them in front of an inspector.
+      </p>
+    </div>
+
+    <div class="rule rv">
+      <div class="rule-h">
+        <strong style="color:var(--text)">CHK-STD-004</strong><span class="sep">·</span><span>Working standard validity</span>
+        <span style="margin-left:auto"><span class="tag tag--crit">Fail</span></span>
+      </div>
+      <div class="rule-grid">
+        <div class="rcell"><div class="k">Rule basis</div><div class="v">SOP/QC/012 §7.3<br><span style="color:var(--dimmer)">Configured at site onboarding</span></div></div>
+        <div class="rcell"><div class="k">Source of truth</div><div class="v">eLIMS Reference Standard<br>Audit Trail module</div></div>
+        <div class="rcell"><div class="k">Expected</div><div class="v good">Standard valid on every injection date in the sequence</div></div>
+        <div class="rcell"><div class="k">Actual</div><div class="v bad">WS-PCM-0231 expiry 12&nbsp;Aug&nbsp;2026<br>Sequence 04 run 18&nbsp;Aug&nbsp;2026</div></div>
+        <div class="rcell"><div class="k">Gate behaviour</div><div class="v">Blocks section sign-off until an observation is recorded</div></div>
+        <div class="rcell"><div class="k">Model involvement</div><div class="v" style="color:var(--dim)">None. A date comparison against a retrieved field.</div></div>
+      </div>
+    </div>
+
+    <div class="cols cols-3">
+      <div class="card rv"><span class="ix">CONSTRAINT 01</span><h3>Deterministic, not inferred</h3><p>No model makes a judgment call on GMP data. Whether a standard was expired is a lookup, not an opinion. AI is used only where it cannot make a compliance decision — OCR to digitise paper logbooks, as a supplementary input the reviewer still verifies.</p></div>
+      <div class="card rv" data-d="1"><span class="ix">CONSTRAINT 02</span><h3>On-premise, inside your network</h3><p>NeuraTrace is deployed inside the plant network. GMP data never leaves the site and there is no cloud dependency in the review path. An architectural decision, not a deployment option we offer reluctantly.</p></div>
+      <div class="card rv" data-d="2"><span class="ix">CONSTRAINT 03</span><h3>Read-only, always</h3><p>Every connector is independently read-only. No shared write path exists anywhere in the architecture. We never write to Caliber, Empower, the QMS or SAP, and we do not recommend release. QA keeps the release decision entirely.</p></div>
+    </div>
+
+    <div class="cols cols-2">
+      <div class="plain rv"><h3>What we deliberately do not track</h3><p>NeuraTrace does not record individual reviewer activity time. Our design partner told us directly that regulators weaponise that data in inspections. We also removed analyst qualification from the instruments view, because surfacing it draws auditor attention to qualification records that were never in scope.</p></div>
+      <div class="plain rv" data-d="1"><h3>Your vocabulary, not ours</h3><p>Never "approved" — always <span class="mono" style="color:var(--text)">review authorised</span>. Never "passed" — always <span class="mono" style="color:var(--text)">compliant</span>. The workspace speaks the language of your SOPs, because a term that does not appear in your quality system is a term a reviewer has to defend.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EVIDENCE ================= -->
+<section class="band band--line" id="evidence">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">The evidence record</span>
+      <h2 class="big">In 2033, the FDA asks about a batch released in 2026. That is a lookup.</h2>
+      <p class="lede">
+        21 CFR 211.180 requires batch records to stay producible for up to seven years after distribution.
+        Today the review itself leaves behind a paper checklist — and the reviewer who signed it has left the
+        company while the underlying records sit across five systems and a filing cabinet. Every NeuraTrace
+        review produces a persistent structured record instead.
+      </p>
+    </div>
+
+    <div class="record rv">
+      <div class="record-h">Evidence record · AR-2609-0418 · Related Substances · extract</div>
+      <div class="record-b">
+<span class="k">ar_number</span>        AR-2609-0418<br>
+<span class="k">product</span>          Paracetamol Tablets 500 mg · Batch FP-2411-A<br>
+<span class="k">parameter</span>        Related Substances<br>
+<span class="k">check_id</span>         CHK-STD-004<br>
+<span class="k">check_basis</span>      SOP/QC/012 §7.3<br>
+<span class="k">source_system</span>    <span class="s">eLIMS Reference Standard Audit Trail</span><br>
+<span class="k">expected</span>         standard_valid_on = 2026-08-18<br>
+<span class="k">actual</span>           <span class="r">WS-PCM-0231 expiry 2026-08-12</span><br>
+<span class="k">outcome</span>          <span class="r">FLAGGED</span><br>
+<span class="k">observation</span>      "Sequence 04 re-run on 21 Aug 2026 with WS-PCM-0244.<br>                  Original sequence excluded from reportable result.<br>                  Deviation DEV-2609-118 raised."<br>
+<span class="k">reviewed_by</span>      QC-REV-0117<br>
+<span class="k">reviewed_at</span>      2026-08-21T14:32:09+05:30<br>
+<span class="k">authorised_by</span>    QA-APR-0042<br>
+<span class="k">authorised_at</span>    2026-08-22T09:14:51+05:30<br>
+<span class="k">retention_until</span>  <span class="g">2033-08-22</span>
+      </div>
+    </div>
+
+    <div class="cols cols-3">
+      <div class="plain rv"><h3>Two-level workflow</h3><p>Reviewer and approver are separate roles with separate records. Neither can authorise a section while a flag is unaddressed.</p></div>
+      <div class="plain rv" data-d="1"><h3>Observation is mandatory</h3><p>The reviewer must open every flagged item and record what they found before the section closes. It is a gate, not a suggestion.</p></div>
+      <div class="plain rv" data-d="2"><h3>Provenance on every value</h3><p>Each figure names the system it was retrieved from, so reconstruction never depends on anyone's memory.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BUSINESS ================= -->
+<section class="band band--line" id="business">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Business · Integrations</span>
+      <h2 class="big">Built on the interfaces your site already licenses.</h2>
+      <p class="lede">
+        Each source system has its own independent read-only connector. Both primary integration paths are
+        confirmed and included in licences you already hold — no additional vendor purchase is required.
+      </p>
+    </div>
+
+    <div class="tbl-wrap rv">
+      <table>
+        <thead><tr><th>System</th><th>Interface</th><th>Retrieved</th><th>Licence</th><th>Connector</th></tr></thead>
+        <tbody>
+          <tr><td>Caliber LIMS</td><td class="m">REST web services</td><td class="m">Sample, results, column injection count, chemicals</td><td class="m">Included in standard site licence</td><td><span class="tag tag--ok">Available</span></td></tr>
+          <tr><td>Waters Empower FR5</td><td class="m">Empower Toolkit (COM/DLL)</td><td class="m">Chromatography, system suitability, sequences</td><td class="m">Free from FR5 onwards</td><td><span class="tag tag--ok">Available</span></td></tr>
+          <tr><td>eLIMS RS Audit Trail</td><td class="m">Caliber web services layer</td><td class="m">Reference standard potency and validity</td><td class="m">Same licence as Caliber</td><td><span class="tag tag--ok">Available</span></td></tr>
+          <tr><td>Metrohm tiamo</td><td class="m">XML export</td><td class="m">Karl Fischer titration results</td><td class="m">Native export</td><td><span class="tag tag--ok">Available</span></td></tr>
+          <tr><td>Shimadzu LabSolutions</td><td class="m">LIMS interface</td><td class="m">GC and HPLC instrument data</td><td class="m">Native interface</td><td><span class="tag tag--ok">Available</span></td></tr>
+          <tr><td>Paper logbooks</td><td class="m">OCR capture</td><td class="m">Standalone instrument logs, verified by reviewer</td><td class="m">—</td><td><span class="tag tag--ok">Available</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sec-head rv" style="margin-top:clamp(64px,8vw,104px)">
+      <span class="eyebrow">Deployment &amp; validation</span>
+      <h2 class="big">Validated for a regulated site. Installed inside yours.</h2>
+      <p class="lede">NeuraTrace ships as a complete, validated on-premise platform. Everything a GxP site needs to qualify, deploy and inspect it is included.</p>
+    </div>
+
+    <div class="status rv">
+      <div class="st"><span class="nm">Five review domains</span><span class="ds">Finished Product, Raw Material, Packing Material, In-Process, Stability — every test parameter section, out of the box.</span><span class="tag tag--ok">Included</span></div>
+      <div class="st"><span class="nm">Reviewer / approver workflow</span><span class="ds">Two-level sign-off with mandatory observation gate and a management dashboard for review throughput.</span><span class="tag tag--ok">Included</span></div>
+      <div class="st"><span class="nm">Read-only connectors</span><span class="ds">Caliber LIMS, Waters Empower FR5, eLIMS RS Audit Trail, Metrohm tiamo, Shimadzu LabSolutions, QMS, SAP and OCR logbook capture.</span><span class="tag tag--ok">Included</span></div>
+      <div class="st"><span class="nm">21 CFR Part 11 electronic signatures</span><span class="ds">Compliant e-signature on every review and authorisation, with full audit trail.</span><span class="tag tag--ok">Included</span></div>
+      <div class="st"><span class="nm">Role-based access</span><span class="ds">Site directory integration for reviewer, approver and administrator roles.</span><span class="tag tag--ok">Included</span></div>
+      <div class="st"><span class="nm">GAMP 5 Category 4 validation pack</span><span class="ds">URS, FS, DS and IQ/OQ/PQ documentation delivered with every installation.</span><span class="tag tag--ok">Included</span></div>
+      <div class="st"><span class="nm">Reviewer-validated design</span><span class="ds">Built line by line with active QA batch release reviewers at Caliber + Empower FR5 sites.</span><span class="tag tag--ok">Included</span></div>
+    </div>
+
+    <div class="cols cols-2">
+      <div class="card rv"><span class="ix">GETTING STARTED</span><h3>Live in weeks, not quarters</h3><p>Connectors are configured against systems you already run, your SOP checks are loaded at onboarding, and the validation pack is executed with your QA. Your release process stays exactly as it is — NeuraTrace writes nothing back. Reviewers open their first batch with every check already run.</p></div>
+      <div class="card rv" data-d="1"><span class="ix">WHY NOW</span><h3>The inspection pressure is rising</h3><p>The FDA issued 59% more drug and biologics warning letters in FY2025 than FY2024, and 60% of letters to Indian sites cite data integrity. What gets cited is rarely the analysis — it is the inability to evidence that the review happened the way the SOP says it did.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="band band--line" id="about">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">About us</span>
+      <h2 class="big">Regulated-industry operators, with an active QA reviewer in the room.</h2>
+      <p class="lede">
+        NeuraTrace was built alongside active QA batch release reviewers at Caliber + Empower sites, and
+        every screen was validated parameter by parameter against the checklists they use on the floor.
+      </p>
+    </div>
+    <div class="team rv">
+      <div class="mem"><div class="n">Suneel Lam</div><div class="r">Founder</div><div class="b">18 years of QA and automation in regulated environments — JPMorgan, BNY Mellon, United Airlines, CWT. Owns the review engine, connectors and on-premise architecture.</div></div>
+      <div class="mem"><div class="n">Srinivas Mullapudi</div><div class="r">Co-founder · Product</div><div class="b">20+ years in enterprise product, the last four building AI-native systems. Owns the review workspace and the evidence schema.</div></div>
+      <div class="mem"><div class="n">Rajesh Yerragunta</div><div class="r">Co-founder · US Market</div><div class="b">12 years at IBM across data, manufacturing and supply chain; Principal PM at Microsoft. Based in Houston, building the US commercial motion.</div></div>
+      <div class="mem"><div class="n">Shrikrishna</div><div class="r">Domain expert · Design partner</div><div class="b">Active QA batch release reviewer at a Caliber LIMS + Waters Empower FR5 site. Supplied the review checklist and validated the workspace parameter by parameter.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="band band--line cta" id="contact">
+  <div class="wrap" style="position:relative;z-index:2">
+    <img class="cta-glyph rv" src="/assets/icon-256.png" alt="" width="256" height="256">
+    <span class="eyebrow rv" style="text-align:center">Contact us</span>
+    <h2 class="big rv">See it run against a batch you already released.</h2>
+    <p class="lede rv" data-d="1" style="text-align:center">
+      Give us one AR number you have already reviewed and compare what we flag against what your reviewer
+      found. Read-only, inside your network, on your terms.
+    </p>
+    <div class="cta-row rv" data-d="2">
+      <a class="pill pill--t pill--lg" href="mailto:hello@neuratrace.co?subject=NeuraTrace%20walkthrough">Request a walkthrough</a>
+      <a class="pill pill--lg" href="mailto:hello@neuratrace.co?subject=NeuraTrace%20demo">Book a demo</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="mark mark--sm" href="#top" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
+    <span>Analytical batch release review · Hyderabad, India</span>
+    <span class="right">READ-ONLY · ON-PREMISE · DETERMINISTIC</span>
+  </div>
+</footer>
+
+</main>
+
+<script>
+(function(){
+  var body = document.body;
+
+  /* ---- menu ---- */
+  var btn = document.getElementById('menuBtn');
+  var ov  = document.getElementById('overlay');
+  function setMenu(open){
+    body.classList.toggle('menu-open', open);
+    body.classList.toggle('locked', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  btn.addEventListener('click', function(){ setMenu(!body.classList.contains('menu-open')); });
+  ov.addEventListener('click', function(e){ if(e.target.tagName === 'A') setMenu(false); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setMenu(false); });
+
+  /* ---- nav background ---- */
+  var nav = document.getElementById('nav');
+  function onScroll(){ nav.classList.toggle('solid', window.scrollY > 24); }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+
+  /* ---- hero video ---- */
+  var vid = document.querySelector('.hero-vid');
+  if(vid){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      vid.removeAttribute('autoplay'); vid.removeAttribute('loop');
+      try{ vid.pause(); }catch(e){}
+    } else {
+      var p = vid.play();
+      if(p && p.catch) p.catch(function(){});
+    }
+  }
+
+  /* ---- reveal ---- */
+  var items = document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {rootMargin:'0px 0px -12% 0px', threshold:.08});
+    items.forEach(function(el){ io.observe(el); });
+  } else {
+    items.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---- tabs ---- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  function select(tab){
+    tabs.forEach(function(t){
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      var p = document.getElementById(t.getAttribute('aria-controls'));
+      if(p) p.hidden = !on;
+    });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click', function(){ select(t); });
+    t.addEventListener('keydown', function(e){
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if(!d) return;
+      e.preventDefault();
+      var n = tabs[(i + d + tabs.length) % tabs.length];
+      n.focus(); select(n);
+    });
+  });
+})();
+</script>
+</body>
+</html>
