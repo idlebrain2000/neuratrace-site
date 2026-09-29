@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NeuraTrace — The intelligent OS for life sciences quality</title>
-<meta name="description" content="NeuraTrace models how your quality records relate across SAP, LIMS, QMS, MES and documents, reconstructs the full context behind a quality decision, and hands the reviewer the evidence already assembled. Starting with batch release.">
-<link rel="canonical" href="https://neuratrace.co/">
+<title>Platform — NeuraTrace</title>
+<meta name="description" content="The NeuraTrace review workspace, connector matrix and deployment detail: five review domains, read-only interfaces, and the GAMP 5 validation pack.">
+<link rel="canonical" href="https://neuratrace.co/platform">
 <meta name="theme-color" content="#04080A">
 <meta name="color-scheme" content="dark">
 
@@ -553,8 +553,7 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 .ent span.rel{color:var(--dimmer);border-style:dashed}
 .layer-b p{color:var(--dim);font-size:14.5px;line-height:1.6;font-weight:300}
 .layer-b p + .ent, .layer-b .ent + p{margin-top:14px}
-.runline{display:grid;gap:10px 30px;color:var(--dim);font-size:14.5px;line-height:1.55}
-@media(min-width:900px){.runline{grid-template-columns:1fr 1fr}}
+.runline{display:flex;flex-wrap:wrap;gap:8px 26px;color:var(--dim);font-size:14.5px}
 .runline b{color:var(--text);font-weight:500}
 @media(max-width:760px){
   .layer{grid-template-columns:1fr;gap:16px;}
@@ -611,13 +610,13 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 .v-base p{color:var(--dim);font-size:15px;line-height:1.65;font-weight:300;max-width:56ch;margin:14px auto 0}
 
 /* ══════════ TRUST STRIP ══════════ */
-.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 14px;margin-top:30px}
+.trust{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:26px}
 .trust span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:var(--bg-2)}
 .hero-start{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--teal);margin-top:22px;text-align:center}
-.hero-h1{font-size:clamp(33px,5.8vw,72px);letter-spacing:-.045em;font-weight:500;max-width:19ch;
-  line-height:1.05;margin:0 auto 26px;text-align:center;text-wrap:balance}
+  color:var(--teal);margin-top:22px}
+.hero-h1{font-size:clamp(34px,6.4vw,78px);letter-spacing:-.045em;font-weight:500;max-width:15ch;
+  line-height:1.03;margin-bottom:26px}
 </style>
 
 <script type="application/ld+json">
@@ -635,12 +634,11 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 </script>
 </head>
 <body>
-<!-- ================= NAV ================= -->
-<header class="nav" id="nav">
+<header class="nav solid" id="nav">
   <div class="nav-in">
-    <a class="mark" href="#top" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
+    <a class="mark" href="/" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
     <div class="nav-right">
-      <a class="pill pill--t" href="#contact">Request a walkthrough</a>
+      <a class="pill pill--t" href="/#contact">Request a walkthrough</a>
       <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="overlay">
         <span class="bars" aria-hidden="true"><i></i><i></i></span>
         <span class="lbl"><span>menu</span></span>
@@ -652,10 +650,10 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 <div class="overlay" id="overlay">
   <div class="ov-in">
     <nav class="ov-links" aria-label="Main">
-      <a href="#platform"><i>01</i>Platform</a>
-      <a href="#release"><i>02</i>Use Cases</a>
+      <a href="/platform"><i>01</i>Platform</a>
+      <a href="/#release"><i>02</i>Use Cases</a>
       <a href="/security"><i>03</i>Security</a>
-      <a href="#about"><i>04</i>About</a>
+      <a href="/#about"><i>04</i>About</a>
     </nav>
     <div class="ov-foot">
       <span>Hyderabad, India</span>
@@ -666,396 +664,226 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 </div>
 
 <main id="top">
-
-<!-- ================= HERO ================= -->
-<section class="hero">
-  <div class="hero-media">
-    <video class="hero-vid" autoplay muted loop playsinline preload="auto"
-           poster="/assets/hero-poster.jpg" aria-label="NeuraTrace: instrument data, chemical structure, sample, batch record, audit trail and QA review converging into one verified molecule">
-      <source src="/assets/hero.mp4" type="video/mp4">
-    </video>
-    <div class="hero-scrim" aria-hidden="true"></div>
-  </div>
-
-  <div class="wrap hero-under">
-    <h1 class="hero-h1">The intelligent OS for life sciences quality.</h1>
-    <p class="lede hero-lede">
-      Your quality evidence already exists — scattered across SAP, LIMS, QMS, MES and documents.
-      NeuraTrace models how those records relate, reconstructs the full context behind a quality
-      decision, and hands the reviewer the evidence already assembled.
-    </p>
-    <p class="hero-start">Starting with batch release.</p>
-    <div class="hero-cta">
-      <a class="pill pill--t pill--lg" href="#contact">Request a walkthrough</a>
-      <a class="pill pill--lg" href="#platform">See how it works</a>
-    </div>
-    <div class="trust">
-      <span>Read-only</span><span>Evidence-linked</span><span>Human-controlled</span><span>Deploys inside your environment</span>
-    </div>
-  </div>
-</section>
-
-<!-- ================= MARQUEE ================= -->
-<div class="marq" aria-label="Connected systems">
-  <div class="marq-t">
-    <span>SAP</span><span>LIMS</span><span>QMS</span><span>MES</span><span>RIMS</span><span>Chromatography data systems</span><span>Document repositories</span><span>Paper logbooks</span>
-    <span>SAP</span><span>LIMS</span><span>QMS</span><span>MES</span><span>RIMS</span><span>Chromatography data systems</span><span>Document repositories</span><span>Paper logbooks</span>
-  </div>
-</div>
-
-<!-- ================= STATS ================= -->
-<section class="band">
-  <div class="wrap">
-    <div class="stats rv">
-      <div class="stat"><div class="n">40<small> min</small></div><div class="l">QC review then QA review, per batch — measured at our design partner's site.</div></div>
-      <div class="stat"><div class="n">~4,000</div><div class="l">Samples sitting in the QC review backlog at that single site.</div></div>
-      <div class="stat"><div class="n">5</div><div class="l">Separate systems a reviewer cross-references by hand for one batch.</div></div>
-      <div class="stat"><div class="n">7<small>years</small></div><div class="l">Batch records must stay producible after distribution — 21 CFR 211.180.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= THE PROBLEM ================= -->
-<section class="band band--line">
+<section class="band" style="padding-top:clamp(120px,14vw,190px)">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="eyebrow">The problem</span>
-      <h2 class="big">Your systems know what happened. Your QA team still has to work out why it matters.</h2>
+      <span class="eyebrow">Platform</span>
+      <h2 class="big">The detail behind the layer.</h2>
+      <p class="lede">Everything moved off the overview page, in full. The review workspace as a reviewer sees it, the connector matrix system by system, and what ships with a validated on-premise installation.</p>
+    </div>
+  </div>
+</section>
+<section class="band band--line" id="products">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Products · The workspace</span>
+      <h2 class="big">Everything behind one AR number, organised the way a reviewer works.</h2>
       <p class="lede">
-        A batch does not live in one system. Each record is complete, and each one is separate.
-        Nobody owns the relationships between them — so a person does, by hand, every time.
+        NeuraTrace pulls every record associated with an AR number across all connected systems and lays it out
+        by test parameter — not by source system. Five review domains, every test parameter, one workspace.
       </p>
     </div>
 
-    <div class="split">
-      <div class="sys rv"><span class="s">MES</span><span class="t">The manufacturing record</span></div>
-      <div class="sys rv" data-d="1"><span class="s">LIMS</span><span class="t">Laboratory results</span></div>
-      <div class="sys rv" data-d="2"><span class="s">SAP</span><span class="t">Materials and inventory</span></div>
-      <div class="sys rv" data-d="3"><span class="s">QMS</span><span class="t">Deviations and CAPAs</span></div>
-      <div class="sys rv" data-d="4"><span class="s">Documents</span><span class="t">Specifications and SOPs</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= THE CLAIM ================= -->
-<section class="claim">
-  <div class="wrap">
-    <span class="eyebrow rv">What that costs you</span>
-    <h2 class="rv" data-d="1">The human reviewer has become the <em>integration layer</em>.</h2>
-  </div>
-</section>
-
-<!-- ================= THE STACK ================= -->
-<section class="band band--line" id="platform">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">The platform</span>
-      <h2 class="big">An operating system has a shape. So does this one.</h2>
-      <p class="lede">
-        Most tools in this space read one system and summarise it. NeuraTrace models the domain itself —
-        what a batch <em>is</em>, what a deviation <em>touches</em>, which specification governs which test —
-        then reconstructs any decision that depends on those relationships.
-      </p>
+    <div class="tabs rv" role="tablist" aria-label="Review domains">
+      <button class="tab" role="tab" id="t-fp" aria-controls="p-fp" aria-selected="true">Finished Product</button>
+      <button class="tab" role="tab" id="t-rm" aria-controls="p-rm" aria-selected="false">Raw Material</button>
+      <button class="tab" role="tab" id="t-pm" aria-controls="p-pm" aria-selected="false">Packing Material</button>
+      <button class="tab" role="tab" id="t-ip" aria-controls="p-ip" aria-selected="false">In-Process</button>
+      <button class="tab" role="tab" id="t-st" aria-controls="p-st" aria-selected="false">Stability</button>
     </div>
 
-    <div class="stack rv">
-      <div class="layer layer--top">
-        <div class="layer-k">Applications<small>what QA opens</small></div>
-        <div class="layer-b">
-          <div class="apps">
-            <span class="app is-live"><span class="dot"></span>Batch release <i>Live</i></span>
-            <span class="app"><span class="dot"></span>Deviation investigation <i>Roadmap</i></span>
-            <span class="app"><span class="dot"></span>CAPA <i>Roadmap</i></span>
-            <span class="app"><span class="dot"></span>Change control <i>Roadmap</i></span>
-            <span class="app"><span class="dot"></span>Inspection readiness <i>Roadmap</i></span>
+    <div class="panel-out" id="p-fp" role="tabpanel" aria-labelledby="t-fp">
+      <div class="console">
+        <div class="console-bar"><span class="dot"></span><span>AR-2609-0418</span><span class="sep">/</span><span>Paracetamol Tablets 500&nbsp;mg</span><span class="sep">/</span><span>Batch FP-2411-A</span><span class="ro">READ-ONLY</span></div>
+        <div class="console-body">
+          <div class="pane">
+            <div class="pane-h">Test parameters</div>
+            <div class="plist">
+              <div class="prow"><span class="nm">Description &amp; Identification</span><span class="tag tag--ok">Compliant</span></div>
+              <div class="prow"><span class="nm">Assay by HPLC</span><span class="tag tag--ok">Compliant</span></div>
+              <div class="prow is-on"><span class="nm">Related Substances</span><span class="tag tag--crit">2 flags</span></div>
+              <div class="prow"><span class="nm">Dissolution</span><span class="tag tag--ok">Compliant</span></div>
+              <div class="prow"><span class="nm">Water Content by KF</span><span class="tag tag--warn">1 flag</span></div>
+              <div class="prow"><span class="nm">Residual Solvents (GC)</span><span class="tag tag--idle">Not reviewed</span></div>
+            </div>
+            <div class="gate">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2.5" y="6" width="9" height="6.5" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M4.6 6V4.3a2.4 2.4 0 0 1 4.8 0V6" stroke="currentColor" stroke-width="1.3"/></svg>
+              A section cannot be marked reviewed until every flag carries a recorded observation.
+            </div>
+          </div>
+          <div class="pane">
+            <div class="pane-h">Flag 1 of 2 · Related Substances</div>
+            <div class="flag">
+              <div class="flag-h">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1.4 12.2 11.4H.8L6.5 1.4Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M6.5 5.2v2.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="6.5" cy="9.5" r=".75" fill="currentColor"/></svg>
+                CHK-STD-004 · Working standard validity
+              </div>
+              <p class="flag-t">Working standard <strong>WS-PCM-0231</strong> expired before the injection sequence in which it was used.</p>
+              <dl class="kv">
+                <dt>Expected</dt><dd>Valid on 18 Aug 2026</dd>
+                <dt>Actual</dt><dd style="color:var(--crit)">Expiry 12 Aug 2026 — 6 days lapsed</dd>
+                <dt>Used in</dt><dd>Injection sequence 04 · 11 injections</dd>
+                <dt>Source</dt><dd>eLIMS Reference Standard Audit Trail</dd>
+                <dt>Rule basis</dt><dd>SOP/QC/012 §7.3</dd>
+              </dl>
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="layer">
-        <div class="layer-k">Runtime<small>what it does</small></div>
-        <div class="layer-b">
-          <div class="runline">
-            <span><b>Evidence reconstruction</b> — assembling the full context behind one decision</span>
-            <span><b>Deterministic evaluation</b> — rules resolved against your own SOPs</span>
-            <span><b>Exception surfacing</b> — what a reviewer needs to look at, and why</span>
-            <span><b>Provenance tracking</b> — every value carries the system it came from</span>
+    <div class="panel-out" id="p-rm" role="tabpanel" aria-labelledby="t-rm" hidden>
+      <div class="console">
+        <div class="console-bar"><span class="dot"></span><span>AR-2609-0331</span><span class="sep">/</span><span>Microcrystalline Cellulose</span><span class="ro">1 FLAG OPEN</span></div>
+        <div class="console-body">
+          <div class="pane"><div class="pane-h">Test parameters</div><div class="plist">
+            <div class="prow"><span class="nm">Identification by IR</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow"><span class="nm">Loss on Drying</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow is-on"><span class="nm">pH of aqueous dispersion</span><span class="tag tag--warn">1 flag</span></div>
+            <div class="prow"><span class="nm">Bulk &amp; Tapped Density</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow"><span class="nm">Heavy Metals</span><span class="tag tag--ok">Compliant</span></div>
+          </div></div>
+          <div class="pane"><div class="pane-h">Standalone instruments · paper logbook capture</div><div class="plist">
+            <div class="prow"><span class="nm">pH meter PH-04 — calibration log</span><span class="tag tag--warn">OCR review</span></div>
+            <div class="prow"><span class="nm">Balance BAL-11 — verification log</span><span class="tag tag--ok">Captured</span></div>
+            <div class="prow"><span class="nm">Muffle furnace MF-02 — temp log</span><span class="tag tag--ok">Captured</span></div>
+            <div class="prow"><span class="nm">Karl Fischer KF-03 (tiamo)</span><span class="tag tag--ok">Linked</span></div>
+          </div>
+          <div class="gate"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.6" stroke="currentColor" stroke-width="1.2"/><path d="M7 4.2v3.4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>OCR digitises the logbook. The reviewer still verifies it — the model never decides compliance.</div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="layer">
-        <div class="layer-k">Ontology<small>the kernel</small></div>
-        <div class="layer-b">
-          <div class="ent">
-            <span>Batch</span><span>Material</span><span>Lot</span><span>Equipment</span><span>Test</span>
-            <span>Specification</span><span>Deviation</span><span>Investigation</span><span>CAPA</span>
-            <span>Document</span><span>Person</span>
-            <span class="rel">…and every relationship between them</span>
+    <div class="panel-out" id="p-pm" role="tabpanel" aria-labelledby="t-pm" hidden>
+      <div class="console">
+        <div class="console-bar"><span class="dot"></span><span>AR-2609-0287</span><span class="sep">/</span><span>Alu-Alu Blister Foil</span><span class="ro">FULLY COMPLIANT</span></div>
+        <div class="console-body">
+          <div class="pane"><div class="pane-h">Test parameters</div><div class="plist">
+            <div class="prow"><span class="nm">Dimensions &amp; GSM</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow"><span class="nm">Artwork &amp; Text Verification</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow"><span class="nm">Coating Weight</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow"><span class="nm">Pinhole Test</span><span class="tag tag--ok">Compliant</span></div>
+          </div></div>
+          <div class="pane"><div class="pane-h">Review layers</div><div class="plist">
+            <div class="prow"><span class="nm">QC re-check layer</span><span class="tag tag--ok">Nothing to find</span></div>
+            <div class="prow"><span class="nm">QA review</span><span class="tag tag--idle">Awaiting reviewer</span></div>
+            <div class="prow"><span class="nm">Evidence record</span><span class="tag tag--ok">Generating</span></div>
           </div>
-          <p>The model is the product. Each new application is a new question asked of the same reality — not a new integration project.</p>
+          <div class="gate"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.6" stroke="currentColor" stroke-width="1.2"/><path d="M4.4 7.2 6.2 9l3.4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>For fully compliant batches the QC re-check layer has nothing left to find. That analyst goes back to analysis.</div>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="layer">
-        <div class="layer-k">Connectors<small>read-only</small></div>
-        <div class="layer-b">
-          <div class="ent">
-            <span>SAP</span><span>LIMS</span><span>QMS</span><span>MES</span><span>RIMS</span>
-            <span>Chromatography data systems</span><span>Document repositories</span><span>Paper logbooks · OCR</span>
-          </div>
-          <p>Every connector is independently read-only. No shared write path exists anywhere in the architecture. Your systems remain the systems of record.</p>
+    <div class="panel-out" id="p-ip" role="tabpanel" aria-labelledby="t-ip" hidden>
+      <div class="console">
+        <div class="console-bar"><span class="dot"></span><span>AR-2609-0455</span><span class="sep">/</span><span>Blend Uniformity</span><span class="ro">2 FLAGS OPEN</span></div>
+        <div class="console-body">
+          <div class="pane"><div class="pane-h">Test parameters</div><div class="plist">
+            <div class="prow is-on"><span class="nm">Blend Uniformity (10 locations)</span><span class="tag tag--warn">1 flag</span></div>
+            <div class="prow"><span class="nm">Moisture Content</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow"><span class="nm">Tablet Hardness</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow"><span class="nm">Friability</span><span class="tag tag--crit">1 flag</span></div>
+          </div></div>
+          <div class="pane"><div class="pane-h">Cross-system context</div><div class="plist">
+            <div class="prow"><span class="nm">Open deviation DEV-2609-114</span><span class="tag tag--crit">Linked</span></div>
+            <div class="prow"><span class="nm">Equipment cleaning record</span><span class="tag tag--ok">Verified</span></div>
+            <div class="prow"><span class="nm">SAP batch stage status</span><span class="tag tag--ok">In process</span></div>
+          </div></div>
         </div>
       </div>
     </div>
 
-    <div class="cols cols-2">
-      <div class="card rv"><span class="ix">WHY THIS SHAPE</span><h3>One model, many decisions</h3><p>Batch release, deviation investigation and change control are different questions asked of the same entities. Build the model once and each workflow becomes a query rather than a rebuild.</p></div>
-      <div class="card rv" data-d="1"><span class="ix">WHAT WE SHIP TODAY</span><h3>Batch release, in production</h3><p>One application is live and running against real batches at our design partner's site. The rest of the roadmap is honest roadmap. We would rather you check the dots than take our word for it.</p></div>
+    <div class="panel-out" id="p-st" role="tabpanel" aria-labelledby="t-st" hidden>
+      <div class="console">
+        <div class="console-bar"><span class="dot"></span><span>AR-2609-0102</span><span class="sep">/</span><span>40°C / 75% RH · 6 M</span><span class="ro">1 FLAG OPEN</span></div>
+        <div class="console-body">
+          <div class="pane"><div class="pane-h">Test parameters</div><div class="plist">
+            <div class="prow"><span class="nm">Assay</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow is-on"><span class="nm">Related Substances</span><span class="tag tag--warn">Trend flag</span></div>
+            <div class="prow"><span class="nm">Dissolution</span><span class="tag tag--ok">Compliant</span></div>
+            <div class="prow"><span class="nm">Water Content</span><span class="tag tag--ok">Compliant</span></div>
+          </div></div>
+          <div class="pane"><div class="pane-h">Station integrity</div><div class="plist">
+            <div class="prow"><span class="nm">Chamber SC-02 excursion log</span><span class="tag tag--ok">No excursion</span></div>
+            <div class="prow"><span class="nm">Pull date within protocol window</span><span class="tag tag--ok">±3 d</span></div>
+            <div class="prow"><span class="nm">Prior interval comparison</span><span class="tag tag--warn">Impurity D rising</span></div>
+          </div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ================= THE WEDGE ================= -->
-<section class="band band--line" id="release">
+<!-- ================= COMPLIANCE GATE ================= -->
+<section class="band band--line" id="business">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="eyebrow">First application · Batch release</span>
-      <h2 class="big">Batch release is where we start.</h2>
+      <span class="eyebrow">Business · Integrations</span>
+      <h2 class="big">Built on the interfaces your site already licenses.</h2>
       <p class="lede">
-        Before a reviewer releases a batch, NeuraTrace reconstructs the evidence across every system
-        involved — surfacing missing records, inconsistencies, exceptions and the quality events that
-        bear on the decision. One question, asked once.
+        Each source system has its own independent read-only connector. Both primary integration paths are
+        confirmed and included in licences you already hold — no additional vendor purchase is required.
       </p>
     </div>
 
-    <div class="walk rv">
-      <div class="walk-h">
-        <strong>"Show me everything I need to know about Batch FP-2411-A."</strong>
-        <span class="sep">·</span><span>Paracetamol Tablets 500 mg</span>
-      </div>
-
-      <div class="step">
-        <div class="step-n">01</div>
-        <div><div class="step-t">Manufacturing</div>
-          <div class="chk"><span>Batch record</span><span>Process parameters</span><span>Equipment history</span></div></div>
-      </div>
-      <div class="step">
-        <div class="step-n">02</div>
-        <div><div class="step-t">Materials</div>
-          <div class="chk"><span>Raw material lots</span><span>Supplier status</span><span>Material release</span></div></div>
-      </div>
-      <div class="step">
-        <div class="step-n">03</div>
-        <div><div class="step-t">Laboratory</div>
-          <div class="chk"><span>Specifications</span><span>Test results</span><span class="w">Related substances — working standard expired</span></div></div>
-      </div>
-      <div class="step">
-        <div class="step-n">04</div>
-        <div><div class="step-t">Quality events</div>
-          <div class="chk"><span class="w">Deviation DEV-2609-118</span><span>CAPA assessment</span></div></div>
-      </div>
-
-      <div class="walk-f">
-        <div class="sum"><b>37</b> records connected &nbsp;·&nbsp; <b>12</b> source documents &nbsp;·&nbsp; <b>4</b> quality events &nbsp;·&nbsp; <b>2</b> exceptions</div>
-        <div class="arw">Evidence assembled. Exceptions surfaced. Sources linked.<br>↓</div>
-        <div class="dec">The human makes the decision.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= EVIDENCE ================= -->
-<section class="band band--line" id="evidence">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Evidence &amp; provenance</span>
-      <h2 class="big">Every finding names its source.</h2>
-      <p class="lede">
-        No finding without provenance. A reviewer can follow any conclusion back to the record it came
-        from, in the system it came from — and still be able to do it in seven years, when the reviewer
-        who signed it has left and an inspector asks.
-      </p>
+    <div class="tbl-wrap rv">
+      <table>
+        <thead><tr><th>System</th><th>Interface</th><th>Retrieved</th><th>Licence</th><th>Connector</th></tr></thead>
+        <tbody>
+          <tr><td>Caliber LIMS</td><td class="m">REST web services</td><td class="m">Sample, results, column injection count, chemicals</td><td class="m">Included in standard site licence</td><td><span class="tag tag--ok">Available</span></td></tr>
+          <tr><td>Waters Empower FR5</td><td class="m">Empower Toolkit (COM/DLL)</td><td class="m">Chromatography, system suitability, sequences</td><td class="m">Free from FR5 onwards</td><td><span class="tag tag--ok">Available</span></td></tr>
+          <tr><td>eLIMS RS Audit Trail</td><td class="m">Caliber web services layer</td><td class="m">Reference standard potency and validity</td><td class="m">Same licence as Caliber</td><td><span class="tag tag--ok">Available</span></td></tr>
+          <tr><td>Metrohm tiamo</td><td class="m">XML export</td><td class="m">Karl Fischer titration results</td><td class="m">Native export</td><td><span class="tag tag--ok">Available</span></td></tr>
+          <tr><td>Shimadzu LabSolutions</td><td class="m">LIMS interface</td><td class="m">GC and HPLC instrument data</td><td class="m">Native interface</td><td><span class="tag tag--ok">Available</span></td></tr>
+          <tr><td>Paper logbooks</td><td class="m">OCR capture</td><td class="m">Standalone instrument logs, verified by reviewer</td><td class="m">—</td><td><span class="tag tag--ok">Available</span></td></tr>
+        </tbody>
+      </table>
     </div>
 
-    <div class="rule rv">
-      <div class="rule-h">
-        <strong style="color:var(--text)">CHK-STD-004</strong><span class="sep">·</span><span>Working standard validity</span>
-        <span style="margin-left:auto"><span class="tag tag--crit">Flagged</span></span>
-      </div>
-      <div class="rule-grid">
-        <div class="rcell"><div class="k">Rule basis</div><div class="v">SOP/QC/012 §7.3<br><span style="color:var(--dimmer)">Configured at site onboarding</span></div></div>
-        <div class="rcell"><div class="k">Source of truth</div><div class="v">Reference Standard<br>Audit Trail module</div></div>
-        <div class="rcell"><div class="k">Expected</div><div class="v good">Standard valid on every injection date in the sequence</div></div>
-        <div class="rcell"><div class="k">Actual</div><div class="v bad">WS-PCM-0231 expiry 12&nbsp;Aug&nbsp;2026<br>Sequence 04 run 18&nbsp;Aug&nbsp;2026</div></div>
-        <div class="rcell"><div class="k">Related event</div><div class="v">DEV-2609-118<br><span style="color:var(--dimmer)">Linked through the ontology, not by hand</span></div></div>
-        <div class="rcell"><div class="k">Model involvement</div><div class="v" style="color:var(--dim)">None. A date comparison against a retrieved field.</div></div>
-      </div>
-    </div>
-
-    <div class="cols cols-3">
-      <div class="plain rv"><h3>Two-level workflow</h3><p>Reviewer and approver are separate roles with separate records. Neither can authorise a section while a flag is unaddressed.</p></div>
-      <div class="plain rv" data-d="1"><h3>Observation is mandatory</h3><p>The reviewer must open every flagged item and record what they found before the section closes. It is a gate, not a suggestion.</p></div>
-      <div class="plain rv" data-d="2"><h3>Provenance on every value</h3><p>Each figure names the system it was retrieved from, so reconstruction never depends on anyone's memory.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= AI PHILOSOPHY ================= -->
-<section class="band band--line" id="philosophy">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">How we use AI</span>
-      <h2 class="big">AI assists the reviewer. It does not become the reviewer.</h2>
-      <p class="lede">
-        In regulated quality, restraint is a feature. Every constraint below is architectural — not a
-        setting we offer reluctantly.
-      </p>
-    </div>
-
-    <div class="cols cols-3">
-      <div class="card rv"><span class="ix">PRINCIPLE 01</span><h3>Evidence over inference</h3><p>Every material finding links back to source evidence. Nothing is asserted that a reviewer cannot open and read for themselves.</p></div>
-      <div class="card rv" data-d="1"><span class="ix">PRINCIPLE 02</span><h3>Deterministic where the requirement is</h3><p>A specification limit is a comparison, not a judgment call. Whether a standard was expired is a lookup, not an opinion. We treat it that way. AI is used where it cannot make a compliance decision — OCR to digitise paper logbooks, as a supplementary input the reviewer still verifies.</p></div>
-      <div class="card rv" data-d="2"><span class="ix">PRINCIPLE 03</span><h3>Human-controlled decisions</h3><p>NeuraTrace does not release a batch. It does not close a deviation. It does not recommend release. It assembles what the reviewer needs, surfaces what deserves attention, and gets out of the way.</p></div>
-    </div>
-
-    <div class="cols cols-2">
-      <div class="plain rv"><h3>What we deliberately do not track</h3><p>NeuraTrace does not record individual reviewer activity time. Our design partner told us directly that regulators weaponise that data in inspections. We also removed analyst qualification from the instruments view, because surfacing it draws auditor attention to qualification records that were never in scope.</p></div>
-      <div class="plain rv" data-d="1"><h3>Your vocabulary, not ours</h3><p>Never "approved" — always <span class="mono" style="color:var(--text)">review authorised</span>. Never "passed" — always <span class="mono" style="color:var(--text)">compliant</span>. The workspace speaks the language of your SOPs, because a term that does not appear in your quality system is a term a reviewer has to defend.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= VISION ================= -->
-<section class="band band--line" id="vision">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Where this goes</span>
-      <h2 class="big">One ontology. Every quality decision.</h2>
-      <p class="lede">
-        Every quality workflow asks a different question of the same underlying reality. Once the model
-        exists, a new workflow is a new question — not another integration project.
-      </p>
-    </div>
-
-    <div class="vision rv">
-      <div class="v-row">
-        <div class="v-node is-live"><div class="vn">Batch release</div><span class="vs">Live</span></div>
-        <div class="v-node"><div class="vn">Deviation investigation</div><span class="vs">Roadmap</span></div>
-        <div class="v-node"><div class="vn">CAPA</div><span class="vs">Roadmap</span></div>
-        <div class="v-node"><div class="vn">Change control</div><span class="vs">Roadmap</span></div>
-        <div class="v-node"><div class="vn">Inspection readiness</div><span class="vs">Roadmap</span></div>
-      </div>
-      <div class="v-join" aria-hidden="true"></div>
-      <div class="v-base">
-        <div class="vb">The quality ontology</div>
-        <p>Same entities. Same relationships. Same evidence. Different question.</p>
-      </div>
-    </div>
-
-    <div class="cols cols-2">
-      <div class="plain rv"><h3>Our roadmap is sequenced, not speculative</h3><p>We start where evidence reconstruction creates the most immediate value, and we will not claim a workflow is shipped until it runs against real batches at a real site.</p></div>
-      <div class="plain rv" data-d="1"><h3>Systems of record stay where they are</h3><p>NeuraTrace is not a replacement for your LIMS, QMS or MES, and never becomes one. It is the layer that understands how they relate.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= INTEGRATIONS ================= -->
-<section class="band band--line" id="integrations">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Integrations</span>
-      <h2 class="big">Works across the systems you already run.</h2>
-      <p class="lede">
-        Connectors are built against interfaces your site already licenses. NeuraTrace is a read-only
-        evidence layer — nothing is written back, and no additional vendor purchase is required for the
-        primary integration paths.
-      </p>
-    </div>
-
-    <div class="split">
-      <div class="sys rv"><span class="s">01</span><span class="t">SAP</span></div>
-      <div class="sys rv" data-d="1"><span class="s">02</span><span class="t">LIMS</span></div>
-      <div class="sys rv" data-d="2"><span class="s">03</span><span class="t">QMS</span></div>
-      <div class="sys rv" data-d="3"><span class="s">04</span><span class="t">MES &amp; RIMS</span></div>
-      <div class="sys rv" data-d="4"><span class="s">05</span><span class="t">Documents &amp; logbooks</span></div>
-    </div>
-
-    <div class="cta-row rv" style="justify-content:flex-start;margin-top:36px">
-      <a class="pill" href="/platform">See the full connector matrix →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= REGULATED ================= -->
-<section class="band band--line" id="regulated">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Built for regulated environments</span>
+    <div class="sec-head rv" style="margin-top:clamp(64px,8vw,104px)">
+      <span class="eyebrow">Deployment &amp; validation</span>
       <h2 class="big">Validated for a regulated site. Installed inside yours.</h2>
+      <p class="lede">NeuraTrace ships as a complete, validated on-premise platform. Everything a GxP site needs to qualify, deploy and inspect it is included.</p>
     </div>
 
     <div class="status rv">
-      <div class="st"><span class="nm">Read-only architecture</span><span class="ds">No write-back to any system of record. Every connector is independently read-only.</span><span class="tag tag--ok">Included</span></div>
-      <div class="st"><span class="nm">Deploys inside your environment</span><span class="ds">On-premise inside the plant network. GMP data never leaves the site; no cloud dependency in the review path.</span><span class="tag tag--ok">Included</span></div>
-      <div class="st"><span class="nm">Evidence-level provenance</span><span class="ds">Every value carries the system it was retrieved from, persisted as a structured record.</span><span class="tag tag--ok">Included</span></div>
+      <div class="st"><span class="nm">Five review domains</span><span class="ds">Finished Product, Raw Material, Packing Material, In-Process, Stability — every test parameter section, out of the box.</span><span class="tag tag--ok">Included</span></div>
+      <div class="st"><span class="nm">Reviewer / approver workflow</span><span class="ds">Two-level sign-off with mandatory observation gate and a management dashboard for review throughput.</span><span class="tag tag--ok">Included</span></div>
+      <div class="st"><span class="nm">Read-only connectors</span><span class="ds">Caliber LIMS, Waters Empower FR5, eLIMS RS Audit Trail, Metrohm tiamo, Shimadzu LabSolutions, QMS, SAP and OCR logbook capture.</span><span class="tag tag--ok">Included</span></div>
       <div class="st"><span class="nm">21 CFR Part 11 electronic signatures</span><span class="ds">Compliant e-signature on every review and authorisation, with full audit trail.</span><span class="tag tag--ok">Included</span></div>
       <div class="st"><span class="nm">Role-based access</span><span class="ds">Site directory integration for reviewer, approver and administrator roles.</span><span class="tag tag--ok">Included</span></div>
       <div class="st"><span class="nm">GAMP 5 Category 4 validation pack</span><span class="ds">URS, FS, DS and IQ/OQ/PQ documentation delivered with every installation.</span><span class="tag tag--ok">Included</span></div>
+      <div class="st"><span class="nm">Reviewer-validated design</span><span class="ds">Built line by line with active QA batch release reviewers at Caliber + Empower FR5 sites.</span><span class="tag tag--ok">Included</span></div>
     </div>
 
-    <div class="cta-row rv" style="justify-content:flex-start;margin-top:36px">
-      <a class="pill" href="/security">Security &amp; validation →</a>
+    <div class="cols cols-2">
+      <div class="card rv"><span class="ix">GETTING STARTED</span><h3>Live in weeks, not quarters</h3><p>Connectors are configured against systems you already run, your SOP checks are loaded at onboarding, and the validation pack is executed with your QA. Your release process stays exactly as it is — NeuraTrace writes nothing back. Reviewers open their first batch with every check already run.</p></div>
+      <div class="card rv" data-d="1"><span class="ix">WHY NOW</span><h3>The inspection pressure is rising</h3><p>The FDA issued 59% more drug and biologics warning letters in FY2025 than FY2024, and 60% of letters to Indian sites cite data integrity. What gets cited is rarely the analysis — it is the inability to evidence that the review happened the way the SOP says it did.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ================= ABOUT ================= -->
-<section class="band band--line" id="about">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">About us</span>
-      <h2 class="big">Built by enterprise systems operators and pharma quality practitioners.</h2>
-      <p class="lede">
-        Fragmented enterprise systems, regulated decisions and applied AI are three different problems.
-        Solving quality means solving all three at once — which is why the team is built the way it is,
-        with an active QA reviewer in the room rather than consulted at the end.
-      </p>
-    </div>
-    <div class="team rv">
-      <div class="mem"><div class="n">Suneel Lam</div><div class="r">Founder · Architecture</div><div class="b">18 years of QA and automation in regulated environments — JPMorgan, BNY Mellon, United Airlines, CWT. Owns the runtime, connectors and on-premise architecture.</div></div>
-      <div class="mem"><div class="n">Srinivas Mullapudi</div><div class="r">Co-founder · Product</div><div class="b">20+ years in enterprise product, the last four building AI-native systems. ISB MBA. Author of <em>The AI Product Manager Gita</em>. Owns the ontology and the evidence schema.</div></div>
-      <div class="mem"><div class="n">Rajesh Yerragunta</div><div class="r">Co-founder · US Market</div><div class="b">18 years in enterprise data and analytics — Microsoft, Molex, and 12 years at IBM. Kellogg MBA. Based in Houston, building the US commercial motion.</div></div>
-      <div class="mem"><div class="n">Shrikrishna</div><div class="r">Domain expert · Design partner</div><div class="b">Active QA batch release reviewer. Supplied the review checklist and validated the workspace parameter by parameter.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section class="band band--line cta" id="contact">
+<section class="band band--line cta">
   <div class="wrap" style="position:relative;z-index:2">
-    <img class="cta-glyph rv" src="/assets/icon-256.png" alt="" width="256" height="256">
-    <span class="eyebrow rv" style="text-align:center">Contact us</span>
+    <span class="eyebrow rv" style="text-align:center">Next step</span>
     <h2 class="big rv">See it run against a batch you already released.</h2>
-    <p class="lede rv" data-d="1" style="text-align:center">
-      Give us one batch you have already reviewed and compare what we surface against what your reviewer
-      found. Read-only, inside your network, on your terms.
-    </p>
-    <div class="cta-row rv" data-d="2">
+    <div class="cta-row rv" data-d="1">
       <a class="pill pill--t pill--lg" href="mailto:hello@neuratrace.co?subject=NeuraTrace%20walkthrough">Request a walkthrough</a>
-      <a class="pill pill--lg" href="mailto:hello@neuratrace.co?subject=NeuraTrace%20demo">Book a demo</a>
+      <a class="pill pill--lg" href="/">Back to overview</a>
     </div>
   </div>
 </section>
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="mark mark--sm" href="#top" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
+    <a class="mark mark--sm" href="/" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
     <span>The intelligent OS for life sciences quality · Hyderabad, India</span>
     <span class="right">READ-ONLY · ON-PREMISE · DETERMINISTIC</span>
   </div>
 </footer>
-
 </main>
 
 <script>
