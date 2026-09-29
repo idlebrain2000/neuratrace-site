@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Batch Release — NeuraTrace</title>
-<meta name="description" content="NeuraTrace reconstructs the complete context behind every batch release: manufacturing, materials, laboratory results, quality events, specifications and source evidence, before the reviewer begins.">
-<link rel="canonical" href="https://neuratrace.co/batch-release">
+<title>Security &amp; Validation — NeuraTrace</title>
+<meta name="description" content="Read-only architecture, on-premise deployment, evidence-level provenance, 21 CFR Part 11 e-signatures and the GAMP 5 Category 4 validation pack.">
+<link rel="canonical" href="https://neuratrace.co/security">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NeuraTrace">
-<meta property="og:title" content="NeuraTrace — The Knowledge Graph for Life Sciences">
-<meta property="og:description" content="NeuraTrace connects fragmented life-sciences data into a trusted context layer for AI — modelling how products, batches, materials, tests, equipment, deviations and evidence relate. Starting with pharmaceutical quality.">
+<meta property="og:title" content="NeuraTrace — Security &amp; Validation">
+<meta property="og:description" content="Your quality evidence is scattered across SAP, LIMS, QMS, MES and documents. NeuraTrace models how those records relate and reconstructs the context behind every quality decision. Starting with batch release.">
 <meta property="og:url" content="https://neuratrace.co/">
 <meta property="og:image" content="https://neuratrace.co/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="NeuraTrace — The Knowledge Graph for Life Sciences">
-<meta name="twitter:description" content="The trusted context layer that connects fragmented life-sciences data and gives AI the evidence it needs to reason. Starting with pharmaceutical quality.">
+<meta name="twitter:title" content="NeuraTrace — Security &amp; Validation">
+<meta name="twitter:description" content="Models how your quality records relate, reconstructs the context behind every decision, and hands QA the evidence assembled. Starting with batch release.">
 <meta name="twitter:image" content="https://neuratrace.co/assets/og.jpg">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -586,8 +586,7 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 .ent span.rel{color:var(--dimmer);border-style:dashed}
 .layer-b p{color:var(--dim);font-size:14.5px;line-height:1.6;font-weight:300}
 .layer-b p + .ent, .layer-b .ent + p{margin-top:14px}
-.runline{display:grid;gap:10px 30px;color:var(--dim);font-size:14.5px;line-height:1.55}
-@media(min-width:900px){.runline{grid-template-columns:1fr 1fr}}
+.runline{display:flex;flex-wrap:wrap;gap:8px 26px;color:var(--dim);font-size:14.5px}
 .runline b{color:var(--text);font-weight:500}
 @media(max-width:760px){
   .layer{grid-template-columns:1fr;gap:16px;}
@@ -644,99 +643,13 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 .v-base p{color:var(--dim);font-size:15px;line-height:1.65;font-weight:300;max-width:56ch;margin:14px auto 0}
 
 /* ══════════ TRUST STRIP ══════════ */
-.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 14px;margin-top:30px}
+.trust{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:26px}
 .trust span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:var(--bg-2)}
 .hero-start{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--teal);margin-top:22px;text-align:center}
-.hero-h1{font-size:clamp(33px,5.8vw,72px);letter-spacing:-.045em;font-weight:500;max-width:19ch;
-  line-height:1.05;margin:0 auto 26px;text-align:center;text-wrap:balance}
-
-/* ══════════ ARCHITECTURE DIAGRAM ══════════ */
-.arch{margin-top:clamp(40px,5vw,64px);border:1px solid var(--line);border-radius:18px;
-  background:var(--panel);padding:clamp(26px,4vw,48px) clamp(18px,3vw,40px);text-align:center}
-.arch-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
-.arch-row span{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--dim);
-  border:1px solid var(--line);border-radius:7px;padding:8px 13px;background:var(--bg-2)}
-.arch-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--dimmer);margin-bottom:12px}
-.arch-flow{height:26px;width:1px;background:linear-gradient(180deg,var(--line-2),rgba(31,227,194,.5));
-  margin:16px auto;position:relative}
-.arch-flow::after{content:"";position:absolute;bottom:-1px;left:-3px;width:7px;height:7px;
-  border-right:1px solid var(--teal);border-bottom:1px solid var(--teal);transform:rotate(45deg)}
-.arch-core{border:1px solid rgba(31,227,194,.38);border-radius:14px;
-  background:linear-gradient(180deg,rgba(31,227,194,.08),rgba(31,227,194,.02));
-  padding:clamp(22px,3vw,32px) clamp(16px,2.5vw,28px)}
-.arch-core .ttl{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--teal);margin-bottom:18px}
-.arch-ent{display:flex;flex-wrap:wrap;justify-content:center;gap:7px}
-.arch-ent span{font-size:13px;color:var(--text);border:1px solid var(--line-2);border-radius:999px;
-  padding:6px 13px;background:var(--bg)}
-.arch-mid{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--text)}
-.arch-two{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-.arch-two span{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--text);border:1px solid var(--line-2);border-radius:8px;padding:10px 20px;background:var(--bg-2)}
-.arch-apps{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
-.arch-apps span{font-size:12.5px;color:var(--dim);border:1px solid var(--line);border-radius:7px;
-  padding:7px 13px;background:var(--bg-2)}
-.arch-apps span.on{color:var(--text);border-color:rgba(31,227,194,.4);background:var(--teal-soft)}
-.arch-foot{margin-top:clamp(24px,3vw,34px);padding-top:22px;border-top:1px solid var(--line);
-  font-size:clamp(15px,2vw,19px);color:var(--text);letter-spacing:-.01em}
-
-/* ══════════ THREE LAYERS ══════════ */
-.lay3{display:grid;gap:14px;margin-top:clamp(40px,5vw,64px)}
-@media(min-width:880px){.lay3{grid-template-columns:repeat(3,1fr)}}
-.lay{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:30px 28px 32px}
-.lay .ln{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--teal);display:block;margin-bottom:16px}
-.lay h3{font-size:19px;font-weight:500;letter-spacing:-.02em;margin-bottom:12px;color:var(--text)}
-.lay p{color:var(--dim);font-size:14.5px;line-height:1.62;font-weight:300}
-
-/* ══════════ QUESTION CARDS ══════════ */
-.qs{display:grid;gap:12px;margin-top:clamp(36px,4.5vw,56px)}
-@media(min-width:760px){.qs{grid-template-columns:1fr 1fr}}
-.q{border-left:2px solid var(--line-2);padding:14px 0 14px 20px}
-.q.on{border-left-color:var(--teal)}
-.q .qa{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--dimmer);margin-bottom:8px}
-.q.on .qa{color:var(--teal)}
-.q .qq{color:var(--text);font-size:16px;line-height:1.5;letter-spacing:-.01em}
-
-/* ══════════ CONTRAST (RAG vs GRAPH) ══════════ */
-.vsg{display:grid;gap:16px;margin-top:clamp(40px,5vw,64px)}
-@media(min-width:820px){.vsg{grid-template-columns:1fr 1fr;align-items:start}}
-.vsc{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:30px 28px 34px}
-.vsc.is-us{border-color:rgba(31,227,194,.32);background:linear-gradient(180deg,rgba(31,227,194,.05),var(--panel))}
-.vsc .vh{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--dimmer);margin-bottom:20px}
-.vsc.is-us .vh{color:var(--teal)}
-.chain{display:flex;flex-direction:column;gap:7px}
-.chain span{font-family:var(--mono);font-size:12.5px;color:var(--dim);border:1px solid var(--line);
-  border-radius:7px;padding:9px 13px;background:var(--bg-2)}
-.vsc.is-us .chain span{color:var(--text)}
-.vsc.is-us .chain span:nth-child(2),
-.vsc.is-us .chain span:nth-child(3){border-color:rgba(31,227,194,.3)}
-
-/* ══════════ PROVENANCE DIMENSIONS ══════════ */
-.dims{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-.dims span{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--teal);border:1px solid rgba(31,227,194,.28);border-radius:999px;padding:7px 15px;
-  background:var(--teal-soft)}
-
-/* ══════════ APPLICATION CARDS ══════════ */
-.apcards{display:grid;gap:14px;margin-top:clamp(40px,5vw,64px)}
-@media(min-width:760px){.apcards{grid-template-columns:1fr 1fr}}
-@media(min-width:1100px){.apcards{grid-template-columns:repeat(3,1fr)}}
-.ap{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:28px 26px 30px;
-  display:flex;flex-direction:column;gap:16px}
-.ap.is-live{border-color:rgba(31,227,194,.38);background:linear-gradient(180deg,rgba(31,227,194,.05),var(--panel))}
-.ap-top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
-.ap-top h3{font-size:18px;font-weight:500;letter-spacing:-.02em;color:var(--text);margin-right:auto}
-.ap-f .fk{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--dimmer);display:block;margin-bottom:6px}
-.ap-f .fv{color:var(--dim);font-size:14px;line-height:1.58;font-weight:300}
-.ap-f + .ap-f{margin-top:14px}
-.ap-f .fv em{font-style:normal;color:var(--text)}
+  color:var(--teal);margin-top:22px}
+.hero-h1{font-size:clamp(34px,6.4vw,78px);letter-spacing:-.045em;font-weight:500;max-width:15ch;
+  line-height:1.03;margin-bottom:26px}
 
 /* the hero is a dark plate; the page turns white directly below it */
 .hero-under{padding-bottom:clamp(56px,7vw,84px)}
@@ -775,7 +688,7 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
   "url": "https://neuratrace.co/",
   "logo": "https://neuratrace.co/assets/icon-512.png",
   "slogan": "The Knowledge Graph for Life Sciences",
-  "description": "NeuraTrace connects fragmented data across SAP, LIMS, MES, QMS, RIMS and documents into a trusted context layer for AI, modelling how life-sciences entities relate and preserving evidence and provenance. First application: batch release.",
+  "description": "NeuraTrace models how quality records relate across SAP, LIMS, QMS, MES and documents, and reconstructs the evidence behind every quality decision. First application: batch release.",
   "address": {"@type": "PostalAddress", "addressLocality": "Hyderabad", "addressCountry": "IN"},
   "email": "hello@neuratrace.co"
 }
@@ -816,50 +729,9 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 <section class="band" style="padding-top:clamp(120px,14vw,190px)">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="eyebrow">Applications · Live</span>
-      <h2 class="big">Reconstruct the complete context behind every batch release.</h2>
-      <p class="lede">NeuraTrace connects manufacturing, materials, laboratory results, quality events, specifications and source evidence before the reviewer begins — the first application built on the Life Sciences Knowledge Graph.</p>
-    </div>
-  </div>
-</section>
-
-<section class="claim" style="border-top:none">
-  <div class="wrap">
-    <span class="eyebrow rv">Today</span>
-    <h2 class="rv" data-d="1">The human reviewer has become the <em>integration layer</em>.</h2>
-  </div>
-</section>
-
-<section class="band band--line">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">The current process</span>
-      <h2 class="big">One reviewer, five systems, a printed checklist.</h2>
-    </div>
-    <div class="vsg">
-      <div class="vsc rv">
-        <div class="vh">Today</div>
-        <div class="chain">
-          <span>Reviewer</span><span>SAP</span><span>LIMS</span><span>QMS</span>
-          <span>Chromatography</span><span>Documents</span><span>Excel / checklist</span><span>Decision</span>
-        </div>
-      </div>
-      <div class="vsc is-us rv" data-d="1">
-        <div class="vh">With NeuraTrace</div>
-        <div class="chain">
-          <span>SAP · LIMS · MES · QMS · Docs · CDS</span>
-          <span>NeuraTrace — evidence reconstructed</span>
-          <span>Review workspace</span>
-          <span>Human decision</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="stats rv" style="margin-top:clamp(44px,5.5vw,72px)">
-      <div class="stat"><div class="n">40<small> min</small></div><div class="l">QC review then QA review, per batch — measured at our design partner's site.</div></div>
-      <div class="stat"><div class="n">~4,000</div><div class="l">Samples sitting in the QC review backlog at that single site.</div></div>
-      <div class="stat"><div class="n">5</div><div class="l">Separate systems a reviewer cross-references by hand for one batch.</div></div>
-      <div class="stat"><div class="n">7<small>years</small></div><div class="l">Batch records must stay producible after distribution — 21 CFR 211.180.</div></div>
+      <span class="eyebrow">Security &amp; validation</span>
+      <h2 class="big">Built to operate inside your control boundary.</h2>
+      <p class="lede">NeuraTrace is deployed inside your network, holds no write credentials to any system of record, and produces a structured evidence record for every review that stays producible for the full retention period.</p>
     </div>
   </div>
 </section>
@@ -867,218 +739,71 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 <section class="band band--line">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="eyebrow">What NeuraTrace does</span>
-      <h2 class="big">"Show me everything I need to know about Batch FP-2411-A."</h2>
+      <span class="eyebrow">Architecture</span>
+      <h2 class="big">Read-only is a constraint, not a setting.</h2>
     </div>
     <div class="cols cols-3">
-      <div class="plain rv"><h3>Evidence reconstructed</h3><p>Every record across every connected system that bears on this batch, assembled through the graph rather than by hand.</p></div>
-      <div class="plain rv" data-d="1"><h3>Required records checked</h3><p>Deterministic checks against your own SOPs and STPs, each resolving to expected, actual and the system the value came from.</p></div>
-      <div class="plain rv" data-d="2"><h3>Exceptions surfaced</h3><p>What deserves attention and why, rather than a flat dump of everything the systems hold.</p></div>
-      <div class="plain rv"><h3>Provenance attached</h3><p>Every value names its source system and record, persisted for the full retention period.</p></div>
-      <div class="plain rv" data-d="1"><h3>Observations captured</h3><p>The reviewer must open every flagged item and record what they found before the section closes.</p></div>
-      <div class="plain rv" data-d="2"><h3>Approver stays independent</h3><p>Reviewer and approver are separate roles with separate records. Neither can authorise while a flag is unaddressed.</p></div>
+      <div class="card rv"><span class="ix">CONSTRAINT 01</span><h3>Deterministic, not inferred</h3><p>No model makes a judgment call on GMP data. Whether a standard was expired is a lookup, not an opinion. AI is used only where it cannot make a compliance decision — OCR to digitise paper logbooks, as a supplementary input the reviewer still verifies.</p></div>
+      <div class="card rv" data-d="1"><span class="ix">CONSTRAINT 02</span><h3>On-premise, inside your network</h3><p>NeuraTrace is deployed inside the plant network. GMP data never leaves the site and there is no cloud dependency in the review path. An architectural decision, not a deployment option we offer reluctantly.</p></div>
+      <div class="card rv" data-d="2"><span class="ix">CONSTRAINT 03</span><h3>Read-only, always</h3><p>Every connector is independently read-only. No shared write path exists anywhere in the architecture. We never write to your LIMS, CDS, QMS or SAP, and we do not recommend release. QA keeps the release decision entirely.</p></div>
     </div>
   </div>
 </section>
-<section class="band band--line" id="workspace">
+
+<section class="band band--line">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="eyebrow">Products · The workspace</span>
-      <h2 class="big">Everything behind one AR number, organised the way a reviewer works.</h2>
-      <p class="lede">
-        NeuraTrace pulls every record associated with an AR number across all connected systems and lays it out
-        by test parameter — not by source system. Five review domains, every test parameter, one workspace.
-      </p>
+      <span class="eyebrow">The evidence record</span>
+      <h2 class="big">In 2033, the FDA asks about a batch released in 2026. That is a lookup.</h2>
+      <p class="lede">21 CFR 211.180 requires batch records to stay producible for up to seven years after distribution. Today the review itself leaves behind a paper checklist — and the reviewer who signed it has left the company while the underlying records sit across five systems and a filing cabinet. Every NeuraTrace review produces a persistent structured record instead.</p>
     </div>
 
-    <div class="tabs rv" role="tablist" aria-label="Review domains">
-      <button class="tab" role="tab" id="t-fp" aria-controls="p-fp" aria-selected="true">Finished Product</button>
-      <button class="tab" role="tab" id="t-rm" aria-controls="p-rm" aria-selected="false">Raw Material</button>
-      <button class="tab" role="tab" id="t-pm" aria-controls="p-pm" aria-selected="false">Packing Material</button>
-      <button class="tab" role="tab" id="t-ip" aria-controls="p-ip" aria-selected="false">In-Process</button>
-      <button class="tab" role="tab" id="t-st" aria-controls="p-st" aria-selected="false">Stability</button>
-    </div>
-
-    <div class="panel-out" id="p-fp" role="tabpanel" aria-labelledby="t-fp">
-      <div class="console">
-        <div class="console-bar"><span class="dot"></span><span>AR-2609-0418</span><span class="sep">/</span><span>Paracetamol Tablets 500&nbsp;mg</span><span class="sep">/</span><span>Batch FP-2411-A</span><span class="ro">READ-ONLY</span></div>
-        <div class="console-body">
-          <div class="pane">
-            <div class="pane-h">Test parameters</div>
-            <div class="plist">
-              <div class="prow"><span class="nm">Description &amp; Identification</span><span class="tag tag--ok">Compliant</span></div>
-              <div class="prow"><span class="nm">Assay by HPLC</span><span class="tag tag--ok">Compliant</span></div>
-              <div class="prow is-on"><span class="nm">Related Substances</span><span class="tag tag--crit">2 flags</span></div>
-              <div class="prow"><span class="nm">Dissolution</span><span class="tag tag--ok">Compliant</span></div>
-              <div class="prow"><span class="nm">Water Content by KF</span><span class="tag tag--warn">1 flag</span></div>
-              <div class="prow"><span class="nm">Residual Solvents (GC)</span><span class="tag tag--idle">Not reviewed</span></div>
-            </div>
-            <div class="gate">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2.5" y="6" width="9" height="6.5" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M4.6 6V4.3a2.4 2.4 0 0 1 4.8 0V6" stroke="currentColor" stroke-width="1.3"/></svg>
-              A section cannot be marked reviewed until every flag carries a recorded observation.
-            </div>
-          </div>
-          <div class="pane">
-            <div class="pane-h">Flag 1 of 2 · Related Substances</div>
-            <div class="flag">
-              <div class="flag-h">
-                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1.4 12.2 11.4H.8L6.5 1.4Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M6.5 5.2v2.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="6.5" cy="9.5" r=".75" fill="currentColor"/></svg>
-                CHK-STD-004 · Working standard validity
-              </div>
-              <p class="flag-t">Working standard <strong>WS-PCM-0231</strong> expired before the injection sequence in which it was used.</p>
-              <dl class="kv">
-                <dt>Expected</dt><dd>Valid on 18 Aug 2026</dd>
-                <dt>Actual</dt><dd style="color:var(--crit)">Expiry 12 Aug 2026 — 6 days lapsed</dd>
-                <dt>Used in</dt><dd>Injection sequence 04 · 11 injections</dd>
-                <dt>Source</dt><dd>eLIMS Reference Standard Audit Trail</dd>
-                <dt>Rule basis</dt><dd>SOP/QC/012 §7.3</dd>
-              </dl>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel-out" id="p-rm" role="tabpanel" aria-labelledby="t-rm" hidden>
-      <div class="console">
-        <div class="console-bar"><span class="dot"></span><span>AR-2609-0331</span><span class="sep">/</span><span>Microcrystalline Cellulose</span><span class="ro">1 FLAG OPEN</span></div>
-        <div class="console-body">
-          <div class="pane"><div class="pane-h">Test parameters</div><div class="plist">
-            <div class="prow"><span class="nm">Identification by IR</span><span class="tag tag--ok">Compliant</span></div>
-            <div class="prow"><span class="nm">Loss on Drying</span><span class="tag tag--ok">Compliant</span></div>
-            <div class="prow is-on"><span class="nm">pH of aqueous dispersion</span><span class="tag tag--warn">1 flag</span></div>
-            <div class="prow"><span class="nm">Bulk &amp; Tapped Density</span><span class="tag tag--ok">Compliant</span></div>
-            <div class="prow"><span class="nm">Heavy Metals</span><span class="tag tag--ok">Compliant</span></div>
-          </div></div>
-          <div class="pane"><div class="pane-h">Standalone instruments · paper logbook capture</div><div class="plist">
-            <div class="prow"><span class="nm">pH meter PH-04 — calibration log</span><span class="tag tag--warn">OCR review</span></div>
-            <div class="prow"><span class="nm">Balance BAL-11 — verification log</span><span class="tag tag--ok">Captured</span></div>
-            <div class="prow"><span class="nm">Muffle furnace MF-02 — temp log</span><span class="tag tag--ok">Captured</span></div>
-            <div class="prow"><span class="nm">Karl Fischer KF-03 (tiamo)</span><span class="tag tag--ok">Linked</span></div>
-          </div>
-          <div class="gate"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.6" stroke="currentColor" stroke-width="1.2"/><path d="M7 4.2v3.4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>OCR digitises the logbook. The reviewer still verifies it — the model never decides compliance.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel-out" id="p-pm" role="tabpanel" aria-labelledby="t-pm" hidden>
-      <div class="console">
-        <div class="console-bar"><span class="dot"></span><span>AR-2609-0287</span><span class="sep">/</span><span>Alu-Alu Blister Foil</span><span class="ro">FULLY COMPLIANT</span></div>
-        <div class="console-body">
-          <div class="pane"><div class="pane-h">Test parameters</div><div class="plist">
-            <div class="prow"><span class="nm">Dimensions &amp; GSM</span><span class="tag tag--ok">Compliant</span></div>
-            <div class="prow"><span class="nm">Artwork &amp; Text Verification</span><span class="tag tag--ok">Compliant</span></div>
-            <div class="prow"><span class="nm">Coating Weight</span><span class="tag tag--ok">Compliant</span></div>
-            <div class="prow"><span class="nm">Pinhole Test</span><span class="tag tag--ok">Compliant</span></div>
-          </div></div>
-          <div class="pane"><div class="pane-h">Review layers</div><div class="plist">
-            <div class="prow"><span class="nm">QC re-check layer</span><span class="tag tag--ok">Nothing to find</span></div>
-            <div class="prow"><span class="nm">QA review</span><span class="tag tag--idle">Awaiting reviewer</span></div>
-            <div class="prow"><span class="nm">Evidence record</span><span class="tag tag--ok">Generating</span></div>
-          </div>
-          <div class="gate"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.6" stroke="currentColor" stroke-width="1.2"/><path d="M4.4 7.2 6.2 9l3.4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>For fully compliant batches the QC re-check layer has nothing left to find. That analyst goes back to analysis.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel-out" id="p-ip" role="tabpanel" aria-labelledby="t-ip" hidden>
-      <div class="console">
-        <div class="console-bar"><span class="dot"></span><span>AR-2609-0455</span><span class="sep">/</span><span>Blend Uniformity</span><span class="ro">2 FLAGS OPEN</span></div>
-        <div class="console-body">
-          <div class="pane"><div class="pane-h">Test parameters</div><div class="plist">
-            <div class="prow is-on"><span class="nm">Blend Uniformity (10 locations)</span><span class="tag tag--warn">1 flag</span></div>
-            <div class="prow"><span class="nm">Moisture Content</span><span class="tag tag--ok">Compliant</span></div>
-            <div class="prow"><span class="nm">Tablet Hardness</span><span class="tag tag--ok">Compliant</span></div>
-            <div class="prow"><span class="nm">Friability</span><span class="tag tag--crit">1 flag</span></div>
-          </div></div>
-          <div class="pane"><div class="pane-h">Cross-system context</div><div class="plist">
-            <div class="prow"><span class="nm">Open deviation DEV-2609-114</span><span class="tag tag--crit">Linked</span></div>
-            <div class="prow"><span class="nm">Equipment cleaning record</span><span class="tag tag--ok">Verified</span></div>
-            <div class="prow"><span class="nm">SAP batch stage status</span><span class="tag tag--ok">In process</span></div>
-          </div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel-out" id="p-st" role="tabpanel" aria-labelledby="t-st" hidden>
-      <div class="console">
-        <div class="console-bar"><span class="dot"></span><span>AR-2609-0102</span><span class="sep">/</span><span>40°C / 75% RH · 6 M</span><span class="ro">1 FLAG OPEN</span></div>
-        <div class="console-body">
-          <div class="pane"><div class="pane-h">Test parameters</div><div class="plist">
-            <div class="prow"><span class="nm">Assay</span><span class="tag tag--ok">Compliant</span></div>
-            <div class="prow is-on"><span class="nm">Related Substances</span><span class="tag tag--warn">Trend flag</span></div>
-            <div class="prow"><span class="nm">Dissolution</span><span class="tag tag--ok">Compliant</span></div>
-            <div class="prow"><span class="nm">Water Content</span><span class="tag tag--ok">Compliant</span></div>
-          </div></div>
-          <div class="pane"><div class="pane-h">Station integrity</div><div class="plist">
-            <div class="prow"><span class="nm">Chamber SC-02 excursion log</span><span class="tag tag--ok">No excursion</span></div>
-            <div class="prow"><span class="nm">Pull date within protocol window</span><span class="tag tag--ok">±3 d</span></div>
-            <div class="prow"><span class="nm">Prior interval comparison</span><span class="tag tag--warn">Impurity D rising</span></div>
-          </div></div>
-        </div>
+    <div class="record rv">
+      <div class="record-h">Evidence record · AR-2609-0418 · Related Substances · extract</div>
+      <div class="record-b">
+<span class="k">batch</span>            Paracetamol Tablets 500 mg · FP-2411-A<br>
+<span class="k">parameter</span>        Related Substances<br>
+<span class="k">check_id</span>         CHK-STD-004<br>
+<span class="k">check_basis</span>      SOP/QC/012 §7.3<br>
+<span class="k">source_system</span>    <span class="s">Reference Standard Audit Trail</span><br>
+<span class="k">expected</span>         standard_valid_on = 2026-08-18<br>
+<span class="k">actual</span>           <span class="r">WS-PCM-0231 expiry 2026-08-12</span><br>
+<span class="k">outcome</span>          <span class="r">FLAGGED</span><br>
+<span class="k">related_event</span>    DEV-2609-118<br>
+<span class="k">observation</span>      "Sequence 04 re-run on 21 Aug 2026 with WS-PCM-0244.<br>                  Original sequence excluded from reportable result.<br>                  Deviation DEV-2609-118 raised."<br>
+<span class="k">reviewed_by</span>      QC-REV-0117<br>
+<span class="k">reviewed_at</span>      2026-08-21T14:32:09+05:30<br>
+<span class="k">authorised_by</span>    QA-APR-0042<br>
+<span class="k">authorised_at</span>    2026-08-22T09:14:51+05:30<br>
+<span class="k">retention_until</span>  <span class="g">2033-08-22</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= COMPLIANCE GATE ================= -->
-<section class="band band--line" id="connectors">
+<section class="band band--line">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="eyebrow">Business · Integrations</span>
-      <h2 class="big">Built on the interfaces your site already licenses.</h2>
-      <p class="lede">
-        Each source system has its own independent read-only connector. Both primary integration paths are
-        confirmed and included in licences you already hold — no additional vendor purchase is required.
-      </p>
+      <span class="eyebrow">Validation &amp; compliance</span>
+      <h2 class="big">Everything a GxP site needs to qualify, deploy and inspect it.</h2>
     </div>
-
-    <div class="tbl-wrap rv">
-      <table>
-        <thead><tr><th>System</th><th>Interface</th><th>Retrieved</th><th>Licence</th><th>Connector</th></tr></thead>
-        <tbody>
-          <tr><td>Caliber LIMS</td><td class="m">REST web services</td><td class="m">Sample, results, column injection count, chemicals</td><td class="m">Included in standard site licence</td><td><span class="tag tag--ok">Available</span></td></tr>
-          <tr><td>Waters Empower FR5</td><td class="m">Empower Toolkit (COM/DLL)</td><td class="m">Chromatography, system suitability, sequences</td><td class="m">Free from FR5 onwards</td><td><span class="tag tag--ok">Available</span></td></tr>
-          <tr><td>eLIMS RS Audit Trail</td><td class="m">Caliber web services layer</td><td class="m">Reference standard potency and validity</td><td class="m">Same licence as Caliber</td><td><span class="tag tag--ok">Available</span></td></tr>
-          <tr><td>Metrohm tiamo</td><td class="m">XML export</td><td class="m">Karl Fischer titration results</td><td class="m">Native export</td><td><span class="tag tag--ok">Available</span></td></tr>
-          <tr><td>Shimadzu LabSolutions</td><td class="m">LIMS interface</td><td class="m">GC and HPLC instrument data</td><td class="m">Native interface</td><td><span class="tag tag--ok">Available</span></td></tr>
-          <tr><td>Paper logbooks</td><td class="m">OCR capture</td><td class="m">Standalone instrument logs, verified by reviewer</td><td class="m">—</td><td><span class="tag tag--ok">Available</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="sec-head rv" style="margin-top:clamp(64px,8vw,104px)">
-      <span class="eyebrow">Deployment &amp; validation</span>
-      <h2 class="big">Validated for a regulated site. Installed inside yours.</h2>
-      <p class="lede">NeuraTrace ships as a complete, validated on-premise platform. Everything a GxP site needs to qualify, deploy and inspect it is included.</p>
-    </div>
-
     <div class="status rv">
-      <div class="st"><span class="nm">Five review domains</span><span class="ds">Finished Product, Raw Material, Packing Material, In-Process, Stability — every test parameter section, out of the box.</span><span class="tag tag--ok">Included</span></div>
-      <div class="st"><span class="nm">Reviewer / approver workflow</span><span class="ds">Two-level sign-off with mandatory observation gate and a management dashboard for review throughput.</span><span class="tag tag--ok">Included</span></div>
-      <div class="st"><span class="nm">Read-only connectors</span><span class="ds">Caliber LIMS, Waters Empower FR5, eLIMS RS Audit Trail, Metrohm tiamo, Shimadzu LabSolutions, QMS, SAP and OCR logbook capture.</span><span class="tag tag--ok">Included</span></div>
+      <div class="st"><span class="nm">GAMP 5 Category 4 validation pack</span><span class="ds">URS, FS, DS and IQ/OQ/PQ documentation delivered with every installation.</span><span class="tag tag--ok">Included</span></div>
       <div class="st"><span class="nm">21 CFR Part 11 electronic signatures</span><span class="ds">Compliant e-signature on every review and authorisation, with full audit trail.</span><span class="tag tag--ok">Included</span></div>
       <div class="st"><span class="nm">Role-based access</span><span class="ds">Site directory integration for reviewer, approver and administrator roles.</span><span class="tag tag--ok">Included</span></div>
-      <div class="st"><span class="nm">GAMP 5 Category 4 validation pack</span><span class="ds">URS, FS, DS and IQ/OQ/PQ documentation delivered with every installation.</span><span class="tag tag--ok">Included</span></div>
-      <div class="st"><span class="nm">Reviewer-validated design</span><span class="ds">Built line by line with active QA batch release reviewers at Caliber + Empower FR5 sites.</span><span class="tag tag--ok">Included</span></div>
-    </div>
-
-    <div class="cols cols-2">
-      <div class="card rv"><span class="ix">GETTING STARTED</span><h3>Live in weeks, not quarters</h3><p>Connectors are configured against systems you already run, your SOP checks are loaded at onboarding, and the validation pack is executed with your QA. Your release process stays exactly as it is — NeuraTrace writes nothing back. Reviewers open their first batch with every check already run.</p></div>
-      <div class="card rv" data-d="1"><span class="ix">WHY NOW</span><h3>The inspection pressure is rising</h3><p>The FDA issued 59% more drug and biologics warning letters in FY2025 than FY2024, and 60% of letters to Indian sites cite data integrity. What gets cited is rarely the analysis — it is the inability to evidence that the review happened the way the SOP says it did.</p></div>
+      <div class="st"><span class="nm">Reviewer / approver workflow</span><span class="ds">Two-level sign-off with a mandatory observation gate before any section closes.</span><span class="tag tag--ok">Included</span></div>
+      <div class="st"><span class="nm">Retention</span><span class="ds">Structured evidence records retained for the full 21 CFR 211.180 period and producible on demand.</span><span class="tag tag--ok">Included</span></div>
+      <div class="st"><span class="nm">No write-back</span><span class="ds">No component of NeuraTrace holds write credentials to any system of record.</span><span class="tag tag--ok">Architectural</span></div>
     </div>
   </div>
 </section>
 
-<!-- ================= ABOUT ================= -->
 <section class="band band--line cta">
   <div class="wrap" style="position:relative;z-index:2">
-    <span class="eyebrow rv" style="text-align:center">Start with one decision</span>
+    <span class="eyebrow rv" style="text-align:center">Next step</span>
     <h2 class="big rv">See it run against a batch you already released.</h2>
     <div class="cta-row rv" data-d="1">
-      <a class="pill pill--t pill--lg" href="mailto:hello@neuratrace.co?subject=Run%20a%20historical%20batch">Run a historical batch</a>
+      <a class="pill pill--t pill--lg" href="mailto:hello@neuratrace.co?subject=NeuraTrace%20walkthrough">Request a walkthrough</a>
       <a class="pill pill--lg" href="/">Back to overview</a>
     </div>
   </div>
