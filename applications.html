@@ -29,59 +29,37 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="preload" as="image" href="/assets/hero-poster.jpg">
 
 <script>document.documentElement.classList.add('js');</script>
 <style>
 :root{
   --bg:#FFFFFF;
-  --bg-2:#F2F7F7;
-  --panel:#FAFCFC;
-  --panel-2:#EEF4F4;
-  --line:rgba(8,42,40,.12);
-  --line-2:rgba(8,42,40,.22);
-  --text:#08211F;
-  --dim:#485B5A;
-  --dimmer:#79898A;
-  --teal:#00796B;
-  --teal-2:#006B7C;
-  --teal-soft:rgba(0,121,107,.08);
-  --teal-line:rgba(0,121,107,.30);
-  --ok:#0B7A54;
+  --bg-2:#F4FAFB;
+  --panel:#FFFFFF;
+  --panel-2:#EFF8F9;
+  --line:#DCEAEC;
+  --line-2:#9CC9CE;
+  --text:#0D2A2E;
+  --dim:#4A6166;
+  --dimmer:#459095;
+  --teal:#0E6F76;
+  --teal-2:#0A7361;
+  --teal-soft:#E0F4F5;
+  --teal-line:#9CC9CE;
+  --ok:#0A7361;
   --warn:#8A5A00;
-  --crit:#C0362F;
-  --ink:#04100F;
-  --display:"Outfit","Helvetica Neue",Arial,sans-serif;
-  --body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --crit:#B62533;
+  --crit-soft:#FCE8EA;
+  --ink:#0D2A2E;
+  --display:"Lato","Helvetica Neue",Arial,sans-serif;
+  --body:"Lato","Helvetica Neue",Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --wrap:1240px;
   --pad:clamp(20px,5vw,48px);
 }
 
-/* Hero and code panels stay dark: the hero video is a dark asset and a
-   terminal-style evidence record reads better inverted. Scoped overrides,
-   so every component inside keeps using the same token names. */
-.hero, .overlay, .record{
-  background:#04080A;
-  color:#EAF3F4;
-  --bg:#04080A;
-  --bg-2:#070D10;
-  --panel:#0A1216;
-  --panel-2:#0E181D;
-  --line:rgba(255,255,255,.10);
-  --line-2:rgba(255,255,255,.20);
-  --text:#EAF3F4;
-  --dim:#A2B4B6;
-  --dimmer:#6E8082;
-  --teal:#1FE3C2;
-  --teal-2:#0FB9E8;
-  --teal-soft:rgba(31,227,194,.14);
-  --teal-line:rgba(31,227,194,.42);
-  --ok:#2FE0A0;
-  --warn:#F5B33C;
-  --crit:#FF6B6B;
-}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -765,6 +743,254 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 .rcell{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
 .stats{gap:0;background:var(--panel)}
 .stat{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+/* ══════════ LIGHT HERO ══════════ */
+.hero{position:relative;overflow:hidden;padding-top:clamp(112px,13vw,160px);padding-bottom:0;background:var(--bg)}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 55% at 50% 8%,rgba(0,121,107,.07),transparent 70%);pointer-events:none}
+.hero-under{position:relative;z-index:3;text-align:center;margin-top:0;padding-bottom:clamp(30px,4vw,48px)}
+.hero-figure{position:relative;z-index:2;max-width:760px;margin:clamp(30px,4vw,48px) auto 0;padding-inline:var(--pad)}
+.hero-figure svg{width:100%;height:auto;display:block}
+.hero-h1{color:var(--text)}
+.hero-lede{color:var(--dim)}
+
+/* ══════════ LIGHT OVERLAY MENU ══════════ */
+.overlay{background:var(--bg)}
+.overlay::before{background:radial-gradient(ellipse 70% 60% at 80% 20%,rgba(0,121,107,.07),transparent 65%)}
+.overlay .wm{color:var(--text)}
+.overlay .wm b{color:var(--teal)}
+.overlay .pill--t{color:#fff}
+.overlay .pill--t:hover{background:#00A08C;border-color:#00A08C;color:#fff}
+.overlay .pill:not(.pill--t):hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* ══════════ LIGHT EVIDENCE RECORD ══════════ */
+.record{background:var(--panel);border-color:var(--line)}
+.record-h{background:var(--panel-2);color:var(--dimmer);border-bottom:1px solid var(--line)}
+.record-b{color:var(--text)}
+.record-b .k{color:var(--dimmer)}
+.record-b .s{color:var(--teal)}
+.record-b .g{color:var(--ok)}
+.record-b .r{color:var(--crit)}
+
+/* ══════════ REMAINING DARK SURFACES ══════════ */
+.pill--t{color:#fff}
+.pill--t:hover{background:#00A08C;border-color:#00A08C;color:#fff}
+.tab[aria-selected="true"]{color:#fff}
+.cta{background:var(--bg-2)}
+.claim{background:var(--bg-2)}
+.marq{background:var(--bg-2);border-block:1px solid var(--line)}
+.marq-t span{color:var(--dim)}
+.marq-t span::after{background:var(--teal);opacity:.75}
+.foot{background:var(--bg-2);border-top:1px solid var(--line)}
+.event-thumb.thumb-dark{background:var(--panel-2);border-color:var(--line);color:var(--dim)}
+.arch-ent span,.ent span,.vsc .chain span,.trust span,.chain span{background:var(--bg)}
+.mark:hover .glyph{box-shadow:0 0 0 1px rgba(0,121,107,.35),0 0 24px rgba(0,121,107,.20);transform:translateY(-1px)}
+.glyph{background:var(--bg-2);border:1px solid var(--line)}
+
+/* workspace rows: dark hover/active states left over from the old theme */
+.prow:hover{background:var(--panel-2)}
+.prow.is-on{background:var(--teal-soft);box-shadow:inset 2px 0 0 var(--teal)}
+
+/* the hero is white now, so the nav never sits on dark */
+.nav:not(.solid) .wm,.nav.solid .wm,.foot .wm,.overlay .wm{color:var(--text)}
+.nav:not(.solid) .wm b,.nav.solid .wm b,.foot .wm b,.overlay .wm b{color:var(--teal)}
+.nav:not(.solid) .mark,.nav.solid .mark{color:var(--text)}
+.nav:not(.solid) .mark b{color:var(--teal)}
+.nav:not(.solid) .menu-btn{color:var(--text);border-color:var(--line-2)}
+.nav:not(.solid) .menu-btn:hover{border-color:var(--text)}
+.nav:not(.solid) .pill:not(.pill--t){color:var(--text);border-color:var(--line-2)}
+.hero .pill--t,.overlay .pill--t{color:#fff}
+.hero .pill--t:hover,.overlay .pill--t:hover{background:#00A08C;border-color:#00A08C;color:#fff}
+.hero .pill:not(.pill--t):hover,.overlay .pill:not(.pill--t):hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.hero-figure{margin-top:clamp(18px,2.4vw,30px)}
+
+/* mark-only logo on white; no tile behind it */
+.glyph{background:transparent;border:0;box-shadow:none}
+.mark:hover .glyph{box-shadow:none;transform:translateY(-1px)}
+.cta-glyph{opacity:.9}
+
+/* ══════════════════════════════════════════════════════════════════
+   DECK THEME — palette, type and components matched to NeuraTrace-Deck
+   ══════════════════════════════════════════════════════════════════ */
+
+body{font-family:var(--body);font-weight:400;color:var(--text);background:var(--bg);font-size:17px;line-height:1.6}
+
+/* the deck's soft lab plate, anchored right, behind every page */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:url(/assets/bg-plate.jpg) right top / cover no-repeat;
+  opacity:.5;
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(100deg,#fff 0%,rgba(255,255,255,.94) 42%,rgba(255,255,255,.72) 68%,rgba(255,255,255,.55) 100%);
+}
+section,.marq,.foot{background:transparent}
+.band--line{border-top:1px solid var(--line)}
+
+/* ── type ──────────────────────────────────────────────────────── */
+h1,h2,h3,.big,.hero-h1{font-family:var(--display);font-weight:700;letter-spacing:-.015em;color:var(--text)}
+.big{font-size:clamp(28px,3.8vw,46px);line-height:1.14;max-width:22ch;font-weight:700}
+.hero-h1{font-size:clamp(34px,5vw,62px);line-height:1.08;max-width:15ch;font-weight:700}
+.lede{color:var(--dim);font-size:clamp(16px,1.35vw,18.5px);line-height:1.62;font-weight:400;max-width:62ch}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--dimmer);font-weight:400;margin-bottom:14px}
+.sec-head .big{margin-bottom:20px}
+
+/* ── chips: thin teal outline, as on the deck cover ────────────── */
+.trust span,.arch-ent span,.ent span,.vsc .chain span,.chain span,.arch-row span,.arch-apps span,.dims span{
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;
+  color:var(--text);background:#fff;border:1px solid var(--line-2);border-radius:999px;padding:8px 16px}
+.dims span{color:var(--teal);border-color:var(--teal-line);background:var(--teal-soft);letter-spacing:.18em;font-size:11px}
+.arch-apps span.on{background:var(--teal);border-color:var(--teal);color:#fff}
+
+/* ── cards: white, hairline border, small radius ───────────────── */
+.card,.lay,.ap,.sys,.vsc,.stack,.arch,.vision,.walk,.rule,.record,.gslide,.v-node{
+  background:#fff;border:1px solid var(--line);border-radius:10px}
+.card{padding:26px 24px 28px}
+.card:hover{border-color:var(--line-2);transform:none;background:#fff}
+.card h3,.lay h3,.ap-top h3{font-size:19px;font-weight:700;letter-spacing:-.01em;margin-bottom:10px}
+.card p,.lay p,.plain p{color:var(--dim);font-size:15px;line-height:1.6}
+.ix,.ln,.layer-k,.vh,.walk-h,.record-h,.ap-f .fk,.q .qa,.step-n,.arch-lbl,.gslide figcaption{
+  font-family:var(--mono);color:var(--dimmer)}
+.plain{border-top:1px solid var(--line-2);padding-top:22px}
+.plain h3{font-size:17px;font-weight:700;margin-bottom:8px}
+
+/* ── stats: the deck's light mono numerals ─────────────────────── */
+.stats{border:1px solid var(--line);border-radius:10px;background:#fff;gap:0}
+.stat{background:#fff;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat .n{font-family:var(--mono);font-weight:400;color:var(--text);letter-spacing:-.01em}
+.stat .l{color:var(--dim);font-size:14.5px}
+
+/* ── buttons ───────────────────────────────────────────────────── */
+.pill{font-family:var(--display);font-weight:700;font-size:15px;border-radius:999px;
+  border:1px solid var(--line-2);color:var(--text);background:#fff;padding:11px 24px}
+.pill:hover{background:var(--teal-soft);border-color:var(--teal);color:var(--teal)}
+.pill--t,.hero .pill--t,.overlay .pill--t{background:var(--teal);border-color:var(--teal);color:#fff}
+.pill--t:hover,.hero .pill--t:hover,.overlay .pill--t:hover{background:#0B5C62;border-color:#0B5C62;color:#fff}
+.hero .pill:not(.pill--t):hover,.overlay .pill:not(.pill--t):hover{background:var(--teal-soft);color:var(--teal);border-color:var(--teal)}
+.menu-btn{color:var(--text);border-color:var(--line-2);font-family:var(--mono)}
+.menu-btn:hover{border-color:var(--teal);color:var(--teal)}
+
+/* ── nav / wordmark ────────────────────────────────────────────── */
+.nav.solid{background:rgba(255,255,255,.92);border-bottom-color:var(--line)}
+.nav:not(.solid) .wm,.nav.solid .wm,.foot .wm,.overlay .wm{color:var(--text)}
+.nav:not(.solid) .wm b,.nav.solid .wm b,.foot .wm b,.overlay .wm b{color:var(--teal)}
+.nav:not(.solid) .menu-btn,.nav:not(.solid) .pill:not(.pill--t){color:var(--text);border-color:var(--line-2)}
+.mark .lk{gap:0}
+.mark .glyph{display:none}
+.mark .wm{display:none}
+.mark::before{content:"";display:block;width:188px;height:48px;
+  background:url(/assets/logo-lockup.png) left center / contain no-repeat}
+.mark--sm::before{width:150px;height:38px}
+@media(max-width:620px){.mark::before{width:150px;height:38px}}
+
+/* ── deck's filled teal statement block ────────────────────────── */
+.claim{background:var(--teal);border-top:0;padding:clamp(64px,9vw,110px) 0}
+.claim h2{color:#fff;font-weight:700;font-size:clamp(26px,4vw,48px)}
+.claim h2 em{color:#8FE3E0;font-style:normal}
+.claim .eyebrow{color:rgba(255,255,255,.72)}
+
+/* ── evidence / rules: deck's compliant + blocking states ──────── */
+.rule-h{background:#fff;border-bottom:1px solid var(--line);color:var(--text);font-family:var(--mono);font-size:13px}
+.rule-grid{background:#fff;gap:0}
+.rcell{background:#fff;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rcell .k{color:var(--dimmer);letter-spacing:.18em}
+.rcell .v{font-family:var(--mono);font-size:13px;color:var(--text)}
+.rcell .v.bad{color:var(--crit)}
+.rcell .v.good{color:var(--ok)}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;border-radius:4px;padding:4px 9px}
+.tag--ok{background:var(--teal-soft);color:var(--teal);border:1px solid var(--teal-line)}
+.tag--crit{background:var(--crit-soft);color:var(--crit);border:1px solid rgba(182,37,51,.28)}
+.tag--idle{background:#F4F7F7;color:var(--dim);border:1px solid var(--line)}
+.record{background:#fff}
+.record-h{background:var(--panel-2);border-bottom:1px solid var(--line)}
+.record-b{color:var(--text);font-size:12.5px}
+.record-b .k{color:var(--dimmer)}
+.record-b .s{color:var(--teal)}
+.record-b .g{color:var(--ok)}
+.record-b .r{color:var(--crit)}
+
+/* ── graph / stack panels ──────────────────────────────────────── */
+.arch{background:#fff}
+.arch-core{background:var(--teal-soft);border:1px solid var(--teal-line)}
+.arch-core .ttl{color:var(--teal);letter-spacing:.2em}
+.arch-mid{color:var(--text);font-family:var(--mono);letter-spacing:.16em;font-size:11.5px}
+.arch-two span{background:var(--teal);border-color:var(--teal);color:#fff;font-family:var(--mono)}
+.arch-flow{background:var(--teal-line)}
+.arch-flow::after{border-color:var(--teal)}
+.arch-foot{color:var(--text);font-weight:700;border-top:1px solid var(--line)}
+.layer--top{background:var(--panel-2)}
+.layer{border-bottom:1px solid var(--line)}
+.app{background:#fff;border:1px solid var(--line-2);color:var(--text);font-family:var(--mono);font-size:12.5px}
+.app.is-live{background:var(--teal);border-color:var(--teal);color:#fff}
+.app.is-live .dot{background:#fff;box-shadow:none}
+.app.is-live i{color:rgba(255,255,255,.8)}
+.app .dot{background:var(--line-2)}
+.ap.is-live,.vsc.is-us,.v-node.is-live{background:var(--teal-soft);border-color:var(--teal-line)}
+.q.on{border-left-color:var(--teal)}
+.q .qq{font-family:var(--display);font-weight:700;color:var(--text)}
+.walk-h{background:var(--panel-2);color:var(--text)}
+.walk-f{background:var(--teal-soft)}
+.walk-f .dec{font-weight:700;color:var(--teal)}
+.chk span::before{color:var(--ok)}
+.chk span.w::before{color:var(--crit)}
+.chk span.w{color:var(--crit)}
+.step{border-bottom:1px solid var(--line)}
+.prow:hover{background:var(--panel-2)}
+.prow.is-on{background:var(--teal-soft);box-shadow:inset 2px 0 0 var(--teal)}
+.tab{font-family:var(--display);font-weight:700;border:1px solid var(--line-2);background:#fff;color:var(--text);border-radius:999px}
+.tab[aria-selected="true"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.status .st{background:#fff;border-bottom:1px solid var(--line)}
+.status .nm{font-weight:700;color:var(--text)}
+.status .ds{color:var(--dim)}
+.team .mem{border-top:1px solid var(--line-2)}
+.mem .n{font-family:var(--display);font-weight:700;color:var(--text)}
+.mem .r{color:var(--teal);font-family:var(--mono);font-size:11.5px;letter-spacing:.1em}
+.mem .b{color:var(--dim);font-size:14.5px}
+.marq{background:var(--panel-2);border-block:1px solid var(--line)}
+.marq-t span{font-family:var(--mono);color:var(--dim)}
+.marq-t span::after{background:var(--teal);opacity:.8}
+.foot{border-top:1px solid var(--line);color:var(--dim);font-family:var(--mono);font-size:11.5px}
+.cta{background:var(--panel-2)}
+.cta-glyph{display:none}
+.overlay{background:#fff}
+.overlay::before{background:url(/assets/bg-plate.jpg) right top / cover no-repeat;opacity:.45}
+.ov-links a{font-family:var(--display);font-weight:700;color:var(--text)}
+.ov-links a:hover{color:var(--teal)}
+.ov-foot{font-family:var(--mono);color:var(--dimmer)}
+.tbl-wrap table{font-size:14.5px}
+.tbl-wrap th{font-family:var(--mono);color:var(--dimmer);letter-spacing:.16em;border-bottom:1px solid var(--line-2)}
+.tbl-wrap td{border-bottom:1px solid var(--line);color:var(--dim)}
+.hero-start{font-family:var(--mono);color:var(--teal);letter-spacing:.2em;font-size:12px}
+
+/* ── hero: deck cover layout — copy left, plate right ──────────── */
+.hero{padding-top:clamp(120px,14vw,168px);padding-bottom:clamp(30px,5vw,60px);background:transparent}
+.hero::before{display:none}
+.hero-under{text-align:left;margin-top:0;padding-bottom:0;max-width:760px}
+.hero-lede{max-width:56ch}
+.hero-cta,.trust{justify-content:flex-start}
+.hero-figure{display:none}
+.claim .wrap{text-align:center}
+.claim h2{max-width:24ch;margin:0 auto}
+
+/* hero follows the deck cover: copy left, plate right */
+.hero-h1{text-align:left;margin:0 0 20px;max-width:14ch}
+.hero-lede,.hero-start{text-align:left;margin-left:0}
+.hero-under{text-align:left}
+.hero-cta{justify-content:flex-start;margin-top:26px}
+.trust{justify-content:flex-start}
+.mark::before{width:230px;height:52px}
+.mark--sm::before{width:170px;height:38px}
+@media(max-width:620px){.mark::before{width:168px;height:38px}}
+
+/* plate sits back so copy stays the subject */
+body::before{opacity:.38;background-position:right -40px top -20px}
+body::after{background:linear-gradient(100deg,#fff 0%,rgba(255,255,255,.97) 38%,rgba(255,255,255,.82) 64%,rgba(255,255,255,.66) 100%)}
+
+.marq{padding-block:16px}
+.marq-t span{font-size:12.5px;letter-spacing:.06em;padding-inline:26px}
+
+.hero-under{margin-left:0;margin-right:auto}
 </style>
 
 <script type="application/ld+json">
@@ -784,7 +1010,7 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 <body>
 <header class="nav solid" id="nav">
   <div class="nav-in">
-    <a class="mark" href="/" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
+    <a class="mark" href="/" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256-light.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
     <div class="nav-right">
       <a class="pill pill--t" href="/#contact">Request a walkthrough</a>
       <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="overlay">
@@ -917,7 +1143,7 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="mark mark--sm" href="/" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
+    <a class="mark mark--sm" href="/" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256-light.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
     <span>The Knowledge Graph for Life Sciences · Hyderabad, India</span>
     <span class="right">READ-ONLY · EVIDENCE-LINKED · HUMAN-CONTROLLED</span>
   </div>
@@ -946,18 +1172,6 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
   onScroll();
   window.addEventListener('scroll', onScroll, {passive:true});
 
-
-  /* ---- hero video ---- */
-  var vid = document.querySelector('.hero-vid');
-  if(vid){
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-      vid.removeAttribute('autoplay'); vid.removeAttribute('loop');
-      try{ vid.pause(); }catch(e){}
-    } else {
-      var p = vid.play();
-      if(p && p.catch) p.catch(function(){});
-    }
-  }
 
   /* ---- reveal ---- */
   var items = document.querySelectorAll('.rv');

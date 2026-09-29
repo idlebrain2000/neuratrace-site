@@ -6,8 +6,8 @@
 <title>NeuraTrace — The Knowledge Graph for Life Sciences</title>
 <meta name="description" content="NeuraTrace connects fragmented data across SAP, LIMS, MES, QMS, RIMS and documents into a trusted context layer for AI — modelling how products, batches, materials, tests, equipment and evidence relate. Starting with pharmaceutical quality.">
 <link rel="canonical" href="https://neuratrace.co/">
-<meta name="theme-color" content="#04080A">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NeuraTrace">
@@ -29,33 +29,37 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="preload" as="image" href="/assets/hero-poster.jpg">
 
 <script>document.documentElement.classList.add('js');</script>
 <style>
 :root{
-  --bg:#04080A;
-  --bg-2:#070D10;
-  --panel:#0A1216;
-  --panel-2:#0E181D;
-  --line:rgba(255,255,255,.08);
-  --line-2:rgba(255,255,255,.16);
-  --text:#EAF3F4;
-  --dim:#8FA1A6;
-  --dimmer:#5C6C72;
-  --teal:#1FE3C2;
-  --teal-2:#0FB9E8;
-  --teal-soft:rgba(31,227,194,.12);
-  --ok:#2FE0A0;
-  --warn:#F5B33C;
-  --crit:#FF6B6B;
-  --display:"Outfit","Helvetica Neue",Arial,sans-serif;
-  --body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --bg:#FFFFFF;
+  --bg-2:#F4FAFB;
+  --panel:#FFFFFF;
+  --panel-2:#EFF8F9;
+  --line:#DCEAEC;
+  --line-2:#9CC9CE;
+  --text:#0D2A2E;
+  --dim:#4A6166;
+  --dimmer:#459095;
+  --teal:#0E6F76;
+  --teal-2:#0A7361;
+  --teal-soft:#E0F4F5;
+  --teal-line:#9CC9CE;
+  --ok:#0A7361;
+  --warn:#8A5A00;
+  --crit:#B62533;
+  --crit-soft:#FCE8EA;
+  --ink:#0D2A2E;
+  --display:"Lato","Helvetica Neue",Arial,sans-serif;
+  --body:"Lato","Helvetica Neue",Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --wrap:1240px;
   --pad:clamp(20px,5vw,48px);
 }
+
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -90,9 +94,16 @@ a{color:inherit;text-decoration:none}
 
 /* ================= NAV ================= */
 .nav{position:fixed;top:0;left:0;right:0;z-index:120;transition:background .35s,border-color .35s,backdrop-filter .35s;border-bottom:1px solid transparent}
-.nav.solid{background:rgba(4,8,10,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:var(--line)}
+.nav.solid{background:rgba(255,255,255,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:var(--line)}
+.nav:not(.solid) .mark{color:#fff}
+.nav:not(.solid) .mark b{color:#1FE3C2}
+.nav:not(.solid) .menu-btn{color:#fff;border-color:rgba(255,255,255,.28)}
+.nav:not(.solid) .menu-btn:hover{border-color:var(--text)}
+.nav:not(.solid) .pill:not(.pill--t){color:#fff;border-color:rgba(255,255,255,.28)}
+.nav.solid .mark{color:var(--text)}
+.nav.solid .mark b{color:var(--teal)}
 .nav-in{display:flex;align-items:center;height:74px;max-width:var(--wrap);margin:0 auto;padding-inline:var(--pad);gap:20px}
-.mark{font-family:var(--display);font-weight:400;font-size:21px;letter-spacing:-.02em;color:#fff;position:relative;z-index:130}
+.mark{font-family:var(--display);font-weight:400;font-size:21px;letter-spacing:-.02em;color:var(--text);position:relative;z-index:130}
 .mark b{font-weight:400;color:var(--teal)}
 .nav-right{margin-left:auto;display:flex;align-items:center;gap:14px;position:relative;z-index:130}
 
@@ -102,13 +113,13 @@ a{color:inherit;text-decoration:none}
   border:1px solid var(--line-2);color:var(--text);background:transparent;
   transition:background .25s,color .25s,border-color .25s,transform .25s;cursor:pointer;white-space:nowrap;
 }
-.pill:hover{background:#fff;color:#04080A;border-color:#fff}
-.pill--t{background:var(--teal);border-color:var(--teal);color:#032018}
-.pill--t:hover{background:#5CF0D8;border-color:#5CF0D8;color:#032018}
+.pill:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pill--t{background:var(--teal);border-color:var(--teal);color:#fff}
+.pill--t:hover{background:#00A08C;border-color:#00A08C;color:#fff}
 .pill--lg{padding:15px 30px;font-size:16px}
 
 .menu-btn{display:inline-flex;align-items:center;gap:11px;background:transparent;border:1px solid var(--line-2);border-radius:100px;padding:11px 20px 11px 18px;cursor:pointer;color:var(--text);font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;transition:border-color .25s,background .25s}
-.menu-btn:hover{border-color:#fff}
+.menu-btn:hover{border-color:var(--text)}
 .bars{display:flex;flex-direction:column;gap:4px;width:16px}
 .bars i{display:block;height:1.5px;background:currentColor;border-radius:2px;transition:transform .35s cubic-bezier(.6,0,.2,1),opacity .2s}
 .bars i:first-child{width:16px}
@@ -375,7 +386,7 @@ html:not(.js) .hud{opacity:1;transform:none}
 .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(40px,5vw,58px)}
 .tab{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;padding:11px 19px;border-radius:100px;border:1px solid var(--line);background:transparent;color:var(--dim);cursor:pointer;transition:all .25s}
 .tab:hover{border-color:var(--line-2);color:#fff}
-.tab[aria-selected="true"]{background:var(--teal);border-color:var(--teal);color:#032018}
+.tab[aria-selected="true"]{background:var(--teal);border-color:var(--teal);color:#fff}
 .panel-out[hidden]{display:none}
 
 /* rule */
@@ -396,7 +407,7 @@ tr:last-child td{border-bottom:0}
 td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 
 /* record */
-.record{margin-top:clamp(38px,5vw,54px);border:1px solid var(--line);border-radius:16px;background:#060D10;overflow:hidden}
+.record{margin-top:clamp(38px,5vw,54px);border:1px solid rgba(8,42,40,.16);border-radius:16px;background:#061012;overflow:hidden}
 .record-h{padding:14px 20px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11px;color:var(--dimmer);letter-spacing:.13em;text-transform:uppercase}
 .record-b{padding:24px 20px;font-family:var(--mono);font-size:12.5px;line-height:1.95;overflow-x:auto}
 .record-b .k{color:var(--dimmer)}.record-b .s{color:var(--teal)}.record-b .g{color:var(--ok)}.record-b .r{color:var(--crit)}
@@ -472,7 +483,7 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 .hero-scrim{
   position:absolute;inset:0;pointer-events:none;
   background:
-    linear-gradient(to bottom,rgba(4,8,10,.72) 0%,rgba(4,8,10,0) 15%,rgba(4,8,10,0) 58%,rgba(4,8,10,.86) 89%,var(--bg) 100%),
+    linear-gradient(to bottom,rgba(4,8,10,.72) 0%,rgba(4,8,10,0) 15%,rgba(4,8,10,0) 58%,rgba(4,8,10,.92) 84%,#04080A 100%),
     linear-gradient(to right,rgba(4,8,10,.55) 0%,rgba(4,8,10,0) 13%,rgba(4,8,10,0) 87%,rgba(4,8,10,.55) 100%);
 }
 .hero-under{position:relative;z-index:3;text-align:center;margin-top:clamp(-96px,-7.5vw,-28px);padding-bottom:clamp(18px,3vw,34px)}
@@ -493,7 +504,7 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
   transition:box-shadow .3s,transform .3s;
 }
 .mark:hover .glyph{box-shadow:0 0 0 1px rgba(31,227,194,.45),0 0 30px rgba(31,227,194,.4);transform:translateY(-1px)}
-.wm{font-family:var(--display);font-weight:300;font-size:22px;letter-spacing:-.025em;color:#fff}
+.wm{font-family:var(--display);font-weight:300;font-size:22px;letter-spacing:-.025em;color:var(--text)}
 .wm b{font-weight:300;color:var(--teal)}
 .mark--sm .glyph{width:28px;height:28px;border-radius:8px}
 .mark--sm .wm{font-size:18px}
@@ -638,7 +649,7 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
   color:var(--teal);margin-bottom:18px}
 .arch-ent{display:flex;flex-wrap:wrap;justify-content:center;gap:7px}
 .arch-ent span{font-size:13px;color:var(--text);border:1px solid var(--line-2);border-radius:999px;
-  padding:6px 13px;background:rgba(4,8,10,.5)}
+  padding:6px 13px;background:var(--bg)}
 .arch-mid{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--text)}
 .arch-two{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
 .arch-two span{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
@@ -704,6 +715,282 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 .ap-f .fv{color:var(--dim);font-size:14px;line-height:1.58;font-weight:300}
 .ap-f + .ap-f{margin-top:14px}
 .ap-f .fv em{font-style:normal;color:var(--text)}
+
+/* the hero is a dark plate; the page turns white directly below it */
+.hero-under{padding-bottom:clamp(56px,7vw,84px)}
+.claim{background:var(--bg-2)}
+.arch-ent span,.ent span,.vsc .chain span,.trust span{background:var(--bg)}
+.record-h{color:#7E9093}
+
+/* wordmark inverts with the nav state; footer mark sits on white */
+.nav:not(.solid) .wm{color:#fff}
+.nav:not(.solid) .wm b{color:#1FE3C2}
+.nav.solid .wm{color:var(--text)}
+.nav.solid .wm b{color:var(--teal)}
+.foot .wm{color:var(--text)}
+.foot .wm b{color:var(--teal)}
+.overlay .wm{color:#fff}
+.mark:hover .glyph{box-shadow:0 0 0 1px rgba(0,121,107,.35),0 0 24px rgba(0,121,107,.22);transform:translateY(-1px)}
+
+/* on the dark hero the accent is the bright teal, so the button needs dark ink */
+.hero .pill--t,.overlay .pill--t{color:#032018}
+.hero .pill--t:hover,.overlay .pill--t:hover{background:#5CF0D8;border-color:#5CF0D8;color:#032018}
+.hero .pill:not(.pill--t):hover,.overlay .pill:not(.pill--t):hover{background:#fff;color:#04080A;border-color:#fff}
+
+/* the grid drew hairlines by showing its own background through a 1px gap —
+   invisible on dark, a grey slab on white where the last row is short */
+.rule-grid{gap:0;background:var(--panel)}
+.rcell{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats{gap:0;background:var(--panel)}
+.stat{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+/* ══════════ LIGHT HERO ══════════ */
+.hero{position:relative;overflow:hidden;padding-top:clamp(112px,13vw,160px);padding-bottom:0;background:var(--bg)}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 55% at 50% 8%,rgba(0,121,107,.07),transparent 70%);pointer-events:none}
+.hero-under{position:relative;z-index:3;text-align:center;margin-top:0;padding-bottom:clamp(30px,4vw,48px)}
+.hero-figure{position:relative;z-index:2;max-width:760px;margin:clamp(30px,4vw,48px) auto 0;padding-inline:var(--pad)}
+.hero-figure svg{width:100%;height:auto;display:block}
+.hero-h1{color:var(--text)}
+.hero-lede{color:var(--dim)}
+
+/* ══════════ LIGHT OVERLAY MENU ══════════ */
+.overlay{background:var(--bg)}
+.overlay::before{background:radial-gradient(ellipse 70% 60% at 80% 20%,rgba(0,121,107,.07),transparent 65%)}
+.overlay .wm{color:var(--text)}
+.overlay .wm b{color:var(--teal)}
+.overlay .pill--t{color:#fff}
+.overlay .pill--t:hover{background:#00A08C;border-color:#00A08C;color:#fff}
+.overlay .pill:not(.pill--t):hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* ══════════ LIGHT EVIDENCE RECORD ══════════ */
+.record{background:var(--panel);border-color:var(--line)}
+.record-h{background:var(--panel-2);color:var(--dimmer);border-bottom:1px solid var(--line)}
+.record-b{color:var(--text)}
+.record-b .k{color:var(--dimmer)}
+.record-b .s{color:var(--teal)}
+.record-b .g{color:var(--ok)}
+.record-b .r{color:var(--crit)}
+
+/* ══════════ REMAINING DARK SURFACES ══════════ */
+.pill--t{color:#fff}
+.pill--t:hover{background:#00A08C;border-color:#00A08C;color:#fff}
+.tab[aria-selected="true"]{color:#fff}
+.cta{background:var(--bg-2)}
+.claim{background:var(--bg-2)}
+.marq{background:var(--bg-2);border-block:1px solid var(--line)}
+.marq-t span{color:var(--dim)}
+.marq-t span::after{background:var(--teal);opacity:.75}
+.foot{background:var(--bg-2);border-top:1px solid var(--line)}
+.event-thumb.thumb-dark{background:var(--panel-2);border-color:var(--line);color:var(--dim)}
+.arch-ent span,.ent span,.vsc .chain span,.trust span,.chain span{background:var(--bg)}
+.mark:hover .glyph{box-shadow:0 0 0 1px rgba(0,121,107,.35),0 0 24px rgba(0,121,107,.20);transform:translateY(-1px)}
+.glyph{background:var(--bg-2);border:1px solid var(--line)}
+
+/* workspace rows: dark hover/active states left over from the old theme */
+.prow:hover{background:var(--panel-2)}
+.prow.is-on{background:var(--teal-soft);box-shadow:inset 2px 0 0 var(--teal)}
+
+/* the hero is white now, so the nav never sits on dark */
+.nav:not(.solid) .wm,.nav.solid .wm,.foot .wm,.overlay .wm{color:var(--text)}
+.nav:not(.solid) .wm b,.nav.solid .wm b,.foot .wm b,.overlay .wm b{color:var(--teal)}
+.nav:not(.solid) .mark,.nav.solid .mark{color:var(--text)}
+.nav:not(.solid) .mark b{color:var(--teal)}
+.nav:not(.solid) .menu-btn{color:var(--text);border-color:var(--line-2)}
+.nav:not(.solid) .menu-btn:hover{border-color:var(--text)}
+.nav:not(.solid) .pill:not(.pill--t){color:var(--text);border-color:var(--line-2)}
+.hero .pill--t,.overlay .pill--t{color:#fff}
+.hero .pill--t:hover,.overlay .pill--t:hover{background:#00A08C;border-color:#00A08C;color:#fff}
+.hero .pill:not(.pill--t):hover,.overlay .pill:not(.pill--t):hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.hero-figure{margin-top:clamp(18px,2.4vw,30px)}
+
+/* mark-only logo on white; no tile behind it */
+.glyph{background:transparent;border:0;box-shadow:none}
+.mark:hover .glyph{box-shadow:none;transform:translateY(-1px)}
+.cta-glyph{opacity:.9}
+
+/* ══════════════════════════════════════════════════════════════════
+   DECK THEME — palette, type and components matched to NeuraTrace-Deck
+   ══════════════════════════════════════════════════════════════════ */
+
+body{font-family:var(--body);font-weight:400;color:var(--text);background:var(--bg);font-size:17px;line-height:1.6}
+
+/* the deck's soft lab plate, anchored right, behind every page */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:url(/assets/bg-plate.jpg) right top / cover no-repeat;
+  opacity:.5;
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(100deg,#fff 0%,rgba(255,255,255,.94) 42%,rgba(255,255,255,.72) 68%,rgba(255,255,255,.55) 100%);
+}
+section,.marq,.foot{background:transparent}
+.band--line{border-top:1px solid var(--line)}
+
+/* ── type ──────────────────────────────────────────────────────── */
+h1,h2,h3,.big,.hero-h1{font-family:var(--display);font-weight:700;letter-spacing:-.015em;color:var(--text)}
+.big{font-size:clamp(28px,3.8vw,46px);line-height:1.14;max-width:22ch;font-weight:700}
+.hero-h1{font-size:clamp(34px,5vw,62px);line-height:1.08;max-width:15ch;font-weight:700}
+.lede{color:var(--dim);font-size:clamp(16px,1.35vw,18.5px);line-height:1.62;font-weight:400;max-width:62ch}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--dimmer);font-weight:400;margin-bottom:14px}
+.sec-head .big{margin-bottom:20px}
+
+/* ── chips: thin teal outline, as on the deck cover ────────────── */
+.trust span,.arch-ent span,.ent span,.vsc .chain span,.chain span,.arch-row span,.arch-apps span,.dims span{
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;
+  color:var(--text);background:#fff;border:1px solid var(--line-2);border-radius:999px;padding:8px 16px}
+.dims span{color:var(--teal);border-color:var(--teal-line);background:var(--teal-soft);letter-spacing:.18em;font-size:11px}
+.arch-apps span.on{background:var(--teal);border-color:var(--teal);color:#fff}
+
+/* ── cards: white, hairline border, small radius ───────────────── */
+.card,.lay,.ap,.sys,.vsc,.stack,.arch,.vision,.walk,.rule,.record,.gslide,.v-node{
+  background:#fff;border:1px solid var(--line);border-radius:10px}
+.card{padding:26px 24px 28px}
+.card:hover{border-color:var(--line-2);transform:none;background:#fff}
+.card h3,.lay h3,.ap-top h3{font-size:19px;font-weight:700;letter-spacing:-.01em;margin-bottom:10px}
+.card p,.lay p,.plain p{color:var(--dim);font-size:15px;line-height:1.6}
+.ix,.ln,.layer-k,.vh,.walk-h,.record-h,.ap-f .fk,.q .qa,.step-n,.arch-lbl,.gslide figcaption{
+  font-family:var(--mono);color:var(--dimmer)}
+.plain{border-top:1px solid var(--line-2);padding-top:22px}
+.plain h3{font-size:17px;font-weight:700;margin-bottom:8px}
+
+/* ── stats: the deck's light mono numerals ─────────────────────── */
+.stats{border:1px solid var(--line);border-radius:10px;background:#fff;gap:0}
+.stat{background:#fff;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat .n{font-family:var(--mono);font-weight:400;color:var(--text);letter-spacing:-.01em}
+.stat .l{color:var(--dim);font-size:14.5px}
+
+/* ── buttons ───────────────────────────────────────────────────── */
+.pill{font-family:var(--display);font-weight:700;font-size:15px;border-radius:999px;
+  border:1px solid var(--line-2);color:var(--text);background:#fff;padding:11px 24px}
+.pill:hover{background:var(--teal-soft);border-color:var(--teal);color:var(--teal)}
+.pill--t,.hero .pill--t,.overlay .pill--t{background:var(--teal);border-color:var(--teal);color:#fff}
+.pill--t:hover,.hero .pill--t:hover,.overlay .pill--t:hover{background:#0B5C62;border-color:#0B5C62;color:#fff}
+.hero .pill:not(.pill--t):hover,.overlay .pill:not(.pill--t):hover{background:var(--teal-soft);color:var(--teal);border-color:var(--teal)}
+.menu-btn{color:var(--text);border-color:var(--line-2);font-family:var(--mono)}
+.menu-btn:hover{border-color:var(--teal);color:var(--teal)}
+
+/* ── nav / wordmark ────────────────────────────────────────────── */
+.nav.solid{background:rgba(255,255,255,.92);border-bottom-color:var(--line)}
+.nav:not(.solid) .wm,.nav.solid .wm,.foot .wm,.overlay .wm{color:var(--text)}
+.nav:not(.solid) .wm b,.nav.solid .wm b,.foot .wm b,.overlay .wm b{color:var(--teal)}
+.nav:not(.solid) .menu-btn,.nav:not(.solid) .pill:not(.pill--t){color:var(--text);border-color:var(--line-2)}
+.mark .lk{gap:0}
+.mark .glyph{display:none}
+.mark .wm{display:none}
+.mark::before{content:"";display:block;width:188px;height:48px;
+  background:url(/assets/logo-lockup.png) left center / contain no-repeat}
+.mark--sm::before{width:150px;height:38px}
+@media(max-width:620px){.mark::before{width:150px;height:38px}}
+
+/* ── deck's filled teal statement block ────────────────────────── */
+.claim{background:var(--teal);border-top:0;padding:clamp(64px,9vw,110px) 0}
+.claim h2{color:#fff;font-weight:700;font-size:clamp(26px,4vw,48px)}
+.claim h2 em{color:#8FE3E0;font-style:normal}
+.claim .eyebrow{color:rgba(255,255,255,.72)}
+
+/* ── evidence / rules: deck's compliant + blocking states ──────── */
+.rule-h{background:#fff;border-bottom:1px solid var(--line);color:var(--text);font-family:var(--mono);font-size:13px}
+.rule-grid{background:#fff;gap:0}
+.rcell{background:#fff;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rcell .k{color:var(--dimmer);letter-spacing:.18em}
+.rcell .v{font-family:var(--mono);font-size:13px;color:var(--text)}
+.rcell .v.bad{color:var(--crit)}
+.rcell .v.good{color:var(--ok)}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;border-radius:4px;padding:4px 9px}
+.tag--ok{background:var(--teal-soft);color:var(--teal);border:1px solid var(--teal-line)}
+.tag--crit{background:var(--crit-soft);color:var(--crit);border:1px solid rgba(182,37,51,.28)}
+.tag--idle{background:#F4F7F7;color:var(--dim);border:1px solid var(--line)}
+.record{background:#fff}
+.record-h{background:var(--panel-2);border-bottom:1px solid var(--line)}
+.record-b{color:var(--text);font-size:12.5px}
+.record-b .k{color:var(--dimmer)}
+.record-b .s{color:var(--teal)}
+.record-b .g{color:var(--ok)}
+.record-b .r{color:var(--crit)}
+
+/* ── graph / stack panels ──────────────────────────────────────── */
+.arch{background:#fff}
+.arch-core{background:var(--teal-soft);border:1px solid var(--teal-line)}
+.arch-core .ttl{color:var(--teal);letter-spacing:.2em}
+.arch-mid{color:var(--text);font-family:var(--mono);letter-spacing:.16em;font-size:11.5px}
+.arch-two span{background:var(--teal);border-color:var(--teal);color:#fff;font-family:var(--mono)}
+.arch-flow{background:var(--teal-line)}
+.arch-flow::after{border-color:var(--teal)}
+.arch-foot{color:var(--text);font-weight:700;border-top:1px solid var(--line)}
+.layer--top{background:var(--panel-2)}
+.layer{border-bottom:1px solid var(--line)}
+.app{background:#fff;border:1px solid var(--line-2);color:var(--text);font-family:var(--mono);font-size:12.5px}
+.app.is-live{background:var(--teal);border-color:var(--teal);color:#fff}
+.app.is-live .dot{background:#fff;box-shadow:none}
+.app.is-live i{color:rgba(255,255,255,.8)}
+.app .dot{background:var(--line-2)}
+.ap.is-live,.vsc.is-us,.v-node.is-live{background:var(--teal-soft);border-color:var(--teal-line)}
+.q.on{border-left-color:var(--teal)}
+.q .qq{font-family:var(--display);font-weight:700;color:var(--text)}
+.walk-h{background:var(--panel-2);color:var(--text)}
+.walk-f{background:var(--teal-soft)}
+.walk-f .dec{font-weight:700;color:var(--teal)}
+.chk span::before{color:var(--ok)}
+.chk span.w::before{color:var(--crit)}
+.chk span.w{color:var(--crit)}
+.step{border-bottom:1px solid var(--line)}
+.prow:hover{background:var(--panel-2)}
+.prow.is-on{background:var(--teal-soft);box-shadow:inset 2px 0 0 var(--teal)}
+.tab{font-family:var(--display);font-weight:700;border:1px solid var(--line-2);background:#fff;color:var(--text);border-radius:999px}
+.tab[aria-selected="true"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.status .st{background:#fff;border-bottom:1px solid var(--line)}
+.status .nm{font-weight:700;color:var(--text)}
+.status .ds{color:var(--dim)}
+.team .mem{border-top:1px solid var(--line-2)}
+.mem .n{font-family:var(--display);font-weight:700;color:var(--text)}
+.mem .r{color:var(--teal);font-family:var(--mono);font-size:11.5px;letter-spacing:.1em}
+.mem .b{color:var(--dim);font-size:14.5px}
+.marq{background:var(--panel-2);border-block:1px solid var(--line)}
+.marq-t span{font-family:var(--mono);color:var(--dim)}
+.marq-t span::after{background:var(--teal);opacity:.8}
+.foot{border-top:1px solid var(--line);color:var(--dim);font-family:var(--mono);font-size:11.5px}
+.cta{background:var(--panel-2)}
+.cta-glyph{display:none}
+.overlay{background:#fff}
+.overlay::before{background:url(/assets/bg-plate.jpg) right top / cover no-repeat;opacity:.45}
+.ov-links a{font-family:var(--display);font-weight:700;color:var(--text)}
+.ov-links a:hover{color:var(--teal)}
+.ov-foot{font-family:var(--mono);color:var(--dimmer)}
+.tbl-wrap table{font-size:14.5px}
+.tbl-wrap th{font-family:var(--mono);color:var(--dimmer);letter-spacing:.16em;border-bottom:1px solid var(--line-2)}
+.tbl-wrap td{border-bottom:1px solid var(--line);color:var(--dim)}
+.hero-start{font-family:var(--mono);color:var(--teal);letter-spacing:.2em;font-size:12px}
+
+/* ── hero: deck cover layout — copy left, plate right ──────────── */
+.hero{padding-top:clamp(120px,14vw,168px);padding-bottom:clamp(30px,5vw,60px);background:transparent}
+.hero::before{display:none}
+.hero-under{text-align:left;margin-top:0;padding-bottom:0;max-width:760px}
+.hero-lede{max-width:56ch}
+.hero-cta,.trust{justify-content:flex-start}
+.hero-figure{display:none}
+.claim .wrap{text-align:center}
+.claim h2{max-width:24ch;margin:0 auto}
+
+/* hero follows the deck cover: copy left, plate right */
+.hero-h1{text-align:left;margin:0 0 20px;max-width:14ch}
+.hero-lede,.hero-start{text-align:left;margin-left:0}
+.hero-under{text-align:left}
+.hero-cta{justify-content:flex-start;margin-top:26px}
+.trust{justify-content:flex-start}
+.mark::before{width:230px;height:52px}
+.mark--sm::before{width:170px;height:38px}
+@media(max-width:620px){.mark::before{width:168px;height:38px}}
+
+/* plate sits back so copy stays the subject */
+body::before{opacity:.38;background-position:right -40px top -20px}
+body::after{background:linear-gradient(100deg,#fff 0%,rgba(255,255,255,.97) 38%,rgba(255,255,255,.82) 64%,rgba(255,255,255,.66) 100%)}
+
+.marq{padding-block:16px}
+.marq-t span{font-size:12.5px;letter-spacing:.06em;padding-inline:26px}
+
+.hero-under{margin-left:0;margin-right:auto}
 </style>
 
 <script type="application/ld+json">
@@ -724,7 +1011,7 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 <!-- ================= NAV ================= -->
 <header class="nav" id="nav">
   <div class="nav-in">
-    <a class="mark" href="#top" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
+    <a class="mark" href="#top" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256-light.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
     <div class="nav-right">
       <a class="pill pill--t" href="#contact">Request a walkthrough</a>
       <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="overlay">
@@ -756,14 +1043,6 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 
 <!-- ================= HERO ================= -->
 <section class="hero">
-  <div class="hero-media">
-    <video class="hero-vid" autoplay muted loop playsinline preload="auto"
-           poster="/assets/hero-poster.jpg" aria-label="Instrument data, chemical structure, sample, batch record, audit trail and review converging into one verified molecule">
-      <source src="/assets/hero.mp4" type="video/mp4">
-    </video>
-    <div class="hero-scrim" aria-hidden="true"></div>
-  </div>
-
   <div class="wrap hero-under">
     <h1 class="hero-h1">The Knowledge Graph for Life Sciences.</h1>
     <p class="lede hero-lede">
@@ -780,6 +1059,47 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
     <div class="trust">
       <span>Read-only</span><span>Evidence-linked</span><span>Human-controlled</span><span>Deploys inside your environment</span>
     </div>
+  </div>
+  <div class="hero-figure" aria-hidden="true">
+    <svg viewBox="0 0 760 300" role="img" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <title>A knowledge graph connecting systems of record to a central batch entity</title>
+      <g stroke="#00796B" stroke-opacity=".28" stroke-width="1.25">
+        <path d="M92 64 L380 150"/><path d="M236 44 L380 150"/><path d="M380 40 L380 150"/>
+        <path d="M524 44 L380 150"/><path d="M668 64 L380 150"/>
+        <path d="M380 150 L150 236"/><path d="M380 150 L295 256"/><path d="M380 150 L465 256"/>
+        <path d="M380 150 L610 236"/>
+        <path d="M150 236 L295 256"/><path d="M465 256 L610 236"/>
+      </g>
+      <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#485B5A" text-anchor="middle">
+        <g fill="#00796B">
+          <rect x="52" y="52" width="80" height="26" rx="13" fill="#F2F7F7" stroke="#00796B" stroke-opacity=".3"/>
+          <text x="92" y="69">SAP</text>
+          <rect x="196" y="32" width="80" height="26" rx="13" fill="#F2F7F7" stroke="#00796B" stroke-opacity=".3"/>
+          <text x="236" y="49">LIMS</text>
+          <rect x="340" y="28" width="80" height="26" rx="13" fill="#F2F7F7" stroke="#00796B" stroke-opacity=".3"/>
+          <text x="380" y="45">MES</text>
+          <rect x="484" y="32" width="80" height="26" rx="13" fill="#F2F7F7" stroke="#00796B" stroke-opacity=".3"/>
+          <text x="524" y="49">QMS</text>
+          <rect x="628" y="52" width="80" height="26" rx="13" fill="#F2F7F7" stroke="#00796B" stroke-opacity=".3"/>
+          <text x="668" y="69">RIMS</text>
+        </g>
+      </g>
+      <circle cx="380" cy="150" r="46" fill="#00796B"/>
+      <circle cx="380" cy="150" r="60" stroke="#00796B" stroke-opacity=".22"/>
+      <circle cx="380" cy="150" r="76" stroke="#00796B" stroke-opacity=".12"/>
+      <text x="380" y="155" font-family="IBM Plex Mono, monospace" font-size="12"
+            fill="#FFFFFF" text-anchor="middle" letter-spacing="1">BATCH</text>
+      <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#485B5A" text-anchor="middle">
+        <rect x="100" y="224" width="100" height="26" rx="13" fill="#FFFFFF" stroke="#00796B" stroke-opacity=".3"/>
+        <text x="150" y="241">MATERIAL</text>
+        <rect x="243" y="244" width="104" height="26" rx="13" fill="#FFFFFF" stroke="#00796B" stroke-opacity=".3"/>
+        <text x="295" y="261">TEST</text>
+        <rect x="413" y="244" width="104" height="26" rx="13" fill="#FFFFFF" stroke="#00796B" stroke-opacity=".3"/>
+        <text x="465" y="261">DEVIATION</text>
+        <rect x="560" y="224" width="100" height="26" rx="13" fill="#FFFFFF" stroke="#00796B" stroke-opacity=".3"/>
+        <text x="610" y="241">EVIDENCE</text>
+      </g>
+    </svg>
   </div>
 </section>
 
@@ -1227,7 +1547,7 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 <!-- ================= CONTACT ================= -->
 <section class="band band--line cta" id="contact">
   <div class="wrap" style="position:relative;z-index:2">
-    <img class="cta-glyph rv" src="/assets/icon-256.png" alt="" width="256" height="256">
+    <img class="cta-glyph rv" src="/assets/icon-256-light.png" alt="" width="256" height="256">
     <span class="eyebrow rv" style="text-align:center">Start with one decision</span>
     <h2 class="big rv">See it run against a batch you already released.</h2>
     <p class="lede rv" data-d="1" style="text-align:center">
@@ -1244,7 +1564,7 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="mark mark--sm" href="#top" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
+    <a class="mark mark--sm" href="#top" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256-light.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
     <span>The Knowledge Graph for Life Sciences · Hyderabad, India</span>
     <span class="right">READ-ONLY · EVIDENCE-LINKED · HUMAN-CONTROLLED</span>
   </div>
@@ -1274,18 +1594,6 @@ td.m{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
   onScroll();
   window.addEventListener('scroll', onScroll, {passive:true});
 
-
-  /* ---- hero video ---- */
-  var vid = document.querySelector('.hero-vid');
-  if(vid){
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-      vid.removeAttribute('autoplay'); vid.removeAttribute('loop');
-      try{ vid.pause(); }catch(e){}
-    } else {
-      var p = vid.play();
-      if(p && p.catch) p.catch(function(){});
-    }
-  }
 
   /* ---- reveal ---- */
   var items = document.querySelectorAll('.rv');
