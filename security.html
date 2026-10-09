@@ -1438,6 +1438,14 @@ h1,h2,h3,.big,.hero-h1,.xt,.q .qq,.stepc h3,.pers h3,.ap-top h3,.lay h3,.card h3
   gap:clamp(20px,3vw,44px)}
 .hviz{margin-right:calc(var(--pad) * -0.6)}
 @media(max-width:980px){.hviz{margin-right:0}}
+
+/* new brand artwork is already light-on-dark — never invert it */
+.mark::before,.nav:not(.solid) .mark::before,.nav.solid .mark::before,
+.foot .mark--sm::before,.overlay .mark::before{filter:none !important}
+.mark::before{width:206px;height:46px}
+.mark--sm::before{width:170px;height:38px}
+@media(max-width:620px){.mark::before{width:150px;height:34px}}
+@media(max-width:400px){.mark::before{width:132px;height:30px}}
 </style>
 
 <script type="application/ld+json">
