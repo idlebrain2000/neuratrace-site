@@ -1533,6 +1533,16 @@ h1,h2,h3,.big,.hero-h1,.xt,.q .qq,.stepc h3,.pers h3,.ap-top h3,.lay h3,.card h3
 .mark--sm::before{width:170px;height:38px}
 @media(max-width:620px){.mark::before{width:150px;height:34px}}
 @media(max-width:400px){.mark::before{width:132px;height:30px}}
+
+/* brand artwork: compact lockup in the chrome (tagline is sub-pixel at nav size) */
+.mark::before,.nav:not(.solid) .mark::before,.nav.solid .mark::before,
+.foot .mark--sm::before,.overlay .mark::before{filter:none !important}
+.mark::before{background:url(/assets/logo-nav.png) left center / contain no-repeat;
+  width:188px;height:34px}
+.mark--sm::before{background:url(/assets/logo-nav.png) left center / contain no-repeat;
+  width:156px;height:28px}
+@media(max-width:620px){.mark::before{width:150px;height:27px}}
+@media(max-width:400px){.mark::before{width:130px;height:23px}}
 </style>
 
 <script type="application/ld+json">
