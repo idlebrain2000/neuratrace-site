@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NeuraTrace — The Knowledge Graph for Life Sciences</title>
-<meta name="description" content="NeuraTrace connects fragmented data across SAP, LIMS, MES, QMS, RIMS and documents into a trusted context layer for AI — modelling how products, batches, materials, tests, equipment and evidence relate. Starting with pharmaceutical quality.">
+<title>NeuraTrace — Give QA more time for quality, less time chasing records</title>
+<meta name="description" content="NeuraTrace connects batch records, analytical results, deviations and supporting documents into one evidence-linked review — so pharma QA spends less time assembling evidence and more time making defensible quality decisions.">
 <link rel="canonical" href="https://neuratrace.co/">
-<meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#07151e">
+<meta name="color-scheme" content="dark">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NeuraTrace">
-<meta property="og:title" content="NeuraTrace — The Knowledge Graph for Life Sciences">
-<meta property="og:description" content="NeuraTrace connects fragmented life-sciences data into a trusted context layer for AI — modelling how products, batches, materials, tests, equipment, deviations and evidence relate. Starting with pharmaceutical quality.">
+<meta property="og:title" content="NeuraTrace — Give QA more time for quality, less time chasing records">
+<meta property="og:description" content="Pharma QA teams spend hours assembling evidence across LIMS, QMS, MES, ERP and documents. NeuraTrace connects it into one evidence-linked review. Read-only. QA decides.">
 <meta property="og:url" content="https://neuratrace.co/">
 <meta property="og:image" content="https://neuratrace.co/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="NeuraTrace — The Knowledge Graph for Life Sciences">
-<meta name="twitter:description" content="The trusted context layer that connects fragmented life-sciences data and gives AI the evidence it needs to reason. Starting with pharmaceutical quality.">
+<meta name="twitter:title" content="NeuraTrace — Give QA more time for quality, less time chasing records">
+<meta name="twitter:description" content="Less time assembling evidence. More time on defensible quality decisions.">
 <meta name="twitter:image" content="https://neuratrace.co/assets/og.jpg">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -29,32 +29,36 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="preload" as="image" href="/assets/hero-poster.jpg">
 
 <script>document.documentElement.classList.add('js');</script>
 <style>
 :root{
-  --bg:#FFFFFF;
-  --bg-2:#F4FAFB;
-  --panel:#FFFFFF;
-  --panel-2:#EFF8F9;
-  --line:#DCEAEC;
-  --line-2:#9CC9CE;
-  --text:#0D2A2E;
-  --dim:#4A6166;
-  --dimmer:#459095;
-  --teal:#0E6F76;
-  --teal-2:#0A7361;
-  --teal-soft:#E0F4F5;
-  --teal-line:#9CC9CE;
-  --ok:#0A7361;
-  --warn:#8A5A00;
-  --crit:#B62533;
-  --crit-soft:#FCE8EA;
-  --ink:#0D2A2E;
-  --display:"Lato","Helvetica Neue",Arial,sans-serif;
-  --body:"Lato","Helvetica Neue",Arial,sans-serif;
+  --bg:#07151e;
+  --bg-2:#0b202a;
+  --panel:#0e2934;
+  --panel-2:#13303b;
+  --surface:#0e2934;
+  --line:rgba(130,232,214,.16);
+  --line-2:rgba(130,232,214,.30);
+  --text:#effcf9;
+  --dim:#a2bdc1;
+  --dimmer:#7fa2a9;
+  --teal:#53e6c5;
+  --teal-deep:#1b6965;
+  --blue:#8bb7ff;
+  --violet:#b7a3ff;
+  --teal-2:#8bb7ff;
+  --teal-soft:rgba(83,230,197,.10);
+  --teal-line:rgba(83,230,197,.34);
+  --ok:#53e6c5;
+  --warn:#ffc46b;
+  --crit:#ff8a8a;
+  --crit-soft:rgba(255,138,138,.10);
+  --ink:#07151e;
+  --display:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --wrap:1240px;
   --pad:clamp(20px,5vw,48px);
@@ -1061,6 +1065,744 @@ body.menu-open .nav-right .pill--t{display:none}
   body::after{background:linear-gradient(180deg,rgba(255,255,255,.90) 0%,rgba(255,255,255,.97) 45%,#fff 100%)}
   .overlay::before{opacity:.10;background-size:auto 55vh}
 }
+
+/* ══════════════════════════════════════════════════════════════
+   LIFE — subtle motion and depth. All of it respects
+   prefers-reduced-motion at the bottom of this block.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── section rhythm: alternating washes instead of one flat sheet ── */
+section:nth-of-type(even){background:linear-gradient(180deg,rgba(224,244,245,.34),rgba(224,244,245,.12))}
+section.claim,section.cta{background:var(--teal)}
+section.cta{background:linear-gradient(140deg,#0E6F76,#0A5A66)}
+.band--line{border-top:1px solid transparent;
+  border-image:linear-gradient(90deg,transparent,var(--line-2) 18%,var(--line-2) 82%,transparent) 1}
+
+/* ── hero ─────────────────────────────────────────────────────── */
+.hero{padding-bottom:clamp(20px,3vw,40px)}
+.hero-figure{display:block;max-width:720px;margin:clamp(6px,2vw,22px) 0 0;padding:0}
+.hero-figure svg{width:100%;height:auto;overflow:visible}
+
+.g-edge path{
+  stroke:var(--teal);stroke-width:1.15;stroke-opacity:.34;
+  stroke-dasharray:5 9;
+  animation:flow 9s linear infinite;
+}
+.g-edge path:nth-child(2n){animation-duration:11s}
+.g-edge path:nth-child(3n){animation-duration:13s;stroke-opacity:.24}
+@keyframes flow{to{stroke-dashoffset:-140}}
+
+.g-node rect{fill:#fff;stroke:var(--teal-line);stroke-width:1}
+.g-node text{font-family:var(--mono);font-size:11px;fill:var(--dim);text-anchor:middle;letter-spacing:.06em}
+.g-node .n{animation:breathe 7s ease-in-out infinite;animation-delay:var(--d,0s);transform-box:fill-box;transform-origin:center}
+@keyframes breathe{0%,100%{opacity:.82}50%{opacity:1}}
+.g-node.out rect{fill:var(--bg-2)}
+
+.g-core .core{fill:var(--teal)}
+.g-core text{font-family:var(--mono);font-size:12px;fill:#fff;text-anchor:middle;letter-spacing:.14em}
+.g-core .ring{fill:none;stroke:var(--teal);stroke-width:1;transform-box:fill-box;transform-origin:center}
+.g-core .r1{stroke-opacity:.30;animation:pulse 5.5s ease-out infinite}
+.g-core .r2{stroke-opacity:.18;animation:pulse 5.5s ease-out infinite 1.1s}
+.g-core .r3{stroke-opacity:.10;animation:pulse 5.5s ease-out infinite 2.2s}
+@keyframes pulse{0%{transform:scale(.72);opacity:0}25%{opacity:1}100%{transform:scale(1.18);opacity:0}}
+
+/* ── headline reveal ──────────────────────────────────────────── */
+.hero-h1{opacity:0;animation:rise-in .85s cubic-bezier(.2,.7,.3,1) .05s forwards}
+.hero-lede{opacity:0;animation:rise-in .85s cubic-bezier(.2,.7,.3,1) .18s forwards}
+.hero-start{opacity:0;animation:rise-in .85s cubic-bezier(.2,.7,.3,1) .28s forwards}
+.hero-cta{opacity:0;animation:rise-in .85s cubic-bezier(.2,.7,.3,1) .36s forwards}
+.trust{opacity:0;animation:rise-in .85s cubic-bezier(.2,.7,.3,1) .44s forwards}
+.hero-figure{opacity:0;animation:rise-in 1.1s cubic-bezier(.2,.7,.3,1) .5s forwards}
+@keyframes rise-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* ── eyebrows get a small teal rule ───────────────────────────── */
+.eyebrow{display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--teal);opacity:.55;flex:none}
+.claim .eyebrow{justify-content:center}
+.claim .eyebrow::before{background:rgba(255,255,255,.5)}
+
+/* ── cards: lift, teal top edge, soft shadow ──────────────────── */
+.card,.lay,.ap,.sys,.vsc,.v-node,.gslide{
+  position:relative;overflow:hidden;
+  transition:transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .4s,border-color .4s}
+.card::after,.lay::after,.ap::after,.sys::after{
+  content:"";position:absolute;inset:0 auto auto 0;height:2px;width:100%;
+  background:linear-gradient(90deg,var(--teal),#3FB6AE);
+  transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.card:hover,.lay:hover,.ap:hover,.sys:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 34px -18px rgba(14,111,118,.42),0 2px 8px -4px rgba(14,111,118,.16);
+  border-color:var(--teal-line)}
+.card:hover::after,.lay:hover::after,.ap:hover::after,.sys:hover::after{transform:scaleX(1)}
+
+/* ── chips fill on hover ──────────────────────────────────────── */
+.trust span,.arch-ent span,.ent span,.chain span,.arch-row span,.arch-apps span{
+  transition:background .3s,border-color .3s,color .3s,transform .3s}
+.trust span:hover,.arch-ent span:hover,.ent span:hover,.arch-row span:hover{
+  background:var(--teal-soft);border-color:var(--teal);color:var(--teal);transform:translateY(-1px)}
+
+/* ── the live dot actually pulses ─────────────────────────────── */
+.app.is-live .dot,.tag--ok::before{position:relative}
+.app.is-live .dot{animation:blip 2.4s ease-in-out infinite}
+@keyframes blip{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.55)}60%{box-shadow:0 0 0 6px rgba(255,255,255,0)}}
+
+/* ── architecture flow arrows travel ──────────────────────────── */
+.arch-flow{position:relative;overflow:hidden;background:var(--line-2)}
+.arch-flow::before{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent,var(--teal),transparent);
+  animation:travel 2.8s ease-in-out infinite}
+@keyframes travel{0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}
+
+/* ── stat numerals ────────────────────────────────────────────── */
+.stat{transition:background .35s}
+.stat:hover{background:var(--panel-2)}
+.stat .n{transition:color .35s}
+.stat:hover .n{color:var(--teal)}
+
+/* ── buttons get a little weight ──────────────────────────────── */
+.pill{transition:background .3s,color .3s,border-color .3s,transform .25s,box-shadow .3s}
+.pill--t{box-shadow:0 8px 20px -12px rgba(14,111,118,.75)}
+.pill--t:hover{transform:translateY(-2px);box-shadow:0 14px 28px -12px rgba(14,111,118,.6)}
+.pill:not(.pill--t):hover{transform:translateY(-2px)}
+
+/* ── nav lifts off the page once you scroll ───────────────────── */
+.nav.solid{box-shadow:0 1px 0 rgba(8,42,40,.06),0 8px 24px -20px rgba(8,42,40,.35)}
+
+/* ── rows and list items ──────────────────────────────────────── */
+.status .st,.event,.q,.plain{transition:background .3s,padding-left .3s,border-color .3s}
+.status .st:hover{background:var(--panel-2)}
+.q{padding-left:20px}
+.q:hover{padding-left:26px;border-left-color:var(--teal)}
+.step{transition:background .3s}
+.step:hover{background:var(--panel-2)}
+.mem{transition:border-color .3s}
+.mem:hover{border-top-color:var(--teal)}
+
+/* ── the teal statement panel gets a soft graph texture ───────── */
+.claim{position:relative;overflow:hidden}
+.claim::before{content:"";position:absolute;inset:0;opacity:.14;pointer-events:none;
+  background-image:radial-gradient(circle at 12% 28%,#fff 1.6px,transparent 1.6px),
+                   radial-gradient(circle at 34% 72%,#fff 1.6px,transparent 1.6px),
+                   radial-gradient(circle at 63% 22%,#fff 1.6px,transparent 1.6px),
+                   radial-gradient(circle at 86% 64%,#fff 1.6px,transparent 1.6px);
+  background-size:100% 100%;
+  animation:drift 22s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-14px,10px,0) scale(1.04)}}
+.claim .wrap{position:relative;z-index:2}
+
+/* ── scroll reveal, slightly richer ───────────────────────────── */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.js .rv.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  .g-edge path,.g-node .n,.g-core .ring,.claim::before,.arch-flow::before,.app.is-live .dot{animation:none}
+  .hero-h1,.hero-lede,.hero-start,.hero-cta,.trust,.hero-figure{opacity:1;animation:none}
+  .card,.lay,.ap,.sys,.pill,.q,.js .rv{transition:none}
+  .card:hover,.lay:hover,.ap:hover,.sys:hover,.pill:hover{transform:none}
+}
+
+/* ── hero as two columns: copy left, live graph right ── */
+.hero .wrap.hero-under{max-width:var(--wrap);width:100%;margin:0 auto;display:grid;
+  grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(24px,4vw,56px);align-items:center}
+.hero-under > *{grid-column:1}
+.hero-figure{grid-column:2;grid-row:1 / span 12;align-self:center;margin:0;max-width:none}
+.hero-h1{max-width:13ch}
+.hero-lede{max-width:44ch}
+.hero{padding-top:clamp(104px,11vw,140px);padding-bottom:clamp(36px,5vw,64px)}
+@media(max-width:980px){
+  .hero .wrap.hero-under{grid-template-columns:1fr}
+  .hero-figure{grid-column:1;grid-row:auto;margin-top:clamp(20px,4vw,34px);max-width:560px}
+  .hero-h1{max-width:15ch}
+}
+
+/* hero grid, now with a real copy column */
+.hero .wrap.hero-under{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(24px,4vw,64px);align-items:center;max-width:var(--wrap)}
+.hero-copy{min-width:0}
+.hero-figure{margin:0;max-width:none;min-width:0}
+.hero-under > *{grid-column:auto}
+@media(max-width:980px){
+  .hero .wrap.hero-under{grid-template-columns:1fr}
+  .hero-figure{margin-top:clamp(18px,4vw,32px);max-width:560px}
+}
+
+/* reset the earlier placement attempt; DOM order decides the columns */
+.hero .wrap.hero-under > .hero-copy{grid-column:1;grid-row:1}
+.hero .wrap.hero-under > .hero-figure{grid-column:2;grid-row:1;align-self:center}
+.hero-figure svg{max-height:420px}
+@media(max-width:980px){
+  .hero .wrap.hero-under > .hero-copy,
+  .hero .wrap.hero-under > .hero-figure{grid-column:1;grid-row:auto}
+}
+
+/* let the graph breathe, and clear the plate behind it so it reads */
+.hero-figure svg{max-height:none}
+.hero-figure{position:relative}
+.hero-figure::before{content:"";position:absolute;inset:-12% -8%;z-index:-1;
+  background:radial-gradient(ellipse 62% 58% at 50% 50%,rgba(255,255,255,.96),rgba(255,255,255,.55) 62%,transparent 78%)}
+.g-node text{font-size:12px}
+.g-core text{font-size:13px}
+
+/* ══════════════════════════════════════════════════════════════
+   OUTCOME-LED COMPONENTS
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── hero review panel: what a reviewer actually opens ── */
+.revpanel{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  box-shadow:0 22px 48px -32px rgba(14,111,118,.45),0 2px 10px -6px rgba(14,111,118,.14)}
+.rp-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:15px 20px;
+  border-bottom:1px solid var(--line);background:var(--panel-2);
+  font-family:var(--mono);font-size:13px;color:var(--text)}
+.rp-head .sep{color:var(--dimmer)}
+.rp-ill{margin-left:auto;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dimmer)}
+.rp-row{display:flex;align-items:flex-start;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line);
+  opacity:0;animation:rp-in .55s cubic-bezier(.2,.7,.3,1) forwards;animation-delay:calc(.45s + var(--i) * .13s)}
+@keyframes rp-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.rp-dot{width:9px;height:9px;border-radius:50%;flex:none;margin-top:6px}
+.rp-dot.ok{background:var(--ok)}
+.rp-dot.bad{background:var(--crit)}
+.rp-n{font-size:15px;font-weight:700;color:var(--text);line-height:1.35;flex:1;min-width:0}
+.rp-n em{display:block;font-family:var(--mono);font-size:12.5px;font-weight:400;font-style:normal;
+  color:var(--crit);margin-top:5px}
+.rp-s{font-family:var(--mono);font-size:11px;letter-spacing:.12em;font-weight:500;flex:none;margin-top:3px}
+.rp-s.ok{color:var(--ok)}
+.rp-s.bad{color:var(--crit)}
+.rp-row.is-block{background:var(--crit-soft);border-color:rgba(182,37,51,.18)}
+.rp-row.is-block .rp-dot{animation:rp-blip 2.6s ease-in-out infinite 1.6s}
+@keyframes rp-blip{0%,100%{box-shadow:0 0 0 0 rgba(182,37,51,.4)}55%{box-shadow:0 0 0 7px rgba(182,37,51,0)}}
+.rp-foot{padding:14px 20px;font-size:14px;color:var(--dim);
+  opacity:0;animation:rp-in .55s cubic-bezier(.2,.7,.3,1) forwards;animation-delay:calc(.45s + var(--i) * .13s)}
+
+/* ── numbered steps ── */
+.steps{display:grid;gap:14px;margin-top:clamp(36px,5vw,60px)}
+@media(min-width:760px){.steps{grid-template-columns:1fr 1fr}}
+@media(min-width:1080px){.steps{grid-template-columns:repeat(4,1fr)}}
+.stepc{background:#fff;border:1px solid var(--line);border-radius:10px;padding:26px 24px 28px;
+  position:relative;overflow:hidden;
+  transition:transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .4s,border-color .4s}
+.stepc::after{content:"";position:absolute;inset:0 auto auto 0;height:2px;width:100%;
+  background:linear-gradient(90deg,var(--teal),#3FB6AE);transform:scaleX(0);transform-origin:left;
+  transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.stepc:hover{transform:translateY(-3px);border-color:var(--teal-line);
+  box-shadow:0 14px 34px -18px rgba(14,111,118,.42)}
+.stepc:hover::after{transform:scaleX(1)}
+.stepc .sn{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--teal);display:block;margin-bottom:14px}
+.stepc h3{font-size:18px;font-weight:700;margin-bottom:10px;color:var(--text);letter-spacing:-.01em}
+.stepc p{color:var(--dim);font-size:14.5px;line-height:1.6}
+
+/* ── personas ── */
+.personas{display:grid;gap:14px;margin-top:clamp(36px,5vw,60px)}
+@media(min-width:820px){.personas{grid-template-columns:1fr 1fr}}
+.pers{background:#fff;border:1px solid var(--line);border-radius:10px;padding:28px 26px 26px;
+  position:relative;overflow:hidden;
+  transition:transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .4s,border-color .4s}
+.pers:hover{transform:translateY(-3px);border-color:var(--teal-line);
+  box-shadow:0 14px 34px -18px rgba(14,111,118,.42)}
+.pers.lead{background:linear-gradient(180deg,var(--teal-soft),#fff 62%);border-color:var(--teal-line)}
+.pers .pk{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--teal);display:block;margin-bottom:14px}
+.pers h3{font-size:20px;font-weight:700;letter-spacing:-.015em;color:var(--text);
+  line-height:1.26;margin-bottom:12px;max-width:26ch}
+.pers p{color:var(--dim);font-size:15px;line-height:1.6;margin-bottom:18px}
+.pout{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;
+  color:var(--teal);background:#fff;border:1px solid var(--teal-line);border-radius:999px;padding:7px 15px}
+.pers.lead .pout{background:#fff}
+
+/* ── ROI estimator ── */
+.calc{margin-top:clamp(36px,5vw,56px);background:#fff;border:1px solid var(--line);
+  border-radius:12px;overflow:hidden}
+.calc-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:16px 24px;
+  border-bottom:1px solid var(--line);background:var(--panel-2)}
+.calc-head .ck{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}
+.calc-head .cill{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--dimmer)}
+.calc-grid{display:grid;gap:clamp(18px,2.4vw,30px);padding:clamp(22px,3vw,32px) clamp(20px,3vw,28px)}
+@media(min-width:720px){.calc-grid{grid-template-columns:1fr 1fr}}
+.cf{display:grid;grid-template-columns:1fr auto;gap:8px 16px;align-items:center}
+.cf .cl{grid-column:1 / -1;font-size:14px;color:var(--dim)}
+.cf output{font-family:var(--mono);font-size:16px;font-weight:500;color:var(--text);
+  min-width:84px;text-align:right}
+.cf input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:4px;
+  background:linear-gradient(90deg,var(--teal) var(--p,40%),var(--line) var(--p,40%));outline:none;cursor:pointer}
+.cf input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;
+  background:#fff;border:2px solid var(--teal);cursor:pointer;
+  box-shadow:0 2px 8px -2px rgba(14,111,118,.5);transition:transform .2s}
+.cf input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.12)}
+.cf input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;
+  border:2px solid var(--teal);cursor:pointer}
+.cf input[type=range]:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
+.calc-out{display:grid;gap:1px;background:var(--line);border-top:1px solid var(--line)}
+@media(min-width:620px){.calc-out{grid-template-columns:1fr 1fr}}
+.co{background:var(--teal-soft);padding:clamp(22px,3vw,30px) clamp(20px,3vw,28px)}
+.co .col{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+.co strong{font-family:var(--mono);font-weight:400;font-size:clamp(30px,4.4vw,46px);
+  color:var(--text);letter-spacing:-.02em;line-height:1;display:block}
+.calc-note{padding:18px 24px 22px;font-size:13px;line-height:1.6;color:var(--dimmer);
+  border-top:1px solid var(--line)}
+
+/* ── how-it-works footnote block ── */
+.howitworks{margin-top:clamp(36px,5vw,56px);padding:clamp(24px,3vw,34px) clamp(22px,3vw,32px);
+  border-left:2px solid var(--teal);background:var(--bg-2);border-radius:0 10px 10px 0}
+.howitworks p{color:var(--dim);font-size:15px;line-height:1.68;max-width:72ch}
+.howitworks strong{color:var(--text);font-weight:700}
+
+/* ── hero tuning for the new panel ── */
+.hero-h1{max-width:16ch}
+.hero-lede{max-width:48ch}
+.hero-figure::before{inset:-8% -6%}
+
+@media(prefers-reduced-motion:reduce){
+  .rp-row,.rp-foot{opacity:1;animation:none}
+  .rp-row.is-block .rp-dot{animation:none}
+  .stepc,.pers{transition:none}
+  .stepc:hover,.pers:hover{transform:none}
+}
+
+/* ══════════════════════════════════════════════════════════════
+   IMMERSIVE LAYER — dark teal hero, live canvas, batch explorer
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── 1 · DEEP HERO ─────────────────────────────────────────── */
+.hero{
+  position:relative;overflow:hidden;isolation:isolate;
+  background:#0A4A52 url(/assets/mesh-deep.jpg) center/cover no-repeat;
+  padding-top:clamp(132px,15vw,186px);padding-bottom:clamp(60px,8vw,104px);
+  color:#EAF7F7;
+}
+.hero::before{display:none}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.85}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse 72% 70% at 22% 42%,rgba(6,42,48,.72),transparent 68%),
+             linear-gradient(180deg,rgba(6,42,48,.45) 0%,transparent 26%,transparent 72%,rgba(255,255,255,.07) 100%)}
+.hero .wrap.hero-under{position:relative;z-index:2}
+.hero .hero-h1{color:#fff;letter-spacing:-.022em;
+  text-shadow:0 2px 30px rgba(3,30,34,.35)}
+.hero .hero-lede{color:rgba(236,250,250,.86)}
+.hero .hero-start{color:#6FE3DA;letter-spacing:.2em}
+.hero .trust span{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.26);color:#DFF4F4;
+  backdrop-filter:blur(6px)}
+.hero .trust span:hover{background:rgba(255,255,255,.17);border-color:#6FE3DA;color:#fff;transform:translateY(-1px)}
+.hero .pill--t{background:#fff;border-color:#fff;color:#0A4A52;
+  box-shadow:0 14px 34px -14px rgba(0,0,0,.5)}
+.hero .pill--t:hover{background:#6FE3DA;border-color:#6FE3DA;color:#052E34}
+.hero .pill:not(.pill--t){color:#fff;border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.06)}
+.hero .pill:not(.pill--t):hover{background:rgba(255,255,255,.16);border-color:#fff;color:#fff}
+
+/* nav sits on the dark hero until it solidifies */
+.nav:not(.solid) .mark::before{filter:brightness(0) invert(1)}
+.nav:not(.solid) .menu-btn,.nav:not(.solid) .pill:not(.pill--t){color:#fff;border-color:rgba(255,255,255,.34)}
+.nav:not(.solid) .menu-btn:hover{border-color:#fff}
+.nav:not(.solid) .pill--t{background:#fff;border-color:#fff;color:#0A4A52}
+.nav:not(.solid) .pill--t:hover{background:#6FE3DA;border-color:#6FE3DA;color:#052E34}
+
+/* glass product panel on the dark field */
+.hero .revpanel{background:rgba(255,255,255,.97);border-color:rgba(255,255,255,.5);
+  box-shadow:0 44px 90px -40px rgba(0,0,0,.6),0 4px 18px -8px rgba(0,0,0,.3)}
+.hero-figure::before{display:none}
+
+/* ── 2 · DARK BAND UTILITY ─────────────────────────────────── */
+.band--deep{
+  background:#0B5059 url(/assets/mesh-deep.jpg) center/cover no-repeat;
+  color:#EAF7F7;border-top:0;position:relative;isolation:isolate}
+.band--deep::before{content:"";position:absolute;inset:0;z-index:0;
+  background:linear-gradient(180deg,rgba(6,42,48,.52),rgba(6,42,48,.2))}
+.band--deep .wrap{position:relative;z-index:2}
+.band--deep .big,.band--deep h3{color:#fff}
+.band--deep .lede,.band--deep p{color:rgba(232,248,248,.84)}
+.band--deep .eyebrow{color:#6FE3DA}
+.band--deep .eyebrow::before{background:#6FE3DA}
+.band--deep .pill{color:#fff;border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.07)}
+.band--deep .pill:hover{background:rgba(255,255,255,.17);border-color:#fff;color:#fff}
+
+/* ── 3 · BATCH EXPLORER (interactive) ──────────────────────── */
+.explorer{margin-top:clamp(36px,5vw,58px);display:grid;gap:clamp(16px,2.4vw,26px)}
+@media(min-width:980px){.explorer{grid-template-columns:1.06fr .94fr;align-items:stretch}}
+
+.xmap{position:relative;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.17);
+  border-radius:14px;overflow:hidden;min-height:340px;backdrop-filter:blur(3px)}
+.xmap svg{width:100%;height:100%;display:block}
+.xl{stroke:rgba(140,232,226,.32);stroke-width:1.2;transition:stroke .45s,stroke-width .45s}
+.xl.on{stroke:#6FE3DA;stroke-width:2.1}
+.xn{cursor:pointer}
+.xn rect{fill:rgba(255,255,255,.08);stroke:rgba(255,255,255,.3);stroke-width:1;
+  transition:fill .35s,stroke .35s}
+.xn text{font-family:var(--mono);font-size:11.5px;fill:#DFF4F4;text-anchor:middle;pointer-events:none;
+  transition:fill .35s}
+.xn:hover rect{fill:rgba(255,255,255,.17);stroke:#9FEDE6}
+.xn.on rect{fill:#6FE3DA;stroke:#6FE3DA}
+.xn.on text{fill:#063A41;font-weight:500}
+.xcore circle{fill:#fff}
+.xcore text{font-family:var(--mono);font-size:12px;fill:#0A4A52;text-anchor:middle;letter-spacing:.1em}
+.xpulse{fill:none;stroke:#6FE3DA;opacity:.5;transform-box:fill-box;transform-origin:center;
+  animation:xp 4.5s ease-out infinite}
+.xpulse.b{animation-delay:1.5s}
+@keyframes xp{0%{transform:scale(.8);opacity:0}30%{opacity:.55}100%{transform:scale(1.5);opacity:0}}
+
+.xtabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.xtab{font-family:var(--mono);font-size:12.5px;padding:9px 17px;border-radius:999px;cursor:pointer;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.27);color:#DFF4F4;
+  transition:background .3s,border-color .3s,color .3s,transform .25s}
+.xtab:hover{background:rgba(255,255,255,.16);border-color:#9FEDE6;transform:translateY(-1px)}
+.xtab[aria-selected="true"]{background:#6FE3DA;border-color:#6FE3DA;color:#063A41;font-weight:500}
+.xtab:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+.xpane{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.17);border-radius:14px;
+  padding:clamp(22px,3vw,30px);backdrop-filter:blur(3px);display:flex;flex-direction:column}
+.xbody{flex:1}
+.xid{font-family:var(--mono);font-size:12.5px;color:#6FE3DA;letter-spacing:.1em;margin-bottom:10px}
+.xt{font-size:clamp(19px,2.3vw,25px);font-weight:700;color:#fff;letter-spacing:-.015em;margin-bottom:12px;line-height:1.24}
+.xd{font-size:14.5px;line-height:1.65;color:rgba(232,248,248,.82);margin-bottom:20px}
+.xfacts{display:grid;gap:1px;background:rgba(255,255,255,.14);border-radius:10px;overflow:hidden}
+.xf{display:flex;gap:14px;justify-content:space-between;align-items:baseline;
+  background:rgba(8,56,63,.42);padding:11px 15px;font-size:13.5px}
+.xf b{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(200,238,238,.66);font-weight:400;flex:none}
+.xf span{color:#fff;text-align:right;font-family:var(--mono);font-size:12.5px}
+.xf span.warn{color:#FFC46B}
+.xf span.ok{color:#8FEFC9}
+.xnote{margin-top:16px;font-size:12px;line-height:1.55;color:rgba(200,238,238,.6)}
+.xswap{animation:xfade .45s cubic-bezier(.2,.7,.3,1)}
+@keyframes xfade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ── 4 · CHROMATOGRAM ──────────────────────────────────────── */
+.chroma{margin-top:clamp(30px,4vw,46px);background:#fff;border:1px solid var(--line);
+  border-radius:12px;padding:22px 24px 16px;overflow:hidden}
+.chroma-h{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:12px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dimmer)}
+.chroma-h b{color:var(--teal);font-weight:500}
+.chroma svg{width:100%;height:auto;display:block}
+.ctrace{fill:none;stroke:var(--teal);stroke-width:1.8;stroke-linejoin:round;
+  stroke-dasharray:2400;stroke-dashoffset:2400;animation:draw 3.4s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.cfill{fill:url(#cgrad);opacity:0;animation:cfin 1.2s ease 2.4s forwards}
+@keyframes cfin{to{opacity:.5}}
+.cgrid{stroke:var(--line);stroke-width:1}
+.cflag{opacity:0;animation:cfin2 .6s ease 3.3s forwards}
+@keyframes cfin2{to{opacity:1}}
+.cflag line{stroke:var(--crit);stroke-width:1.4;stroke-dasharray:3 3}
+.cflag text{font-family:var(--mono);font-size:10.5px;fill:var(--crit)}
+
+/* ── 5 · MOLECULE RIBBON ───────────────────────────────────── */
+.ribbon{position:relative;height:clamp(78px,9vw,120px);overflow:hidden;
+  background:var(--bg-2);border-block:1px solid var(--line)}
+.ribbon svg{position:absolute;top:50%;left:0;transform:translateY(-50%);height:220%;width:auto;
+  animation:slide-r 46s linear infinite;opacity:.5}
+@keyframes slide-r{from{transform:translate(0,-50%)}to{transform:translate(-50%,-50%)}}
+
+/* ── 6 · MISC POLISH ───────────────────────────────────────── */
+.marq{background:var(--teal);border-block:0}
+.marq-t span{color:rgba(255,255,255,.92)}
+.marq-t span::after{background:#6FE3DA;opacity:1}
+.claim{background:#0B5059 url(/assets/mesh-deep.jpg) center/cover no-repeat}
+.cta{background:#0B5059 url(/assets/mesh-deep.jpg) center/cover no-repeat;color:#EAF7F7;position:relative;isolation:isolate}
+.cta::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(6,42,48,.5),rgba(6,42,48,.26))}
+.cta .big{color:#fff}
+.cta .lede{color:rgba(232,248,248,.85)}
+.cta .eyebrow{color:#6FE3DA}
+.cta .eyebrow::before{background:#6FE3DA}
+.cta .pill--t{background:#fff;border-color:#fff;color:#0A4A52}
+.cta .pill--t:hover{background:#6FE3DA;border-color:#6FE3DA;color:#052E34}
+.cta .pill:not(.pill--t){color:#fff;border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.07)}
+.cta .pill:not(.pill--t):hover{background:rgba(255,255,255,.16);border-color:#fff}
+
+/* light bands get the pale plate rather than flat white */
+section:nth-of-type(even):not(.band--deep):not(.claim):not(.cta){
+  background:var(--bg) url(/assets/mesh-pale.jpg) center/cover no-repeat}
+section:nth-of-type(even):not(.band--deep):not(.claim):not(.cta)::before{
+  content:"";position:absolute;inset:0;background:rgba(255,255,255,.62);pointer-events:none}
+section{position:relative}
+section > .wrap{position:relative;z-index:2}
+
+@media(prefers-reduced-motion:reduce){
+  #heroCanvas{display:none}
+  .ctrace{animation:none;stroke-dashoffset:0}
+  .cfill,.cflag{animation:none;opacity:1}
+  .ribbon svg,.xpulse{animation:none}
+  .xswap{animation:none}
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DARK SYSTEM — palette, surfaces and motion from the
+   NeuraTrace motion graphic. This layer is authoritative.
+   ══════════════════════════════════════════════════════════════ */
+
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-weight:400}
+body::before,body::after{display:none}
+
+/* page field: the graphic's layered radial + grid */
+body{
+  background:
+    radial-gradient(ellipse 60% 44% at 78% 6%,rgba(21,69,75,.55),transparent 42%),
+    radial-gradient(ellipse 54% 40% at 14% 58%,rgba(37,36,84,.38),transparent 46%),
+    linear-gradient(160deg,#07151e,#0b202a 55%,#07151e);
+  background-attachment:fixed;
+}
+main::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(182,255,240,.032) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(182,255,240,.032) 1px,transparent 1px);
+  background-size:44px 44px;
+  mask-image:linear-gradient(180deg,#000,#000 60%,transparent);
+}
+main > *{position:relative;z-index:1}
+
+/* every band is transparent over the field; rhythm comes from tint, not slabs */
+section,.marq,.foot{background:transparent !important}
+section::before{display:none !important}
+section:nth-of-type(even):not(.claim):not(.cta){background:rgba(255,255,255,.018) !important}
+.band--line{border-top:1px solid var(--line);border-image:none}
+
+/* ── type ──────────────────────────────────────────────────── */
+h1,h2,h3,.big,.hero-h1,.xt,.q .qq,.stepc h3,.pers h3,.ap-top h3,.lay h3,.card h3,.mem .n,.status .nm{
+  font-family:var(--display);color:var(--text);font-weight:600;letter-spacing:-.03em}
+.big{font-size:clamp(28px,3.7vw,46px);line-height:1.1;letter-spacing:-.045em;font-weight:570}
+.lede,.card p,.lay p,.plain p,.stepc p,.pers p,.ap-f .fv,.status .ds,.mem .b{color:var(--dim)}
+.eyebrow{color:#91c5c0;letter-spacing:.18em;font-size:10.5px}
+.eyebrow::before{background:var(--teal);opacity:.8}
+
+/* ── surfaces ──────────────────────────────────────────────── */
+.card,.lay,.ap,.sys,.vsc,.v-node,.gslide,.stepc,.pers,.stack,.arch,.vision,.walk,.rule,.record,
+.revpanel,.calc,.chroma,.xpane,.xmap,.status,.stats{
+  background:linear-gradient(150deg,rgba(14,41,52,.92),rgba(11,32,42,.88)) !important;
+  border:1px solid var(--line) !important;
+  border-radius:12px;
+  backdrop-filter:blur(6px);
+}
+.card:hover,.lay:hover,.ap:hover,.sys:hover,.stepc:hover,.pers:hover{
+  border-color:var(--teal-line) !important;
+  box-shadow:0 18px 44px -24px rgba(0,0,0,.8),0 0 0 1px rgba(83,230,197,.1);
+  transform:translateY(-3px)}
+.card::after,.lay::after,.ap::after,.sys::after,.stepc::after{
+  background:linear-gradient(90deg,var(--teal),var(--blue),var(--violet))}
+.plain{border-top:1px solid var(--line-2);background:transparent !important}
+.ap.is-live,.pers.lead,.vsc.is-us,.v-node.is-live{
+  background:linear-gradient(150deg,rgba(27,105,101,.34),rgba(14,41,52,.9)) !important;
+  border-color:var(--teal-line) !important}
+.stat{background:transparent !important;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat:hover{background:rgba(83,230,197,.05) !important}
+.stat .n{color:var(--teal)}
+.status .st{background:transparent !important;border-bottom:1px solid var(--line)}
+.status .st:hover{background:rgba(83,230,197,.05) !important}
+.mem{border-top:1px solid var(--line-2)}
+.mem .r{color:var(--teal)}
+
+/* chips */
+.trust span,.arch-ent span,.ent span,.chain span,.arch-row span,.arch-apps span,.dims span,.pout{
+  background:rgba(83,230,197,.07) !important;border:1px solid var(--teal-line) !important;color:#bdf8e8 !important}
+.trust span:hover,.ent span:hover,.arch-row span:hover{
+  background:rgba(83,230,197,.17) !important;border-color:var(--teal) !important;color:#fff !important}
+
+/* buttons */
+.pill{background:rgba(255,255,255,.05);border:1px solid var(--line-2);color:var(--text);font-weight:600}
+.pill:hover{background:rgba(83,230,197,.14);border-color:var(--teal);color:#fff;transform:translateY(-2px)}
+.pill--t{background:var(--teal);border-color:var(--teal);color:#06242a;
+  box-shadow:0 10px 30px -12px rgba(83,230,197,.55)}
+.pill--t:hover{background:#7df2d8;border-color:#7df2d8;color:#052e34}
+.menu-btn{color:var(--text);border-color:var(--line-2)}
+.menu-btn:hover{border-color:var(--teal);color:var(--teal)}
+
+/* nav + logo (lockup is dark-ink art, so invert it on the dark field) */
+.nav.solid{background:rgba(7,21,30,.86);border-bottom-color:var(--line);
+  box-shadow:0 10px 30px -22px rgba(0,0,0,.9)}
+.mark::before{filter:brightness(0) invert(1)}
+.nav:not(.solid) .mark::before,.foot .mark--sm::before{filter:brightness(0) invert(1)}
+.overlay{background:#07151e}
+.overlay::before{background:radial-gradient(ellipse 60% 55% at 80% 15%,rgba(83,230,197,.12),transparent 62%);opacity:1}
+.overlay::after{display:none}
+.ov-links{border-top:1px solid var(--line)}
+.ov-links a{color:var(--text);border-bottom:1px solid var(--line)}
+.ov-links a:hover{color:var(--teal)}
+.ov-foot{color:var(--dimmer)}
+.foot{border-top:1px solid var(--line);color:var(--dimmer)}
+
+/* marquee */
+.marq{border-block:1px solid var(--line) !important;background:rgba(83,230,197,.04) !important}
+.marq-t span{color:var(--dim)}
+.marq-t span::after{background:var(--teal);opacity:1}
+
+/* teal statement + CTA bands */
+.claim{background:linear-gradient(120deg,rgba(27,105,101,.5),rgba(37,36,84,.42)) !important;
+  border-top:1px solid var(--line)}
+.claim::before{opacity:.2}
+.claim h2{color:#fff}
+.claim h2 em{color:var(--teal)}
+.claim .eyebrow{color:#9fe9dc}
+.cta{background:linear-gradient(120deg,rgba(27,105,101,.42),rgba(37,36,84,.34)) !important;
+  border-top:1px solid var(--line)}
+.cta::after{display:none}
+.cta .big{color:#fff}
+
+/* product panel + rules */
+.revpanel .rp-head{background:rgba(255,255,255,.04);border-bottom:1px solid var(--line);color:var(--text)}
+.rp-row{border-bottom:1px solid var(--line)}
+.rp-n{color:var(--text)}
+.rp-s.ok,.rp-dot.ok{color:var(--teal)}
+.rp-dot.ok{background:var(--teal)}
+.rp-row.is-block{background:rgba(255,138,138,.08);border-color:rgba(255,138,138,.2)}
+.rp-n em,.rp-s.bad{color:var(--crit)}
+.rp-dot.bad{background:var(--crit)}
+.rp-foot{color:var(--dim)}
+.rule-h{background:rgba(255,255,255,.04) !important;border-bottom:1px solid var(--line);color:var(--text)}
+.rule-grid{background:transparent !important}
+.rcell{background:transparent !important;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rcell .v{color:var(--text)}
+.record-h{background:rgba(255,255,255,.04) !important;color:var(--dimmer)}
+.record-b{color:var(--text)}
+.tag--ok{background:rgba(83,230,197,.12);color:var(--teal);border:1px solid var(--teal-line)}
+.tag--crit{background:rgba(255,138,138,.12);color:var(--crit);border:1px solid rgba(255,138,138,.3)}
+.tag--idle{background:rgba(255,255,255,.05);color:var(--dim);border:1px solid var(--line)}
+
+/* calculator */
+.calc-head{background:rgba(255,255,255,.04) !important;border-bottom:1px solid var(--line)}
+.calc-head .ck{color:var(--teal)}
+.cf input[type=range]{background:linear-gradient(90deg,var(--teal) var(--p,40%),rgba(255,255,255,.12) var(--p,40%))}
+.cf input[type=range]::-webkit-slider-thumb{background:#07151e;border-color:var(--teal)}
+.cf input[type=range]::-moz-range-thumb{background:#07151e;border-color:var(--teal)}
+.cf output{color:var(--text)}
+.calc-out{background:var(--line)}
+.co{background:rgba(83,230,197,.07)}
+.co .col{color:var(--teal)}
+.co strong{color:#fff}
+.calc-note{color:var(--dimmer);border-top:1px solid var(--line)}
+
+/* chromatogram */
+.chroma-h{color:var(--dimmer)}
+.chroma-h b{color:var(--teal)}
+.ctrace{stroke:var(--teal)}
+.cgrid{stroke:rgba(255,255,255,.07)}
+.cflag line{stroke:var(--crit)}
+.cflag text{fill:var(--crit)}
+
+/* explorer already dark — just align to the new palette */
+.band--deep{background:transparent !important}
+.band--deep::before{display:none}
+.xn rect{fill:rgba(255,255,255,.06);stroke:var(--line-2)}
+.xn.on rect{fill:var(--teal);stroke:var(--teal)}
+.xn.on text{fill:#06242a}
+.xl.on{stroke:var(--teal)}
+.xcore circle{fill:#eafffb}
+.xcore text{fill:#0a3a42}
+.xtab[aria-selected="true"]{background:var(--teal);border-color:var(--teal);color:#06242a}
+.xf{background:rgba(7,21,30,.5)}
+.xf span.warn{color:var(--warn)}
+.xf span.ok{color:var(--teal)}
+.howitworks{background:rgba(83,230,197,.06) !important;border-left-color:var(--teal)}
+.howitworks strong{color:var(--text)}
+
+/* steps / personas accents pick up the graphic's tri-tone */
+.stepc:nth-child(1) .sn{color:var(--teal)}
+.stepc:nth-child(2) .sn{color:var(--blue)}
+.stepc:nth-child(3) .sn{color:var(--violet)}
+.stepc:nth-child(4) .sn{color:var(--teal)}
+.stepc:nth-child(2)::after{background:linear-gradient(90deg,var(--blue),var(--teal))}
+.stepc:nth-child(3)::after{background:linear-gradient(90deg,var(--violet),var(--blue))}
+.pers .pk{color:var(--teal)}
+.ix,.ln,.layer-k,.ap-f .fk,.q .qa,.step-n,.arch-lbl{color:var(--dimmer)}
+.card:nth-child(2) .ix{color:var(--blue)}
+.card:nth-child(3) .ix{color:var(--violet)}
+
+/* tables */
+.tbl-wrap th{color:var(--dimmer);border-bottom:1px solid var(--line-2)}
+.tbl-wrap td{color:var(--dim);border-bottom:1px solid var(--line)}
+
+/* ══════════════ HERO — the motion graphic, in place ══════════════ */
+.hero{
+  background:
+    radial-gradient(ellipse at 73% 30%,rgba(21,69,75,.53),transparent 36%),
+    radial-gradient(ellipse at 48% 85%,rgba(37,36,84,.33),transparent 40%),
+    linear-gradient(125deg,#07151e,#0b202a 58%,#07151e) !important;
+  border-bottom:1px solid var(--line);
+  padding-top:clamp(124px,13vw,168px);padding-bottom:clamp(40px,6vw,76px);
+  overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;
+  background-image:linear-gradient(rgba(182,255,240,.03) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(182,255,240,.03) 1px,transparent 1px);
+  background-size:40px 40px;
+  mask-image:linear-gradient(90deg,transparent,#000 15%,#000 90%,transparent);display:block}
+.hero::after{display:none}
+#heroCanvas{display:none}
+.hero .wrap.hero-under{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);align-items:center}
+
+.hpill{display:inline-flex;gap:9px;align-items:center;border:1px solid var(--teal-line);
+  background:rgba(83,230,197,.07);border-radius:99px;padding:9px 14px;color:#bdf8e8;
+  font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;margin-bottom:22px;
+  font-family:var(--display);font-weight:500}
+.hdot{width:6px;height:6px;border-radius:50%;background:var(--teal);
+  box-shadow:0 0 14px var(--teal);animation:hpulse 2s infinite}
+@keyframes hpulse{0%,100%{opacity:.4;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}
+
+.hero .hero-h1{font-size:clamp(34px,4.4vw,58px);line-height:1.03;letter-spacing:-.055em;
+  font-weight:570;color:var(--text);max-width:14ch;margin-bottom:20px}
+.hero .hero-h1 em{font-style:normal;color:var(--teal)}
+.hero .hero-lede{font-size:15px;line-height:1.7;color:var(--muted,#a2bdc1);max-width:42ch}
+
+.anote{display:flex;align-items:flex-start;gap:11px;margin-top:22px;padding:13px 15px;
+  border:1px solid var(--teal-line);border-radius:12px;max-width:380px;
+  background:linear-gradient(110deg,rgba(83,230,197,.07),rgba(139,183,255,.04))}
+.acheck{display:grid;place-items:center;flex:0 0 21px;height:21px;border-radius:50%;
+  background:rgba(83,230,197,.14);color:#8bf4dc;font-size:12px}
+.anote strong{display:block;font-size:11.5px;font-weight:600;color:#d9fff4;line-height:1.4}
+.anote small{display:block;margin-top:5px;font-size:10.5px;line-height:1.5;color:#8fb4b8}
+
+.hviz{position:relative}
+.hviz svg{width:100%;height:auto;overflow:visible;display:block}
+.hline{fill:none;stroke-width:2;stroke-dasharray:8 9;stroke-linecap:round;
+  animation:hdash 8s linear infinite;filter:url(#hglow)}
+.hlink{fill:none;stroke:rgba(128,232,211,.2);stroke-width:1.2;stroke-dasharray:4 7;
+  animation:hdash 10s linear infinite}
+.hflow{fill:none;stroke:var(--teal);stroke-width:2;stroke-dasharray:2 13;filter:url(#hglow);
+  animation:hdash 2.8s linear infinite}
+.hrung{stroke:rgba(134,232,214,.29);stroke-width:1.3}
+.horbit{fill:none;stroke:rgba(128,232,214,.14);stroke-width:1;stroke-dasharray:2 7;
+  transform-origin:570px 310px;animation:horb 45s linear infinite}
+.hhalo{fill:none;stroke:rgba(83,230,197,.33);stroke-width:1;transform-origin:570px 310px;
+  animation:hbreathe 5s infinite}
+.hcard{fill:#0e2934;stroke:rgba(109,231,213,.47);stroke-width:1.2}
+.hcardb{fill:#13283b;stroke:rgba(139,183,255,.6);stroke-width:1.2}
+.hcardv{fill:#1b243a;stroke:rgba(183,163,255,.53);stroke-width:1.2}
+.hlabel{fill:#e0faf5;font-size:11px;font-weight:600;font-family:var(--display)}
+.hsmall{fill:#83aaaf;font-size:8px;letter-spacing:.12em;font-family:var(--display)}
+.hcore{fill:url(#hcoreg);stroke:rgba(124,255,227,.67);stroke-width:1.4;filter:url(#hglow)}
+.hct{fill:#f2fffb;font-size:12px;font-weight:800;letter-spacing:.1em;font-family:var(--display)}
+.hcs{fill:#a7e6dc;font-size:8px;letter-spacing:.13em;font-family:var(--display)}
+.hpart{fill:#adffed;filter:url(#hglow)}
+@keyframes hdash{to{stroke-dashoffset:-180}}
+@keyframes horb{to{transform:rotate(360deg)}}
+@keyframes hbreathe{0%,100%{transform:scale(.96);opacity:.4}50%{transform:scale(1.06);opacity:.9}}
+
+.hfoot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  margin-top:clamp(26px,4vw,44px);padding-top:18px;border-top:1px solid var(--line);
+  color:var(--dimmer);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  font-family:var(--display);grid-column:1 / -1}
+.hfoot strong{color:#b9d9d4;font-weight:600}
+
+@media(max-width:980px){
+  .hero .wrap.hero-under{grid-template-columns:1fr}
+  .hviz{margin-top:26px}
+  .hero .hero-h1{max-width:16ch}
+}
+@media(prefers-reduced-motion:reduce){
+  .hline,.hlink,.hflow,.horbit,.hhalo,.hdot,.hpart{animation:none !important}
+}
+
+/* dark layer must beat the earlier .hero-scoped button rules */
+.hero .pill--t,.nav:not(.solid) .pill--t,.cta .pill--t,.overlay .pill--t{
+  background:var(--teal);border-color:var(--teal);color:#06242a;
+  box-shadow:0 10px 30px -12px rgba(83,230,197,.55)}
+.hero .pill--t:hover,.nav:not(.solid) .pill--t:hover,.cta .pill--t:hover,.overlay .pill--t:hover{
+  background:#7df2d8;border-color:#7df2d8;color:#052e34}
+.hero .pill:not(.pill--t),.nav:not(.solid) .pill:not(.pill--t),.cta .pill:not(.pill--t){
+  background:rgba(255,255,255,.05);border-color:var(--line-2);color:var(--text)}
+.hero .pill:not(.pill--t):hover,.cta .pill:not(.pill--t):hover{
+  background:rgba(83,230,197,.14);border-color:var(--teal);color:#fff}
+.hero .trust span{background:rgba(83,230,197,.07);border-color:var(--teal-line);color:#bdf8e8}
+
+/* give the graphic more of the row */
+.hero .wrap.hero-under{grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
+  gap:clamp(20px,3vw,44px)}
+.hviz{margin-right:calc(var(--pad) * -0.6)}
+@media(max-width:980px){.hviz{margin-right:0}}
 </style>
 
 <script type="application/ld+json">
@@ -1070,20 +1812,19 @@ body.menu-open .nav-right .pill--t{display:none}
   "name": "NeuraTrace",
   "url": "https://neuratrace.co/",
   "logo": "https://neuratrace.co/assets/icon-512.png",
-  "slogan": "The Knowledge Graph for Life Sciences",
-  "description": "NeuraTrace connects fragmented data across SAP, LIMS, MES, QMS, RIMS and documents into a trusted context layer for AI, modelling how life-sciences entities relate and preserving evidence and provenance. First application: batch release.",
+  "slogan": "From data to trust",
+  "description": "NeuraTrace connects batch records, analytical results, deviations and supporting documents into one evidence-linked review for pharmaceutical QA. Read-only, deterministic checks, QA keeps the decision.",
   "address": {"@type": "PostalAddress", "addressLocality": "Hyderabad", "addressCountry": "IN"},
   "email": "hello@neuratrace.co"
 }
 </script>
 </head>
-<body>
-<!-- ================= NAV ================= -->
+<body><!-- ================= NAV ================= -->
 <header class="nav" id="nav">
   <div class="nav-in">
     <a class="mark" href="#top" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256-light.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
     <div class="nav-right">
-      <a class="pill pill--t" href="#contact">Request a walkthrough</a>
+      <a class="pill pill--t" href="#contact">See a batch review</a>
       <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="overlay">
         <span class="bars" aria-hidden="true"><i></i><i></i></span>
         <span class="lbl"><span>menu</span></span>
@@ -1099,356 +1840,440 @@ body.menu-open .nav-right .pill--t{display:none}
       <a href="/applications"><i>02</i>Applications</a>
       <a href="/batch-release"><i>03</i>Batch Release</a>
       <a href="/security"><i>04</i>Security</a>
-      <a href="#company"><i>05</i>Company</a>
+      <a href="#who"><i>05</i>Who it's for</a>
+      <a href="#company"><i>06</i>Company</a>
     </nav>
     <div class="ov-cta">
       <a class="pill pill--t" href="mailto:hello@neuratrace.co?subject=NeuraTrace%20walkthrough">Request a walkthrough</a>
     </div>
     <div class="ov-foot">
       <span>Hyderabad, India</span>
-      <span>The Knowledge Graph for Life Sciences</span>
+      <span>From data to trust</span>
       <a href="mailto:hello@neuratrace.co">hello@neuratrace.co</a>
     </div>
   </div>
 </div>
 
 <main id="top">
-
-<!-- ================= HERO ================= -->
+<!-- ════════════ 01 · HERO ════════════ -->
 <section class="hero">
   <div class="wrap hero-under">
-    <h1 class="hero-h1">The Knowledge Graph for Life Sciences.</h1>
-    <p class="lede hero-lede">
-      NeuraTrace connects fragmented data across SAP, LIMS, MES, QMS, RIMS, documents and laboratory
-      systems into a trusted context layer for AI — so you can understand how products, batches,
-      materials, tests, equipment, deviations, specifications and evidence relate, and reconstruct
-      the context behind critical decisions.
-    </p>
-    <p class="hero-start">Starting with pharmaceutical quality.</p>
-    <div class="hero-cta">
-      <a class="pill pill--t pill--lg" href="/platform">Explore the platform</a>
-      <a class="pill pill--lg" href="/batch-release">See Batch Release</a>
+    <div class="hero-copy">
+      <div class="hpill"><span class="hdot"></span> AI that connects data, evidence and context</div>
+      <h1 class="hero-h1">AI-powered intelligence.<br><em>More time for science.</em></h1>
+      <p class="lede hero-lede">
+        NeuraTrace connects pharmaceutical data and evidence, uses AI to surface the context that
+        matters, and helps keep traceable audit evidence ready when you need it.
+      </p>
+      <div class="anote">
+        <span class="acheck">&#10003;</span>
+        <span>
+          <strong>FDA inspection evidence, ready when you need it.</strong>
+          <small>Source-linked. Traceable. Human-controlled.</small>
+        </span>
+      </div>
+      <div class="hero-cta" style="margin-top:28px">
+        <a class="pill pill--t pill--lg" href="#contact">See a batch review</a>
+        <a class="pill pill--lg" href="#explore">Explore a batch</a>
+      </div>
     </div>
-    <div class="trust">
-      <span>Read-only</span><span>Evidence-linked</span><span>Human-controlled</span><span>Deploys inside your environment</span>
-    </div>
-  </div>
-  <div class="hero-figure" aria-hidden="true">
-    <svg viewBox="0 0 760 300" role="img" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <title>A knowledge graph connecting systems of record to a central batch entity</title>
-      <g stroke="#00796B" stroke-opacity=".28" stroke-width="1.25">
-        <path d="M92 64 L380 150"/><path d="M236 44 L380 150"/><path d="M380 40 L380 150"/>
-        <path d="M524 44 L380 150"/><path d="M668 64 L380 150"/>
-        <path d="M380 150 L150 236"/><path d="M380 150 L295 256"/><path d="M380 150 L465 256"/>
-        <path d="M380 150 L610 236"/>
-        <path d="M150 236 L295 256"/><path d="M465 256 L610 236"/>
-      </g>
-      <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#485B5A" text-anchor="middle">
-        <g fill="#00796B">
-          <rect x="52" y="52" width="80" height="26" rx="13" fill="#F2F7F7" stroke="#00796B" stroke-opacity=".3"/>
-          <text x="92" y="69">SAP</text>
-          <rect x="196" y="32" width="80" height="26" rx="13" fill="#F2F7F7" stroke="#00796B" stroke-opacity=".3"/>
-          <text x="236" y="49">LIMS</text>
-          <rect x="340" y="28" width="80" height="26" rx="13" fill="#F2F7F7" stroke="#00796B" stroke-opacity=".3"/>
-          <text x="380" y="45">MES</text>
-          <rect x="484" y="32" width="80" height="26" rx="13" fill="#F2F7F7" stroke="#00796B" stroke-opacity=".3"/>
-          <text x="524" y="49">QMS</text>
-          <rect x="628" y="52" width="80" height="26" rx="13" fill="#F2F7F7" stroke="#00796B" stroke-opacity=".3"/>
-          <text x="668" y="69">RIMS</text>
+
+    <div class="hviz" aria-hidden="true">
+      <svg viewBox="0 0 900 620" role="img">
+        <title>Pharmaceutical systems connecting into one AI-powered intelligence core</title>
+        <defs>
+          <linearGradient id="hga"><stop stop-color="#53e6c5"/><stop offset=".55" stop-color="#8bb7ff"/><stop offset="1" stop-color="#b7a3ff"/></linearGradient>
+          <linearGradient id="hgb"><stop stop-color="#b7a3ff"/><stop offset=".5" stop-color="#53e6c5"/><stop offset="1" stop-color="#8bb7ff"/></linearGradient>
+          <radialGradient id="hcoreg"><stop stop-color="#1b6965"/><stop offset=".7" stop-color="#103b45"/><stop offset="1" stop-color="#0b2734"/></radialGradient>
+          <filter id="hglow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="3" result="x"/><feMerge><feMergeNode in="x"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <ellipse class="horbit" cx="570" cy="310" rx="285" ry="190"/>
+        <ellipse class="horbit" cx="570" cy="310" rx="235" ry="270" transform="rotate(53 570 310)"/>
+        <ellipse class="hhalo" cx="570" cy="310" rx="125" ry="125"/>
+
+        <path class="hlink" d="M250 105 L470 218 L570 310 L695 130 M240 420 L450 365 L570 310 L755 450 M470 218 L450 365 M695 130 L755 450 M250 105 L240 420"/>
+        <path class="hflow" d="M250 105 L470 218 L570 310 M240 420 L450 365 L570 310 M695 130 L640 240 L570 310 M755 450 L650 375 L570 310 M520 510 L545 420 L570 310"/>
+
+        <g transform="translate(405 310) rotate(-28)">
+          <path class="hline" stroke="url(#hga)" d="M-120 -185 C-35 -145 -35 -95 -120 -55 S-205 35 -120 75 S-35 165 -120 205"/>
+          <path class="hline" stroke="url(#hgb)" d="M-120 -185 C-205 -145 -205 -95 -120 -55 S-35 35 -120 75 S-205 165 -120 205"/>
+          <g class="hrung"><path d="M-145 -172h50 M-171 -145h102 M-188 -112h136 M-171 -78h102 M-145 -55h50 M-95 -28h-50 M-69 5h-102 M-52 40h-136 M-69 75h-102 M-95 105h-50 M-145 135h50 M-171 165h102 M-145 192h50"/></g>
         </g>
-      </g>
-      <circle cx="380" cy="150" r="46" fill="#00796B"/>
-      <circle cx="380" cy="150" r="60" stroke="#00796B" stroke-opacity=".22"/>
-      <circle cx="380" cy="150" r="76" stroke="#00796B" stroke-opacity=".12"/>
-      <text x="380" y="155" font-family="IBM Plex Mono, monospace" font-size="12"
-            fill="#FFFFFF" text-anchor="middle" letter-spacing="1">BATCH</text>
-      <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#485B5A" text-anchor="middle">
-        <rect x="100" y="224" width="100" height="26" rx="13" fill="#FFFFFF" stroke="#00796B" stroke-opacity=".3"/>
-        <text x="150" y="241">MATERIAL</text>
-        <rect x="243" y="244" width="104" height="26" rx="13" fill="#FFFFFF" stroke="#00796B" stroke-opacity=".3"/>
-        <text x="295" y="261">TEST</text>
-        <rect x="413" y="244" width="104" height="26" rx="13" fill="#FFFFFF" stroke="#00796B" stroke-opacity=".3"/>
-        <text x="465" y="261">DEVIATION</text>
-        <rect x="560" y="224" width="100" height="26" rx="13" fill="#FFFFFF" stroke="#00796B" stroke-opacity=".3"/>
-        <text x="610" y="241">EVIDENCE</text>
-      </g>
-    </svg>
+
+        <g transform="translate(250 105)"><rect class="hcardb" x="-52" y="-22" width="104" height="44" rx="9"/><circle cx="-34" r="4" fill="#8bb7ff"/><text class="hlabel" x="-23" y="-2">SAP / ERP</text><text class="hsmall" x="-23" y="11">MATERIALS</text></g>
+        <g transform="translate(240 420)"><rect class="hcard" x="-56" y="-22" width="112" height="44" rx="9"/><circle cx="-37" r="4" fill="#53e6c5"/><text class="hlabel" x="-26" y="-2">LIMS / CDS</text><text class="hsmall" x="-26" y="11">TEST RESULTS</text></g>
+        <g transform="translate(695 130)"><rect class="hcardv" x="-55" y="-22" width="110" height="44" rx="9"/><circle cx="-36" r="4" fill="#b7a3ff"/><text class="hlabel" x="-25" y="-2">MES</text><text class="hsmall" x="-25" y="11">BATCH HISTORY</text></g>
+        <g transform="translate(755 450)"><rect class="hcard" x="-55" y="-22" width="110" height="44" rx="9"/><circle cx="-36" r="4" fill="#53e6c5"/><text class="hlabel" x="-25" y="-2">QMS</text><text class="hsmall" x="-25" y="11">QUALITY EVENTS</text></g>
+        <g transform="translate(520 510)"><rect class="hcardb" x="-65" y="-22" width="130" height="44" rx="9"/><circle cx="-46" r="4" fill="#8bb7ff"/><text class="hlabel" x="-35" y="-2">DOCUMENTS</text><text class="hsmall" x="-35" y="11">SOPs &#183; SPECS</text></g>
+
+        <g transform="translate(570 310)">
+          <circle class="hcore" r="69"/>
+          <circle r="54" fill="none" stroke="rgba(140,255,223,.27)" stroke-dasharray="2 5"/>
+          <g fill="none" stroke="#86f5dd" stroke-width="1.5" stroke-linecap="round" opacity=".9">
+            <path d="M-34 -18 L-22 -31 L-8 -26 L0 -38 L17 -28 L31 -17 L25 -2 L36 10 L22 26 L7 22 L-5 36 L-20 24 L-34 13 L-27 -2 Z"/>
+            <path d="M-22 -31 L-18 -11 L-34 -18 M-8 -26 L-4 -8 L-18 -11 M17 -28 L13 -9 L-4 -8 M31 -17 L13 -9 L25 -2 M-27 -2 L-7 5 L-20 24 M-7 5 L7 22 M-7 5 L13 -9 M-7 5 L-5 36 M13 -9 L25 -2"/>
+          </g>
+          <g fill="#baffed">
+            <circle cx="-34" cy="-18" r="2.7"/><circle cx="-22" cy="-31" r="2.7"/><circle cx="-8" cy="-26" r="2.7"/>
+            <circle cx="0" cy="-38" r="2.7"/><circle cx="17" cy="-28" r="2.7"/><circle cx="31" cy="-17" r="2.7"/>
+            <circle cx="25" cy="-2" r="2.7"/><circle cx="36" cy="10" r="2.7"/><circle cx="22" cy="26" r="2.7"/>
+            <circle cx="7" cy="22" r="2.7"/><circle cx="-5" cy="36" r="2.7"/><circle cx="-20" cy="24" r="2.7"/>
+            <circle cx="-34" cy="13" r="2.7"/><circle cx="-27" cy="-2" r="2.7"/>
+          </g>
+          <rect x="-22" y="-15" width="44" height="31" rx="8" fill="#0b2934" stroke="#53e6c5" stroke-width="1.2"/>
+          <text x="0" y="7" text-anchor="middle" fill="#effffb" font-size="21" font-weight="800" letter-spacing="-1">AI</text>
+          <text class="hct" text-anchor="middle" y="84">NeuraTrace</text>
+          <text class="hcs" text-anchor="middle" y="99">PHARMA INTELLIGENCE</text>
+        </g>
+
+        <circle class="hpart" r="2.4"><animateMotion dur="5s" repeatCount="indefinite" path="M250 105 L405 200 L570 310"/></circle>
+        <circle class="hpart" r="2"><animateMotion dur="6s" repeatCount="indefinite" path="M240 420 L410 375 L570 310"/></circle>
+        <circle class="hpart" r="2.3"><animateMotion dur="5.5s" repeatCount="indefinite" path="M695 130 L640 230 L570 310"/></circle>
+        <circle class="hpart" r="2"><animateMotion dur="6.5s" repeatCount="indefinite" path="M755 450 L650 375 L570 310"/></circle>
+        <circle class="hpart" r="2"><animateMotion dur="7s" repeatCount="indefinite" path="M520 510 L545 420 L570 310"/></circle>
+      </svg>
+    </div>
+
+    <div class="hfoot">
+      <span><strong>CONNECT</strong> &#183; UNDERSTAND &#183; ACT</span>
+      <span>Traceable evidence &#183; Inspection readiness</span>
+    </div>
   </div>
 </section>
 
-<!-- ================= MARQUEE ================= -->
+<!-- ════════════ MARQUEE ════════════ -->
 <div class="marq" aria-label="Connected systems">
   <div class="marq-t">
-    <span>SAP</span><span>LIMS</span><span>MES</span><span>QMS</span><span>RIMS</span><span>Chromatography data systems</span><span>Document repositories</span><span>Paper logbooks</span>
-    <span>SAP</span><span>LIMS</span><span>MES</span><span>QMS</span><span>RIMS</span><span>Chromatography data systems</span><span>Document repositories</span><span>Paper logbooks</span>
+    <span>LIMS</span><span>Chromatography data systems</span><span>MES</span><span>QMS</span><span>ERP · SAP</span><span>RIMS</span><span>Documents &amp; SOPs</span><span>Paper logbooks</span>
+    <span>LIMS</span><span>Chromatography data systems</span><span>MES</span><span>QMS</span><span>ERP · SAP</span><span>RIMS</span><span>Documents &amp; SOPs</span><span>Paper logbooks</span>
   </div>
 </div>
 
-<!-- ================= THE PROBLEM ================= -->
-<section class="band band--line">
+<!-- ════════════ 02 · THE PROBLEM ════════════ -->
+<section class="band band--line" id="problem">
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">The problem</span>
-      <h2 class="big">Life sciences data is connected in reality. Your systems aren't.</h2>
+      <h2 class="big">Your batch is connected. Your evidence isn't.</h2>
       <p class="lede">
-        A product exists across dozens of systems. Its materials live in SAP. Manufacturing history in
-        MES. Test results in LIMS and chromatography systems. Deviations and CAPAs in QMS. Regulatory
-        context in RIMS. Procedures and specifications in documents.
+        Quality evidence lives across ERP, LIMS, chromatography systems, MES, QMS and documents.
+        Reviewers still have to find it, reconcile it and interpret it by hand — every batch, every time.
       </p>
-    </div>
-
-    <div class="split">
-      <div class="sys rv"><span class="s">SAP</span><span class="t">Materials and inventory</span></div>
-      <div class="sys rv" data-d="1"><span class="s">MES</span><span class="t">Manufacturing history</span></div>
-      <div class="sys rv" data-d="2"><span class="s">LIMS / CDS</span><span class="t">Test results</span></div>
-      <div class="sys rv" data-d="3"><span class="s">QMS</span><span class="t">Deviations and CAPAs</span></div>
-      <div class="sys rv" data-d="4"><span class="s">RIMS / Docs</span><span class="t">Regulatory and specifications</span></div>
     </div>
 
     <div class="cols cols-2">
-      <div class="plain rv"><h3>Each system records part of the truth</h3><p>Every one of them is complete, accurate and well governed within its own boundary. That was never the failure.</p></div>
-      <div class="plain rv" data-d="1"><h3>None of them models the complete context</h3><p>No system owns the relationships between them — which material lot went into which batch, which specification governed which test, which deviation touched what.</p></div>
+      <div class="card rv"><span class="ix">01</span><h3>Chasing records</h3><p>Hours spent locating the evidence behind one decision, across five or more systems and a filing cabinet.</p></div>
+      <div class="card rv" data-d="1"><span class="ix">02</span><h3>Reconciling data</h3><p>Manual cross-checks between records, results and specifications, with no shared view of what belongs together.</p></div>
+      <div class="card rv"><span class="ix">03</span><h3>Managing backlogs</h3><p>Limited visibility into what is blocked, why it is blocked, and which batches actually need a reviewer's attention.</p></div>
+      <div class="card rv" data-d="1"><span class="ix">04</span><h3>Preparing for audits</h3><p>Reconstructing the trail months or years later, when the reviewer who signed it has moved on.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ================= THE CLAIM ================= -->
+<!-- ════════════ THE CLAIM ════════════ -->
 <section class="claim">
   <div class="wrap">
     <span class="eyebrow rv">What that costs you</span>
-    <h2 class="rv" data-d="1">People become the <em>integration layer</em>.</h2>
+    <h2 class="rv" data-d="1">The reviewer becomes the <em>integration layer</em>.</h2>
   </div>
 </section>
 
-<!-- ================= THE GRAPH ================= -->
-<section class="band band--line" id="graph">
+<!-- ════════════ 03 · WHAT CHANGES ════════════ -->
+<section class="band band--line" id="changes">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="eyebrow">The context layer</span>
-      <h2 class="big">NeuraTrace creates the missing context layer.</h2>
+      <span class="eyebrow">What changes</span>
+      <h2 class="big">From scattered records to a review you can explain.</h2>
+    </div>
+
+    <div class="steps">
+      <div class="stepc rv">
+        <span class="sn">01</span>
+        <h3>Find what needs attention</h3>
+        <p>Missing evidence, inconsistent values and the quality events that bear on this batch, surfaced before the reviewer opens it.</p>
+      </div>
+      <div class="stepc rv" data-d="1">
+        <span class="sn">02</span>
+        <h3>See the evidence</h3>
+        <p>Every finding traces to its source record, the system it came from, and the requirement it was checked against.</p>
+      </div>
+      <div class="stepc rv" data-d="2">
+        <span class="sn">03</span>
+        <h3>Keep QA in control</h3>
+        <p>The reviewer investigates, records an observation and makes the decision. NeuraTrace does not recommend release.</p>
+      </div>
+      <div class="stepc rv" data-d="3">
+        <span class="sn">04</span>
+        <h3>Reconstruct the story</h3>
+        <p>When someone asks why a decision was made, the supporting evidence is already assembled and still producible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ BATCH EXPLORER (replaces the old "what changes" grid position) ════════ -->
+<section class="band band--deep" id="explore">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Interactive concept</span>
+      <h2 class="big">Explore a batch.</h2>
       <p class="lede">
-        NeuraTrace models the entities that define a life-sciences product and the relationships between
-        them — then keeps every record's source, version, timestamp and evidence attached to it.
+        Pick a related record. This is how a connected review behaves — follow a relationship and the
+        context comes with it, instead of opening another system.
       </p>
     </div>
 
-    <div class="arch rv">
-      <div class="arch-lbl">Systems of record</div>
-      <div class="arch-row">
-        <span>SAP</span><span>LIMS</span><span>MES</span><span>QMS</span><span>RIMS</span><span>CDS</span><span>Documents</span>
+    <div class="explorer rv">
+      <div class="xmap">
+        <svg viewBox="0 0 520 380" role="img" aria-label="Batch B-24081 and its related records">
+          <g id="xLines">
+            <line class="xl" data-k="material" x1="260" y1="190" x2="104" y2="86"/>
+            <line class="xl" data-k="lab"      x1="260" y1="190" x2="416" y2="86"/>
+            <line class="xl" data-k="deviation"x1="260" y1="190" x2="104" y2="296"/>
+            <line class="xl" data-k="spec"     x1="260" y1="190" x2="416" y2="296"/>
+          </g>
+
+          <g class="xcore">
+            <circle class="xpulse"   cx="260" cy="190" r="54"/>
+            <circle class="xpulse b" cx="260" cy="190" r="54"/>
+            <circle cx="260" cy="190" r="46"/>
+            <text x="260" y="186">B-24081</text>
+            <text x="260" y="202" style="font-size:9.5px;letter-spacing:.14em;fill:#4B8A8E">BATCH</text>
+          </g>
+
+          <g class="xn" data-k="material" tabindex="0" role="button" aria-label="Material lot">
+            <rect x="34" y="70" width="140" height="34" rx="17"/><text x="104" y="92">MATERIAL LOT</text>
+          </g>
+          <g class="xn" data-k="lab" tabindex="0" role="button" aria-label="Lab result">
+            <rect x="346" y="70" width="140" height="34" rx="17"/><text x="416" y="92">LAB RESULT</text>
+          </g>
+          <g class="xn" data-k="deviation" tabindex="0" role="button" aria-label="Deviation">
+            <rect x="34" y="280" width="140" height="34" rx="17"/><text x="104" y="302">DEVIATION</text>
+          </g>
+          <g class="xn" data-k="spec" tabindex="0" role="button" aria-label="Specification">
+            <rect x="346" y="280" width="140" height="34" rx="17"/><text x="416" y="302">SPECIFICATION</text>
+          </g>
+        </svg>
       </div>
 
-      <div class="arch-flow" aria-hidden="true"></div>
+      <div class="xpane">
+        <div class="xtabs" role="tablist" aria-label="Related records">
+          <button class="xtab" role="tab" data-k="batch"     aria-selected="true">Batch</button>
+          <button class="xtab" role="tab" data-k="material"  aria-selected="false">Material lot</button>
+          <button class="xtab" role="tab" data-k="lab"       aria-selected="false">Lab result</button>
+          <button class="xtab" role="tab" data-k="deviation" aria-selected="false">Deviation</button>
+          <button class="xtab" role="tab" data-k="spec"      aria-selected="false">Specification</button>
+        </div>
+        <div class="xbody" id="xBody" aria-live="polite"></div>
+        <p class="xnote">
+          All identifiers and relationships shown here are illustrative. This is a concept of how a
+          connected review behaves, not live NeuraTrace data or a claim about current functionality.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="arch-core">
-        <div class="ttl">NeuraTrace Life Sciences Graph</div>
-        <div class="arch-ent">
-          <span>Product</span><span>Batch</span><span>Material</span><span>Material Lot</span><span>Supplier</span>
-          <span>Specification</span><span>Test</span><span>Test Result</span><span>Equipment</span><span>Process</span>
-          <span>Deviation</span><span>Investigation</span><span>CAPA</span><span>Change Control</span>
-          <span>Document</span><span>Regulatory Requirement</span><span>Person</span><span>Evidence</span>
+<!-- ════════════ 04 · WHO IT'S FOR ════════════ -->
+<section class="band band--line" id="who">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Who it's for</span>
+      <h2 class="big">One review. Four reasons to want it.</h2>
+    </div>
+
+    <div class="personas">
+      <div class="pers lead rv">
+        <span class="pk">QA reviewer</span>
+        <h3>Spend less time chasing evidence. More time reviewing quality.</h3>
+        <p>Find the relevant batch records, analytical results, deviations and supporting documents in one connected review.</p>
+        <div class="pout">Less manual investigation per batch</div>
+      </div>
+      <div class="pers lead rv" data-d="1">
+        <span class="pk">QA head · Site quality head</span>
+        <h3>Clear the review backlog without lowering the quality bar.</h3>
+        <p>See which batches need attention, why they need it, and what evidence is missing or inconsistent.</p>
+        <div class="pout">More review capacity and fewer surprises</div>
+      </div>
+      <div class="pers rv" data-d="2">
+        <span class="pk">VP Quality · CQO</span>
+        <h3>Know where quality risk is building.</h3>
+        <p>Identify evidence gaps, unresolved exceptions and recurring issues across batches and source systems.</p>
+        <div class="pout">Better oversight, more consistent decisions</div>
+      </div>
+      <div class="pers rv" data-d="3">
+        <span class="pk">Audit · Compliance lead</span>
+        <h3>Be ready to show the evidence behind a decision.</h3>
+        <p>Reconstruct the records, source references and review rationale without a last-minute scramble across departments.</p>
+        <div class="pout">Less audit preparation effort</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ 05 · PROOF / CALCULATOR ════════════ -->
+<section class="band band--line" id="proof">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Proof</span>
+      <h2 class="big">Show the impact. Don't just claim it.</h2>
+      <p class="lede">
+        We measure evidence-gathering time, review completion, exception resolution and audit preparation
+        against your own baseline — and publish validated results only once we have them. In the meantime,
+        the arithmetic of your current workflow is worth looking at.
+      </p>
+    </div>
+
+    <div class="calc rv">
+      <div class="calc-head">
+        <span class="ck">QA review-effort estimator</span>
+        <span class="cill">Illustrative · enter your own figures</span>
+      </div>
+
+      <div class="calc-grid">
+        <label class="cf">
+          <span class="cl">Batch reviews per year</span>
+          <input type="range" id="cBatches" min="100" max="5000" step="50" value="1000">
+          <output id="oBatches">1,000</output>
+        </label>
+        <label class="cf">
+          <span class="cl">Evidence-gathering hours per batch</span>
+          <input type="range" id="cHours" min="0.5" max="12" step="0.5" value="4">
+          <output id="oHours">4 h</output>
+        </label>
+        <label class="cf">
+          <span class="cl">Time reduction assumption</span>
+          <input type="range" id="cPct" min="5" max="70" step="5" value="40">
+          <output id="oPct">40%</output>
+        </label>
+        <label class="cf">
+          <span class="cl">Loaded QA cost per hour</span>
+          <input type="range" id="cRate" min="200" max="6000" step="100" value="1500">
+          <output id="oRate">₹1,500</output>
+        </label>
+      </div>
+
+      <div class="calc-out">
+        <div class="co">
+          <span class="col">Hours released annually</span>
+          <strong id="oHrs">1,600</strong>
+        </div>
+        <div class="co">
+          <span class="col">Potential labour capacity value</span>
+          <strong id="oVal">₹24.0L</strong>
         </div>
       </div>
 
-      <div class="arch-flow" aria-hidden="true"></div>
-      <div class="arch-mid">Trusted context &nbsp;·&nbsp; Relationships &nbsp;·&nbsp; Provenance</div>
-      <div class="arch-flow" aria-hidden="true"></div>
-
-      <div class="arch-two">
-        <span>AI agents</span><span>Human experts</span>
-      </div>
-
-      <div class="arch-flow" aria-hidden="true"></div>
-
-      <div class="arch-apps">
-        <span class="on">Batch release</span><span>Deviations</span><span>CAPA</span><span>Change control</span>
-        <span>Regulatory</span><span>Inspection</span><span>Supplier quality</span>
-      </div>
-
-      <div class="arch-foot">Connect the data. Reconstruct the context. Preserve the evidence.</div>
-    </div>
-
-    <div class="sec-head rv" style="margin-top:clamp(56px,7vw,88px)">
-      <h2 class="big" style="font-size:clamp(26px,3.6vw,40px)">Every fact carries its origin.</h2>
-      <p class="lede">Aggregating records is not the hard part. Keeping every relationship defensible is.</p>
-      <div class="dims">
-        <span>What</span><span>Who</span><span>When</span><span>Where</span><span>Why</span><span>Source</span><span>Version</span><span>Evidence</span>
-      </div>
+      <p class="calc-note">
+        This estimates the value of released staff capacity, not guaranteed cash savings. It excludes
+        implementation effort, product fees, and any further benefit from avoided delays, rework or
+        audit preparation. It is not a NeuraTrace customer result.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- ================= THREE LAYERS ================= -->
-<section class="band band--line" id="platform-teaser">
+<!-- ════════════ 06 · EVIDENCE ════════════ -->
+<section class="band band--line" id="evidence">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="eyebrow">The platform</span>
-      <h2 class="big">Three layers. One connected reality.</h2>
-    </div>
-
-    <div class="lay3">
-      <div class="lay rv">
-        <span class="ln">Layer 01</span>
-        <h3>Life Sciences Knowledge Graph</h3>
-        <p>Models products, materials, batches, processes, tests, equipment, quality events, documents and regulatory context — and how they relate.</p>
-      </div>
-      <div class="lay rv" data-d="1">
-        <span class="ln">Layer 02</span>
-        <h3>Context &amp; Evidence Engine</h3>
-        <p>Reconstructs everything relevant to a decision, preserving provenance back to the source system and the source record.</p>
-      </div>
-      <div class="lay rv" data-d="2">
-        <span class="ln">Layer 03</span>
-        <h3>AI Runtime</h3>
-        <p>Gives AI agents trusted context to investigate, compare, explain and assist — while deterministic rules and humans retain control over regulated decisions.</p>
-      </div>
-    </div>
-
-    <div class="sec-head rv" style="margin-top:clamp(56px,7vw,88px)">
-      <h2 class="big" style="font-size:clamp(26px,3.6vw,40px)">The graph is the foundation.</h2>
-      <p class="lede">Every application asks a different question of the same connected reality.</p>
-    </div>
-
-    <div class="qs">
-      <div class="q on rv"><div class="qa">Batch release · Live</div><div class="qq">"Can this batch be released?"</div></div>
-      <div class="q rv" data-d="1"><div class="qa">Deviation investigation · Roadmap</div><div class="qq">"What happened, what did it affect, and what evidence explains it?"</div></div>
-      <div class="q rv" data-d="2"><div class="qa">Change control · Roadmap</div><div class="qq">"What could this change impact?"</div></div>
-      <div class="q rv" data-d="3"><div class="qa">Inspection readiness · Roadmap</div><div class="qq">"Show the evidence behind this decision."</div></div>
-    </div>
-
-    <div class="cta-row rv" style="justify-content:flex-start;margin-top:40px">
-      <a class="pill" href="/platform">Explore the platform →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SYSTEMS OF RECORD ================= -->
-<section class="band band--line" id="systems">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Architecture</span>
-      <h2 class="big">Keep your systems of record. Connect the context between them.</h2>
+      <span class="eyebrow">Evidence</span>
+      <h2 class="big">Every finding names its source.</h2>
       <p class="lede">
-        NeuraTrace does not replace SAP, LIMS, MES, QMS or RIMS. It sits above them as a read-only
-        context and evidence layer.
+        A reviewer can follow any conclusion back to the record it came from, in the system it came from —
+        and still do it in seven years, when an inspector asks and the person who signed it has left.
+      </p>
+    </div>
+
+    <div class="chroma rv">
+      <div class="chroma-h"><b>HPLC · Related substances</b><span>Sequence 04 · 18 Aug 2026</span><span>Illustrative</span></div>
+      <svg viewBox="0 0 900 190" role="img" aria-label="Chromatogram trace with a flagged peak">
+        <defs><linearGradient id="cgrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0E6F76" stop-opacity=".30"/>
+          <stop offset="100%" stop-color="#0E6F76" stop-opacity="0"/>
+        </linearGradient></defs>
+        <g class="cgrid">
+          <line x1="0" y1="160" x2="900" y2="160"/><line x1="0" y1="120" x2="900" y2="120" opacity=".5"/>
+          <line x1="0" y1="80"  x2="900" y2="80"  opacity=".5"/><line x1="0" y1="40" x2="900" y2="40" opacity=".5"/>
+        </g>
+        <path class="cfill" d="M0 160 L124 160 C136 160 142 94 150 94 C158 94 164 160 176 160 L238 160 C252 160 259 34 268 34 C277 34 284 160 298 160 L363 160 C373 160 378 140 385 140 C392 140 397 160 407 160 L517 160 C530 160 537 68 545 68 C553 68 560 160 573 160 L640 160 C651 160 657 116 664 116 C671 116 677 160 688 160 L900 160 L900 160 L0 160 Z"/>
+        <path class="ctrace" d="M0 160 L124 160 C136 160 142 94 150 94 C158 94 164 160 176 160 L238 160 C252 160 259 34 268 34 C277 34 284 160 298 160 L363 160 C373 160 378 140 385 140 C392 140 397 160 407 160 L517 160 C530 160 537 68 545 68 C553 68 560 160 573 160 L640 160 C651 160 657 116 664 116 C671 116 677 160 688 160 L900 160"/>
+        <g class="cflag">
+          <line x1="664" y1="30" x2="664" y2="112"/>
+          <text x="656" y="24" text-anchor="end">RRT 1.42 · above reporting threshold</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="rule rv">
+      <div class="rule-h">
+        <strong style="color:var(--text)">CHK-STD-004</strong><span class="sep">·</span><span>Working standard validity</span>
+        <span style="margin-left:auto"><span class="tag tag--crit">Blocking</span></span>
+      </div>
+      <div class="rule-grid">
+        <div class="rcell"><div class="k">Rule basis</div><div class="v">SOP/QC/012 §7.3<br><span style="color:var(--dimmer)">Configured at site onboarding</span></div></div>
+        <div class="rcell"><div class="k">Source of truth</div><div class="v">Reference Standard<br>Audit Trail module</div></div>
+        <div class="rcell"><div class="k">Expected</div><div class="v good">Standard valid on every injection date in the sequence</div></div>
+        <div class="rcell"><div class="k">Actual</div><div class="v bad">WS-PCM-0231 expiry 12&nbsp;Aug&nbsp;2026<br>Sequence 04 run 18&nbsp;Aug&nbsp;2026</div></div>
+        <div class="rcell"><div class="k">Related event</div><div class="v">DEV-2609-118<br><span style="color:var(--dimmer)">Linked automatically, not by hand</span></div></div>
+        <div class="rcell"><div class="k">Model involvement</div><div class="v" style="color:var(--dim)">None. A date comparison against a retrieved field.</div></div>
+      </div>
+    </div>
+
+    <div class="cols cols-3">
+      <div class="plain rv"><h3>Two-level workflow</h3><p>Reviewer and approver are separate roles with separate records. Neither can authorise a section while a flag is unaddressed.</p></div>
+      <div class="plain rv" data-d="1"><h3>Observation is mandatory</h3><p>Every flagged item must be opened and answered in writing before the section closes. It is a gate, not a suggestion.</p></div>
+      <div class="plain rv" data-d="2"><h3>Provenance on every value</h3><p>Each figure names the system it was retrieved from, so reconstruction never depends on anyone's memory.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ 07 · PLATFORM & TRUST ════════════ -->
+<section class="band band--deep" id="platform-teaser">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Platform &amp; trust</span>
+      <h2 class="big">Works with your systems. Keeps people accountable.</h2>
+      <p class="lede">
+        NeuraTrace does not replace your LIMS, QMS, MES or ERP, and never becomes a system of record.
+        It reads what they already hold.
       </p>
     </div>
 
     <div class="cols cols-3">
-      <div class="card rv"><span class="ix">01</span><h3>No rip-and-replace</h3><p>Your systems keep doing exactly what they do today. Nothing is migrated, nothing is decommissioned, and no team has to change how they work to get value.</p></div>
-      <div class="card rv" data-d="1"><span class="ix">02</span><h3>No new transactional system</h3><p>NeuraTrace is not another place to enter data. It reads what your systems already hold and models how those records relate.</p></div>
-      <div class="card rv" data-d="2"><span class="ix">03</span><h3>No write-back required</h3><p>Every connector is independently read-only. No shared write path exists anywhere in the architecture. Your systems remain the systems of record.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= WHY A GRAPH ================= -->
-<section class="band band--line" id="why-graph">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Why a knowledge graph</span>
-      <h2 class="big">Why not just put AI on top of your documents?</h2>
+      <div class="card rv"><span class="ix">READ-ONLY</span><h3>No write path</h3><p>Every connector is independently read-only. No component holds write credentials to any system of record.</p></div>
+      <div class="card rv" data-d="1"><span class="ix">DETERMINISTIC</span><h3>Rules, not opinions</h3><p>A specification limit is a comparison. An expiry date is a lookup. No model makes a compliance call.</p></div>
+      <div class="card rv" data-d="2"><span class="ix">IN YOUR ENVIRONMENT</span><h3>Deployed inside your control boundary</h3><p>On-premises inside the plant network, with role-based access, 21 CFR Part 11 e-signatures and a GAMP 5 validation pack.</p></div>
     </div>
 
-    <div class="vsg">
-      <div class="vsc rv">
-        <div class="vh">Traditional enterprise AI</div>
-        <div class="chain">
-          <span>Documents</span><span>Search</span><span>LLM</span><span>Answer</span>
-        </div>
-      </div>
-      <div class="vsc is-us rv" data-d="1">
-        <div class="vh">NeuraTrace</div>
-        <div class="chain">
-          <span>Systems + records + documents</span>
-          <span>Life sciences ontology</span>
-          <span>Relationships + provenance</span>
-          <span>Context graph</span>
-          <span>AI + deterministic rules</span>
-          <span>Evidence-backed decision support</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="sec-head rv" style="margin-top:clamp(44px,5.5vw,72px)">
-      <p class="lede" style="max-width:70ch;font-size:clamp(17px,2vw,21px);color:var(--text)">
-        A document can tell you a test result. A knowledge graph can tell you which specification
-        governed that test, which batch it belonged to, which material lot was used, whether a deviation
-        affected it, what equipment produced it — and where every one of those facts came from.
+    <div class="howitworks rv" style="background:rgba(255,255,255,.07);border-left-color:#6FE3DA">
+      <p>
+        <strong>How it works underneath.</strong> NeuraTrace builds a connected model of the entities a
+        quality decision depends on — batches, materials, lots, tests, specifications, equipment,
+        deviations, CAPAs and the documents behind them — and keeps every value's source, version and
+        timestamp attached. That model is what makes one connected review possible, and what lets the
+        same evidence serve deviation investigation, CAPA and inspection response later.
       </p>
+      <div class="cta-row" style="justify-content:flex-start;margin-top:22px">
+        <a class="pill" href="/platform">See the platform →</a>
+        <a class="pill" href="/security">Security &amp; validation →</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ================= FIRST APPLICATION ================= -->
-<section class="band band--line" id="release">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">First application</span>
-      <h2 class="big">Start with the decision that matters today.</h2>
-      <p class="lede">
-        Our first application of the NeuraTrace Life Sciences Knowledge Graph reconstructs everything a
-        reviewer needs to understand before authorising a batch — surfacing missing records,
-        inconsistencies, exceptions and the quality events that bear on the decision.
-      </p>
-    </div>
-
-    <div class="stats rv">
-      <div class="stat"><div class="n">40<small> min</small></div><div class="l">QC review then QA review, per batch — measured at our design partner's site.</div></div>
-      <div class="stat"><div class="n">~4,000</div><div class="l">Samples sitting in the QC review backlog at that single site.</div></div>
-      <div class="stat"><div class="n">5</div><div class="l">Separate systems a reviewer cross-references by hand for one batch.</div></div>
-      <div class="stat"><div class="n">7<small>years</small></div><div class="l">Batch records must stay producible after distribution — 21 CFR 211.180.</div></div>
-    </div>
-
-    <div class="walk rv">
-      <div class="walk-h">
-        <strong>"Show me everything I need to know about Batch FP-2411-A."</strong>
-        <span class="sep">·</span><span>Paracetamol Tablets 500 mg</span>
-      </div>
-
-      <div class="step">
-        <div class="step-n">01</div>
-        <div><div class="step-t">Manufacturing</div>
-          <div class="chk"><span>Batch record</span><span>Process parameters</span><span>Equipment history</span></div></div>
-      </div>
-      <div class="step">
-        <div class="step-n">02</div>
-        <div><div class="step-t">Materials</div>
-          <div class="chk"><span>Raw material lots</span><span>Supplier status</span><span>Material release</span></div></div>
-      </div>
-      <div class="step">
-        <div class="step-n">03</div>
-        <div><div class="step-t">Laboratory</div>
-          <div class="chk"><span>Specifications</span><span>Test results</span><span class="w">Related substances — working standard expired</span></div></div>
-      </div>
-      <div class="step">
-        <div class="step-n">04</div>
-        <div><div class="step-t">Quality events</div>
-          <div class="chk"><span class="w">Deviation DEV-2609-118</span><span>CAPA assessment</span></div></div>
-      </div>
-
-      <div class="walk-f">
-        <div class="sum"><b>37</b> records connected &nbsp;·&nbsp; <b>12</b> source documents &nbsp;·&nbsp; <b>4</b> quality events &nbsp;·&nbsp; <b>2</b> exceptions</div>
-        <div class="arw">Evidence assembled. Exceptions surfaced. Sources linked.<br>↓</div>
-        <div class="dec">The human makes the decision.</div>
-      </div>
-    </div>
-
-    <div class="cta-row rv" style="justify-content:flex-start;margin-top:40px">
-      <a class="pill pill--t" href="/batch-release">Explore Batch Release →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= APPLICATIONS ================= -->
+<!-- ════════════ 08 · APPLICATIONS ════════════ -->
 <section class="band band--line" id="applications">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="eyebrow">Applications</span>
-      <h2 class="big">One graph. Many life-sciences decisions.</h2>
+      <span class="eyebrow">Where we start</span>
+      <h2 class="big">Batch release first. The same evidence serves what comes next.</h2>
       <p class="lede">
-        We label what is live and what is roadmap, and we will not move a card until it runs against
-        real batches at a real site.
+        One application is live at our design partner's site. Everything else is labelled roadmap, and
+        stays that way until it runs against real batches.
       </p>
     </div>
 
@@ -1457,179 +2282,66 @@ body.menu-open .nav-right .pill--t{display:none}
         <div class="ap-top"><h3>Batch Release</h3><span class="tag tag--ok">Live</span></div>
         <div>
           <div class="ap-f"><span class="fk">Decision</span><span class="fv"><em>Can this batch be released?</em></span></div>
-          <div class="ap-f"><span class="fk">Context reconstructed</span><span class="fv">Manufacturing record, material lots, test results, specifications, deviations, documents.</span></div>
+          <div class="ap-f"><span class="fk">Evidence assembled</span><span class="fv">Manufacturing record, material lots, test results, specifications, deviations, documents.</span></div>
         </div>
       </div>
-
       <div class="ap rv" data-d="1">
         <div class="ap-top"><h3>Deviation Investigation</h3><span class="tag tag--idle">Roadmap</span></div>
         <div>
           <div class="ap-f"><span class="fk">Decision</span><span class="fv"><em>What happened and what was affected?</em></span></div>
-          <div class="ap-f"><span class="fk">Context reconstructed</span><span class="fv">Batch, equipment, material, test results, prior deviations, SOPs, changes, CAPAs.</span></div>
+          <div class="ap-f"><span class="fk">Evidence assembled</span><span class="fv">Batch, equipment, material, test results, prior deviations, SOPs, changes, CAPAs.</span></div>
         </div>
       </div>
-
       <div class="ap rv" data-d="2">
-        <div class="ap-top"><h3>CAPA</h3><span class="tag tag--idle">Roadmap</span></div>
-        <div>
-          <div class="ap-f"><span class="fk">Decision</span><span class="fv"><em>What should change, and did it work?</em></span></div>
-          <div class="ap-f"><span class="fk">Context reconstructed</span><span class="fv">Root causes, actions, affected processes, effectiveness evidence.</span></div>
-        </div>
-      </div>
-
-      <div class="ap rv">
-        <div class="ap-top"><h3>Change Control</h3><span class="tag tag--idle">Roadmap</span></div>
-        <div>
-          <div class="ap-f"><span class="fk">Decision</span><span class="fv"><em>What could this change affect?</em></span></div>
-          <div class="ap-f"><span class="fk">Context reconstructed</span><span class="fv">Downstream products, processes, specifications, validated states, regulatory commitments.</span></div>
-        </div>
-      </div>
-
-      <div class="ap rv" data-d="1">
         <div class="ap-top"><h3>Inspection Readiness</h3><span class="tag tag--idle">Roadmap</span></div>
         <div>
           <div class="ap-f"><span class="fk">Decision</span><span class="fv"><em>Why was this decision made?</em></span></div>
-          <div class="ap-f"><span class="fk">Context reconstructed</span><span class="fv">Historical evidence, the records behind a past decision, and who authorised it.</span></div>
+          <div class="ap-f"><span class="fk">Evidence assembled</span><span class="fv">Historical records behind a past decision, and who authorised it.</span></div>
         </div>
       </div>
-
-      <div class="ap rv" data-d="2">
-        <div class="ap-top"><h3>Supplier Quality</h3><span class="tag tag--idle">Exploring</span></div>
-        <div>
-          <div class="ap-f"><span class="fk">Decision</span><span class="fv"><em>Which supplier performance is affecting product quality?</em></span></div>
-          <div class="ap-f"><span class="fk">Context reconstructed</span><span class="fv">Material lots, supplier history, quality events traced back through the graph.</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cta-row rv" style="justify-content:flex-start;margin-top:40px">
-      <a class="pill" href="/applications">See all applications →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= AI PHILOSOPHY ================= -->
-<section class="band band--line" id="philosophy">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">How we use AI</span>
-      <h2 class="big">AI reconstructs context. Humans remain accountable.</h2>
-      <p class="lede">
-        In regulated life sciences, restraint is a feature. Every constraint below is architectural —
-        not a setting we offer reluctantly.
-      </p>
-    </div>
-
-    <div class="cols cols-2">
-      <div class="card rv"><span class="ix">PRINCIPLE 01</span><h3>Evidence over inference</h3><p>Every material finding links back to source evidence. Nothing is asserted that an expert cannot open and read for themselves.</p></div>
-      <div class="card rv" data-d="1"><span class="ix">PRINCIPLE 02</span><h3>Deterministic where the requirement is</h3><p>A specification limit is a comparison, not a judgment call. Whether a standard was expired is a lookup, not an opinion. AI is used where it cannot make a compliance decision.</p></div>
-      <div class="card rv"><span class="ix">PRINCIPLE 03</span><h3>Human-controlled decisions</h3><p>NeuraTrace does not release a batch. It does not close a deviation. It does not recommend release. It assembles what the expert needs and gets out of the way.</p></div>
-      <div class="card rv" data-d="1"><span class="ix">PRINCIPLE 04</span><h3>Every answer is traceable</h3><p>AI-generated conclusions stay connected to the source records they were derived from. An answer that cannot be followed back to its evidence is not an answer we will ship.</p></div>
-    </div>
-
-    <div class="cols cols-2">
-      <div class="plain rv"><h3>What we deliberately do not track</h3><p>NeuraTrace does not record individual reviewer activity time. Our design partner told us directly that regulators weaponise that data in inspections. We also removed analyst qualification from the instruments view, because surfacing it draws auditor attention to qualification records that were never in scope.</p></div>
-      <div class="plain rv" data-d="1"><h3>Your vocabulary, not ours</h3><p>Never "approved" — always <span class="mono" style="color:var(--text)">review authorised</span>. Never "passed" — always <span class="mono" style="color:var(--text)">compliant</span>. The workspace speaks the language of your SOPs, because a term that does not appear in your quality system is a term someone has to defend.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= PROVENANCE ================= -->
-<section class="band band--line" id="evidence">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Evidence &amp; provenance</span>
-      <h2 class="big">Context without provenance is just another AI answer.</h2>
-      <p class="lede">
-        Every finding names its source. A reviewer can follow any conclusion back to the record it came
-        from, in the system it came from — and still do it in seven years, when the person who signed it
-        has left and an inspector asks.
-      </p>
-    </div>
-
-    <div class="rule rv">
-      <div class="rule-h">
-        <strong style="color:var(--text)">CHK-STD-004</strong><span class="sep">·</span><span>Working standard validity</span>
-        <span style="margin-left:auto"><span class="tag tag--crit">Flagged</span></span>
-      </div>
-      <div class="rule-grid">
-        <div class="rcell"><div class="k">Rule basis</div><div class="v">SOP/QC/012 §7.3<br><span style="color:var(--dimmer)">Configured at site onboarding</span></div></div>
-        <div class="rcell"><div class="k">Source of truth</div><div class="v">Reference Standard<br>Audit Trail module</div></div>
-        <div class="rcell"><div class="k">Expected</div><div class="v good">Standard valid on every injection date in the sequence</div></div>
-        <div class="rcell"><div class="k">Actual</div><div class="v bad">WS-PCM-0231 expiry 12&nbsp;Aug&nbsp;2026<br>Sequence 04 run 18&nbsp;Aug&nbsp;2026</div></div>
-        <div class="rcell"><div class="k">Related event</div><div class="v">DEV-2609-118<br><span style="color:var(--dimmer)">Linked through the graph, not by hand</span></div></div>
-        <div class="rcell"><div class="k">Model involvement</div><div class="v" style="color:var(--dim)">None. A date comparison against a retrieved field.</div></div>
-      </div>
-    </div>
-
-    <div class="cols cols-3">
-      <div class="plain rv"><h3>Two-level workflow</h3><p>Reviewer and approver are separate roles with separate records. Neither can authorise a section while a flag is unaddressed.</p></div>
-      <div class="plain rv" data-d="1"><h3>Observation is mandatory</h3><p>The reviewer must open every flagged item and record what they found before the section closes. It is a gate, not a suggestion.</p></div>
-      <div class="plain rv" data-d="2"><h3>Provenance on every value</h3><p>Each figure names the system it was retrieved from, so reconstruction never depends on anyone's memory.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SECURITY ================= -->
-<section class="band band--line" id="regulated">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Security &amp; validation</span>
-      <h2 class="big">Built to operate inside your control boundary.</h2>
-    </div>
-
-    <div class="status rv">
-      <div class="st"><span class="nm">Read-only architecture</span><span class="ds">No write path into any system of record. Every connector is independently read-only.</span><span class="tag tag--ok">Included</span></div>
-      <div class="st"><span class="nm">Deploys inside your environment</span><span class="ds">On-premises inside the plant network. GMP data never leaves the site; no external dependency in the decision path.</span><span class="tag tag--ok">Included</span></div>
-      <div class="st"><span class="nm">Evidence-level provenance</span><span class="ds">Every value retains its source system, source record, field, version and timestamp.</span><span class="tag tag--ok">Included</span></div>
-      <div class="st"><span class="nm">21 CFR Part 11 electronic signatures</span><span class="ds">Compliant e-signature on every review and authorisation, with full audit trail.</span><span class="tag tag--ok">Included</span></div>
-      <div class="st"><span class="nm">Role-based access</span><span class="ds">Site directory integration for reviewer, approver and administrator roles.</span><span class="tag tag--ok">Included</span></div>
-      <div class="st"><span class="nm">GAMP 5 Category 4 validation pack</span><span class="ds">URS, FS, DS and IQ/OQ/PQ documentation delivered with every installation.</span><span class="tag tag--ok">Included</span></div>
     </div>
 
     <div class="cta-row rv" style="justify-content:flex-start;margin-top:36px">
-      <a class="pill" href="/security">Security &amp; validation →</a>
+      <a class="pill" href="/batch-release">Explore batch release →</a>
+      <a class="pill" href="/applications">All applications →</a>
     </div>
   </div>
 </section>
 
-<!-- ================= COMPANY ================= -->
+<!-- ════════════ 09 · COMPANY ════════════ -->
 <section class="band band--line" id="company">
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">Company</span>
-      <h2 class="big">Life sciences doesn't have a data problem. It has a context problem.</h2>
+      <h2 class="big">Built with an active QA reviewer in the room.</h2>
       <p class="lede">
-        Over decades, pharmaceutical companies implemented excellent systems of record. SAP knows
-        materials. LIMS knows laboratory results. MES knows manufacturing. QMS knows quality events.
-        RIMS knows regulatory information. But critical decisions depend on understanding how those
-        facts relate — and no system was ever asked to model that. NeuraTrace exists to model those
-        relationships.
+        Fragmented enterprise systems, regulated decisions and applied AI are three different problems.
+        Pharma quality needs all three solved at once — which is why the team is built the way it is,
+        with a practising reviewer involved from the first screen rather than consulted at the end.
       </p>
     </div>
 
     <div class="team rv">
-      <div class="mem"><div class="n">Suneel Lam</div><div class="r">Founder · Architecture</div><div class="b">18 years of QA and automation in regulated environments — JPMorgan, BNY Mellon, United Airlines, CWT. Owns the runtime, connectors and deployment architecture.</div></div>
-      <div class="mem"><div class="n">Srinivas Mullapudi</div><div class="r">Co-founder · Product</div><div class="b">20+ years in enterprise product, the last four building AI-native systems. ISB MBA. Author of <em>The AI Product Manager Gita</em>. Owns the ontology and the evidence schema.</div></div>
+      <div class="mem"><div class="n">Suneel Lam</div><div class="r">Founder · Architecture</div><div class="b">18 years of QA and automation in regulated environments — JPMorgan, BNY Mellon, United Airlines, CWT. Owns the review engine, connectors and deployment architecture.</div></div>
+      <div class="mem"><div class="n">Srinivas Mullapudi</div><div class="r">Co-founder · Product</div><div class="b">20+ years in enterprise product, the last four building AI-native systems. ISB MBA. Author of <em>The AI Product Manager Gita</em>. Owns the review workspace and the evidence schema.</div></div>
       <div class="mem"><div class="n">Rajesh Yerragunta</div><div class="r">Co-founder · US Market</div><div class="b">18 years in enterprise data and analytics — Microsoft, Molex, and 12 years at IBM. Kellogg MBA. Based in Houston, building the US commercial motion.</div></div>
       <div class="mem"><div class="n">Shrikrishna</div><div class="r">Domain expert · Design partner</div><div class="b">Active QA batch release reviewer. Supplied the review checklist and validated the workspace parameter by parameter.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ================= CONTACT ================= -->
+<!-- ════════════ 10 · CTA ════════════ -->
 <section class="band band--line cta" id="contact">
   <div class="wrap" style="position:relative;z-index:2">
-    <img class="cta-glyph rv" src="/assets/icon-256-light.png" alt="" width="256" height="256">
-    <span class="eyebrow rv" style="text-align:center">Start with one decision</span>
-    <h2 class="big rv">See it run against a batch you already released.</h2>
+    <span class="eyebrow rv" style="text-align:center">Start with one batch</span>
+    <h2 class="big rv">See NeuraTrace on a batch you already released.</h2>
     <p class="lede rv" data-d="1" style="text-align:center">
-      You don't need to connect your enterprise to find out whether NeuraTrace is useful. Give us one
-      batch you have already released, and we'll reconstruct the evidence and compare what NeuraTrace
-      surfaces with what your team found. Read-only, inside your network, on your terms.
+      You don't need to connect your enterprise to find out whether this is useful. Give us one batch
+      your team has already reviewed, and compare what NeuraTrace surfaces against what they found.
+      Read-only, inside your network, on your terms.
     </p>
     <div class="cta-row rv" data-d="2">
-      <a class="pill pill--t pill--lg" href="mailto:hello@neuratrace.co?subject=Run%20a%20historical%20batch">Run a historical batch</a>
+      <a class="pill pill--t pill--lg" href="mailto:hello@neuratrace.co?subject=See%20NeuraTrace%20on%20a%20real%20batch">See NeuraTrace on a real batch</a>
       <a class="pill pill--lg" href="mailto:hello@neuratrace.co?subject=NeuraTrace%20walkthrough">Request a walkthrough</a>
     </div>
   </div>
@@ -1638,8 +2350,8 @@ body.menu-open .nav-right .pill--t{display:none}
 <footer class="foot">
   <div class="wrap foot-in">
     <a class="mark mark--sm" href="#top" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256-light.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
-    <span>The Knowledge Graph for Life Sciences · Hyderabad, India</span>
-    <span class="right">READ-ONLY · EVIDENCE-LINKED · HUMAN-CONTROLLED</span>
+    <span>Less time assembling evidence. More time on defensible quality decisions.</span>
+    <span class="right">READ-ONLY · EVIDENCE-LINKED · QA DECIDES</span>
   </div>
 </footer>
 
@@ -1701,6 +2413,174 @@ body.menu-open .nav-right .pill--t{display:none}
       n.focus(); select(n);
     });
   });
+
+  /* ---- stat numerals count up when they scroll into view ---- */
+  (function(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var nums = document.querySelectorAll('.stat .n');
+    if (!nums.length || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(e){
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        var el = e.target, html = el.innerHTML;
+        var m = html.match(/^(\D*)([\d,]+)(.*)$/s);
+        if (!m) return;
+        var target = parseInt(m[2].replace(/,/g,''), 10);
+        if (!target || target > 100000) return;
+        var grouped = m[2].indexOf(',') > -1, t0 = null, DUR = 950;
+        function step(ts){
+          if (!t0) t0 = ts;
+          var p = Math.min(1, (ts - t0) / DUR);
+          var v = Math.round(target * (1 - Math.pow(1 - p, 3)));
+          el.innerHTML = m[1] + (grouped ? v.toLocaleString('en-US') : v) + m[3];
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, {threshold:.5});
+    nums.forEach(function(n){ io.observe(n); });
+  })();
+
+  /* ---- QA review-effort estimator ---- */
+  (function(){
+    var b=document.getElementById('cBatches'), h=document.getElementById('cHours'),
+        p=document.getElementById('cPct'),     r=document.getElementById('cRate');
+    if(!b||!h||!p||!r) return;
+    var oB=document.getElementById('oBatches'), oH=document.getElementById('oHours'),
+        oP=document.getElementById('oPct'),     oR=document.getElementById('oRate'),
+        oHrs=document.getElementById('oHrs'),   oVal=document.getElementById('oVal');
+
+    function inr(n){
+      if(n >= 1e7) return '\u20B9' + (n/1e7).toFixed(1).replace(/\.0$/,'') + 'Cr';
+      if(n >= 1e5) return '\u20B9' + (n/1e5).toFixed(1).replace(/\.0$/,'') + 'L';
+      return '\u20B9' + Math.round(n).toLocaleString('en-IN');
+    }
+    function fill(el){
+      var pct = (el.value - el.min) / (el.max - el.min) * 100;
+      el.style.setProperty('--p', pct + '%');
+    }
+    function calc(){
+      [b,h,p,r].forEach(fill);
+      var batches=+b.value, hours=+h.value, pct=+p.value/100, rate=+r.value;
+      var released = batches * hours * pct;
+      oB.textContent = batches.toLocaleString('en-IN');
+      oH.textContent = hours + ' h';
+      oP.textContent = p.value + '%';
+      oR.textContent = inr(rate);
+      oHrs.textContent = Math.round(released).toLocaleString('en-IN');
+      oVal.textContent = inr(released * rate);
+    }
+    [b,h,p,r].forEach(function(el){ el.addEventListener('input', calc); });
+    calc();
+  })();
+
+  /* ---- hero: drifting molecular network ---- */
+  (function(){
+    var c = document.getElementById('heroCanvas');
+    if(!c || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var ctx = c.getContext('2d'), W=0, H=0, dpr=Math.min(window.devicePixelRatio||1, 2);
+    var pts=[], mx=-9999, my=-9999, raf=null;
+
+    function size(){
+      var r=c.getBoundingClientRect();
+      W=r.width; H=r.height;
+      c.width=W*dpr; c.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+      var n=Math.round(Math.min(78, Math.max(26, (W*H)/16000)));
+      pts=[];
+      for(var i=0;i<n;i++) pts.push({
+        x:Math.random()*W, y:Math.random()*H,
+        vx:(Math.random()-.5)*.17, vy:(Math.random()-.5)*.17,
+        r:Math.random()*2.1+1.1
+      });
+    }
+    function frame(){
+      ctx.clearRect(0,0,W,H);
+      for(var i=0;i<pts.length;i++){
+        var p=pts[i];
+        p.x+=p.vx; p.y+=p.vy;
+        if(p.x<-20)p.x=W+20; if(p.x>W+20)p.x=-20;
+        if(p.y<-20)p.y=H+20; if(p.y>H+20)p.y=-20;
+      }
+      for(var a=0;a<pts.length;a++){
+        for(var b=a+1;b<pts.length;b++){
+          var dx=pts[a].x-pts[b].x, dy=pts[a].y-pts[b].y, d=Math.sqrt(dx*dx+dy*dy);
+          if(d<132){
+            ctx.strokeStyle='rgba(139,233,226,'+(0.26*(1-d/132))+')';
+            ctx.lineWidth=1;
+            ctx.beginPath(); ctx.moveTo(pts[a].x,pts[a].y); ctx.lineTo(pts[b].x,pts[b].y); ctx.stroke();
+          }
+        }
+      }
+      for(var k=0;k<pts.length;k++){
+        var q=pts[k], dmx=q.x-mx, dmy=q.y-my, dm=Math.sqrt(dmx*dmx+dmy*dmy);
+        var near = dm<170 ? (1-dm/170) : 0;
+        ctx.fillStyle='rgba(165,243,236,'+(0.34+near*0.5)+')';
+        ctx.beginPath(); ctx.arc(q.x,q.y,q.r+near*1.6,0,Math.PI*2); ctx.fill();
+      }
+      raf=requestAnimationFrame(frame);
+    }
+    size(); frame();
+    window.addEventListener('resize', function(){ size(); }, {passive:true});
+    c.parentElement.addEventListener('mousemove', function(e){
+      var r=c.getBoundingClientRect(); mx=e.clientX-r.left; my=e.clientY-r.top;
+    }, {passive:true});
+    c.parentElement.addEventListener('mouseleave', function(){ mx=-9999; my=-9999; });
+    document.addEventListener('visibilitychange', function(){
+      if(document.hidden){ cancelAnimationFrame(raf); } else { raf=requestAnimationFrame(frame); }
+    });
+  })();
+
+  /* ---- batch explorer ---- */
+  (function(){
+    var body=document.getElementById('xBody');
+    if(!body) return;
+    var tabs=[].slice.call(document.querySelectorAll('.xtab'));
+    var nodes=[].slice.call(document.querySelectorAll('.xn'));
+    var lines=[].slice.call(document.querySelectorAll('.xl'));
+
+    var DATA={
+      batch:{id:'BATCH · B-24081',t:'Paracetamol Tablets 500 mg',
+        d:'The manufacturing record, release specification, associated test results and open quality events, assembled as one review.',
+        f:[['Status','In review'],['Manufactured','14 Aug 2026'],['Linked records','37'],['Open exceptions','2',' warn']]},
+      material:{id:'MATERIAL LOT · ML-7714',t:'API lot used in this batch',
+        d:'Traced from the batch record through goods receipt to the supplier release certificate, with its own test history attached.',
+        f:[['Supplier','Qualified',' ok'],['Received','02 Aug 2026'],['CoA on file','Yes',' ok'],['Retest due','11 Feb 2027']]},
+      lab:{id:'LAB RESULT · AR-26-0417',t:'Assay and related substances',
+        d:'Chromatography results for this batch, with the sequence, system suitability and the reference standard used for each injection.',
+        f:[['Assay','99.2%',' ok'],['System suitability','Pass',' ok'],['Related substances','Flagged',' warn'],['Reference standard','WS-PCM-0231',' warn']]},
+      deviation:{id:'DEVIATION · DEV-2609-118',t:'Expired working standard used',
+        d:'Raised against the analytical sequence. NeuraTrace links it to the batch through the test that used the affected standard.',
+        f:[['Raised','21 Aug 2026'],['Severity','Major',' warn'],['Sequence re-run','21 Aug 2026',' ok'],['CAPA','Assessment open',' warn']]},
+      spec:{id:'SPECIFICATION · SPEC-PCM-500',t:'Governs the tests in this review',
+        d:'The release specification version in force on the manufacturing date, and the SOP each deterministic check was configured against.',
+        f:[['Version','v4.2 effective 01 Jun 2026'],['Assay limit','98.0 – 102.0%'],['Rule basis','SOP/QC/012 §7.3'],['Checks mapped','14',' ok']]}
+    };
+
+    function render(k){
+      var o=DATA[k]||DATA.batch;
+      body.innerHTML='<div class="xswap">'
+        +'<div class="xid">'+o.id+'</div>'
+        +'<div class="xt">'+o.t+'</div>'
+        +'<p class="xd">'+o.d+'</p>'
+        +'<div class="xfacts">'+o.f.map(function(r){
+            return '<div class="xf"><b>'+r[0]+'</b><span class="'+((r[2]||'').trim())+'">'+r[1]+'</span></div>';
+          }).join('')+'</div>'
+        +'</div>';
+      tabs.forEach(function(t){ t.setAttribute('aria-selected', t.dataset.k===k ? 'true':'false'); });
+      nodes.forEach(function(n){ n.classList.toggle('on', n.dataset.k===k); });
+      lines.forEach(function(l){ l.classList.toggle('on', l.dataset.k===k); });
+    }
+
+    tabs.forEach(function(t){ t.addEventListener('click', function(){ render(t.dataset.k); }); });
+    nodes.forEach(function(n){
+      n.addEventListener('click', function(){ render(n.dataset.k); });
+      n.addEventListener('keydown', function(e){
+        if(e.key==='Enter'||e.key===' '){ e.preventDefault(); render(n.dataset.k); }
+      });
+    });
+    render('batch');
+  })();
 })();
 </script>
 </body>
