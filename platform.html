@@ -1590,6 +1590,15 @@ h1,h2,h3,.big,.hero-h1,.xt,.q .qq,.stepc h3,.pers h3,.ap-top h3,.lay h3,.card h3
   .hviz svg{overflow:hidden}
   .hero .hero-h1{max-width:20ch}
 }
+/* frozen header: tall enough that the lockup never clips */
+.nav-in{height:98px}
+.nav.solid .nav-in{height:86px}
+.mark::before{width:224px;height:44px}
+@media(max-width:820px){
+  .nav-in{height:84px}
+  .nav.solid .nav-in{height:76px}
+  .mark::before{width:186px;height:37px}
+}
 </style>
 
 <script type="application/ld+json">
@@ -1609,9 +1618,9 @@ h1,h2,h3,.big,.hero-h1,.xt,.q .qq,.stepc h3,.pers h3,.ap-top h3,.lay h3,.card h3
 <body>
 <header class="nav solid" id="nav">
   <div class="nav-in">
-    <a class="mark" href="/" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256-light.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
+    <a class="mark" href="/" aria-label="NeuraTrace home"><span class="lk"><img class="glyph" src="/assets/icon-256-light.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
     <div class="nav-right">
-      <a class="pill pill--t" href="/#contact">See a batch review</a>
+      <a class="pill pill--t" href="/#contact">Start with one workflow</a>
       <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="overlay">
         <span class="bars" aria-hidden="true"><i></i><i></i></span>
         <span class="lbl"><span>menu</span></span>
@@ -1627,8 +1636,10 @@ h1,h2,h3,.big,.hero-h1,.xt,.q .qq,.stepc h3,.pers h3,.ap-top h3,.lay h3,.card h3
       <a href="/applications"><i>02</i>Applications</a>
       <a href="/batch-release"><i>03</i>Batch Release</a>
       <a href="/security"><i>04</i>Security</a>
-      <a href="/#who"><i>05</i>Who it's for</a>
-      <a href="/#company"><i>06</i>Company</a>
+      <a href="/#start"><i>05</i>Where you start</a>
+      <a href="/#compliance"><i>06</i>Compliance</a>
+      <a href="/#who"><i>07</i>Who it's for</a>
+      <a href="/#company"><i>08</i>Company</a>
     </nav>
     <div class="ov-cta">
       <a class="pill pill--t" href="mailto:hello@neuratrace.co?subject=NeuraTrace%20walkthrough">Request a walkthrough</a>
@@ -1724,7 +1735,7 @@ Product<br>
     <div class="sec-head rv">
       <span class="eyebrow">04 · Context engine</span>
       <h2 class="big">Ask a question. Reconstruct the relevant subgraph.</h2>
-      <p class="lede">"Show everything relevant to Batch FP-2411-A." NeuraTrace traverses the graph and returns only what bears on that decision — with provenance attached to every node.</p>
+      <p class="lede">"Show everything relevant to Batch FP-2411-A." NeuraTrace traverses the graph and returns only what bears on that decision, with provenance attached to every node.</p>
     </div>
     <div class="vsg">
       <div class="vsc is-us rv">
@@ -1783,9 +1794,9 @@ Product<br>
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="mark mark--sm" href="/" aria-label="NeuraTrace — home"><span class="lk"><img class="glyph" src="/assets/icon-256-light.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
+    <a class="mark mark--sm" href="/" aria-label="NeuraTrace home"><span class="lk"><img class="glyph" src="/assets/icon-256-light.png" alt="" width="256" height="256"><span class="wm">Neura<b>Trace</b></span></span></a>
     <span>Less time assembling evidence. More time on defensible quality decisions.</span>
-    <span class="right">READ-ONLY · EVIDENCE-LINKED · QA DECIDES</span>
+    <span class="right">EVIDENCE-LINKED · AUDIT-READY · QA DECIDES</span>
   </div>
 </footer>
 </main>
